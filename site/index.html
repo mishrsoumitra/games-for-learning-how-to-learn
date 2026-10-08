@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning How to Learn Labs</title>
+<meta name="description" content="Four labs for the Learning How to Learn course at Newton School of Technology. Measure your own attention, working memory and thinking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --ground:#E2E5E9; --surface:#F5F6F8; --ink:#151C2A; --ink-2:#3B4457; --muted:#697187;
+  --hairline:rgba(21,28,42,.13); --red:#C2301C; --gilt:#A38348; --focus-ring:#2F5FB3;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#0C111A; --surface:#141B27; --ink:#E5E8ED; --ink-2:#C4CAD5; --muted:#8C95A8;
+    --hairline:rgba(229,232,237,.13); --red:#E8482F; --gilt:#CDA86E; --focus-ring:#7FA6F0;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0C111A; --surface:#141B27; --ink:#E5E8ED; --ink-2:#C4CAD5; --muted:#8C95A8;
+  --hairline:rgba(229,232,237,.13); --red:#E8482F; --gilt:#CDA86E; --focus-ring:#7FA6F0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.55 Jost,system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:48px 16px 64px}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 12px}
+h1{font:600 clamp(34px,7vw,52px)/1.1 "Bodoni Moda",Georgia,serif;margin:0 0 16px}
+.lead{color:var(--ink-2);margin:0 0 36px;max-width:60ch}
+ol{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+a.lab{display:block;background:var(--surface);border:1px solid var(--hairline);border-left:3px solid var(--gilt);
+  border-radius:10px;padding:20px 22px;color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
+a.lab:hover{border-left-color:var(--red);transform:translateY(-1px)}
+a.lab:focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
+.lab h2{font:600 24px/1.2 "Bodoni Moda",Georgia,serif;margin:0 0 4px}
+.lab .when{font-size:14px;color:var(--muted);margin:0 0 8px}
+.lab p{margin:0;color:var(--ink-2)}
+footer{margin-top:40px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">Learning How to Learn · Newton School of Technology</p>
+  <h1>Labs for your own head</h1>
+  <p class="lead">Each lab is a set of small tests you run on yourself. Pick the one your lecture asks for. Do it alone, in a quiet place, and write down your score out of 100. Bring it to class.</p>
+  <ol>
+    <li><a class="lab" href="attention-lab.html">
+      <h2>Attention Lab</h2>
+      <p class="when">Lecture 4 · also Lecture 5, activities 1 and 2</p>
+      <p>How long can you stay on one thing? Measure it four ways: focus stretches, lapses, how steady your reactions are, and how steady your timing is.</p>
+    </a></li>
+    <li><a class="lab" href="disturbance-lab.html">
+      <h2>Disturbance Lab</h2>
+      <p class="when">Lecture 5 · slide 7, Remember Seven Digits While I Ruin It</p>
+      <p>Remember seven digits under four kinds of sound: silence, loud steady noise, a quiet voice reading numbers, and your own voice kept busy. See what each sound costs you.</p>
+    </a></li>
+    <li><a class="lab" href="working-memory-lab.html">
+      <h2>Working Memory Lab</h2>
+      <p class="when">Lecture 5 · The Desk and the Library</p>
+      <p>How many things can your working memory hold? Find out, then see what happens when it also has to work, how far chunks stretch it, and how fast it empties.</p>
+    </a></li>
+    <li><a class="lab" href="thinking-fast-and-slow-lab.html">
+      <h2>Thinking, Fast and Slow Lab</h2>
+      <p class="when">Lecture 5 · slide 9, and homework</p>
+      <p>Fourteen small experiments from Kahneman's book. At each one, find out whether your fast System 1 got its way. About thirty minutes for all of them.</p>
+    </a></li>
+  </ol>
+  <footer>Your results stay on your own phone or laptop. Nothing is sent anywhere. Each lab can export your results as a file.</footer>
+</main>
+</body>
+</html>
