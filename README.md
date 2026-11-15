@@ -4,6 +4,7 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 
 | File | Lecture | What the student measures |
 |---|---|---|
+| `expert-novice-lab.html` (~220 KB) | Lecture 6 · Chunking (no slide mapped yet) | How the student's own knowledge is arranged: whether they sort 24 physics problems by the objects in them or by the principle that solves them (Chi, Feltovich and Glaser, 1981), and how many pieces of a chess position they put back after five seconds, in what order and in what bursts (Chase and Simon, 1973). |
 | `thinking-fast-and-slow-lab.html` (~310 KB) | Lecture 5 · slide 9, System 2 and the very small room; homework for any lecture that names the two systems | Fourteen of the small experiments from Kahneman's *Thinking, Fast and Slow*, done on the student's own head: the face and the sum, the two lines, colour words, the bat and the ball, priming, mere exposure, Alan and Ben, the anchoring wheel, what kills more people, Linda, praise and scold, ninety-percent ranges, sure thing or gamble, the two noises. At how many stations System 1 got its way, and a System 2 score for the stations with a right answer. |
 | `disturbance-lab.html` (~225 KB) | Lecture 5 · slide 7, Remember Seven Digits While I Ruin It | The same seven-digit recall under four kinds of sound: silence, loud steady noise, a quiet voice reading numbers, and the student's own voice kept busy. What each sound costs, and whether a digit the voice said reaches the page. |
 | `working-memory-lab.html` (~285 KB) | Lecture 5 · The Desk and the Library | How many things working memory holds, what happens when it also has to work, how far known chunks stretch it, how fast it empties, and what repetition builds. |
@@ -13,9 +14,9 @@ All text in the games follows the plain teacher's voice used in the lecture deck
 
 ## Files in this folder and hosting
 
-- The four `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
-- `site/` is the version hosted on Vercel: the same four files plus `index.html`, a landing page that links to them.
-- `deploy.sh` copies the four games into `site/` and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches.
+- The five `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
+- `site/` is the version hosted on Vercel: the same five files plus `index.html`, a landing page that links to them.
+- `deploy.sh` copies the five games into `site/` and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches.
 - `research-audit-2026-09-13/` holds the research audit reports for the Attention, Disturbance and Working Memory labs.
 
 ## What changed on 13 September 2026
@@ -28,6 +29,56 @@ All text in the games follows the plain teacher's voice used in the lecture deck
 - Research audit, Working Memory Lab: digit-span bands now treat 6 to 8 forward as typical (7 is the adult mean, not "above average"); the coloured-squares run has 24 trials per set size instead of 16; the Brown–Peterson round holds three consonants by default and counts to a one-second beat, as in the original, with four digits kept as the slide's version and four trials per delay; the Hebb attributions were untangled (span + 1 is Norris, Page and Hall, 2018; every third trial is Hebb; eight repetitions among twenty fillers is Page and Norris, 2009); Bower and Springston's example was misquoted and is fixed; "noticing helps a little" had no source and is replaced.
 - Score bands are now described as the lab's own, anchored to published norms where norms exist (digit span, K, SART error rates, PVT lapse counts) and chosen by hand where they do not.
 - The three audit reports (every citation with how it was opened, a claim-by-claim table, and a design audit per instrument) are in `research-audit-2026-09-13/`. Read them before changing any number in the games.
+
+## Expert and Novice Lab
+
+One file, `expert-novice-lab.html`, added on 15 November 2026. It has two classic experiments on how an expert's knowledge is arranged differently from a beginner's, and the student does both on themselves. It fits Lecture 6 (Chunking). No slide is mapped to it yet.
+
+### What the student does
+
+1. **Sort 24 physics problems** (about 12 minutes). The student gets 24 Class 11 mechanics problems as plain text cards, and puts the ones they would solve in a similar way into the same pile. They tap a card and then tap a pile (or drag on a laptop), make as many piles as they want, and name each pile at the end. They don't solve anything.
+2. **Rebuild a chess position** (about 6 minutes). A board with 24 to 26 pieces is shown for 5 seconds and then cleared. The student puts back what they remember by tapping a piece and then a square. They do four boards: two from real games and two where the same pieces are on squares picked by chance. It works for students who have never played.
+
+The home page asks the student to do both before opening the Guide, because the Guide gives away what the experiments look for.
+
+### What the student gets back
+
+- **Sorting.** A verdict in plain words (mostly by what is in the problem, mostly by the principle that solves it, partly both, or neither), two agreement numbers out of 100, a reading of every pile ("4 of 5 have a spring. They are solved in 3 different ways"), whether each pile name is an object or a principle, two pairs of the student's own cards to look at again (two they put together that are solved differently, and two they kept apart that are solved the same way), and the 24 cards shown three ways: the student's piles, by object, and by principle with one line on why.
+- **Chess.** Pieces put back correctly on real boards and on chance boards, next to the master, Class A player and beginner in the paper. Then, for every board, the student's own board with each piece numbered in the order it was placed and coloured by burst, a line on what held each burst together, a reading of the order (row by row, one colour first, one kind of piece at a time, or by pieces that guard and attack each other), and for real boards one way a strong player might group the position, with how many pieces of each group the student got.
+- Every run is kept on the device, with CSV and JSON export. A run that is stopped half way is not saved.
+
+### How it is built
+
+- The 24 problems were written for this lab. Each has one object (ramp, spring, rope or pulley, spinning disc, car or truck, something thrown or falling; four cards each) and one principle (energy 7, Newton's second law 8, momentum 5, angular momentum 4). Objects and principles are mixed so every object comes with three or four principles. This follows the design of Chi's Study 2. The count of 24 and the text-only cards follow Study 1.
+- The agreement numbers are the adjusted Rand index between the student's piles and each of the two ways of sorting, floored at 0 and shown out of 100. The verdict cut-offs (both below 12 is "neither"; a gap of more than 10 decides between object and principle) are the lab's own.
+- Pile names are read with a small word list. "Angular motion" and "rotation" count as object words, because that is how Chi's novices used them. "Angular momentum" counts as a principle.
+- The three real positions are Fischer against Spassky, 1972, game 6, after Black's 16th move (24 pieces), and two well-known opening lines of the Sicilian Dragon and the Italian Game (26 pieces each). They were generated by replaying the moves with a script that checks every move. Chance positions put the same pieces on random squares, as in the paper.
+- A pause longer than 2.5 seconds starts a new burst. The paper used 2 seconds with real pieces and says 2.5 gives the same results.
+- For every two pieces placed one after the other, the lab works out the paper's five relations (attack, defence, touching squares, same colour, same kind) on the board as the student built it.
+- The "strong player's groups" for each real position were written for this lab.
+- Tested 15 November 2026 in headless Chrome with a bot that plays both experiments through the real buttons, at laptop and phone width, in both themes, with no console errors.
+
+### The research behind it (opened 15 November 2026)
+
+- **Chi, Feltovich and Glaser (1981)**, *Cognitive Science* 5(2), 121–152. Full text read. Eight physics PhD students and eight undergraduates after one semester of mechanics sorted 24 Halliday and Resnick problems "based on similarities of solution", without pen and paper. Piles: 8.4 against 8.6. Time: 18 minutes against 12. Novice piles were "angular motion", "springs", "inclined planes"; expert piles were "second law", "energy principles", "momentum principles". In Study 2 a fourth-year physics major sorted by principle qualified by object.
+- **Chase and Simon (1973)**, *Cognitive Psychology* 4(1), 55–81. Full text read. Three players. After 5 seconds with a middle-game position of 24 to 26 pieces, the master placed about 16, the Class A player about 8, the beginner about 4. On random positions the paper prints no numbers and says all three did worse than the beginner on real positions. Chunk size in the memory task 2.5, 2.1, 1.9; first chunk 3.8, 2.6, 2.4; chunks per board 7.7, 5.7, 5.3. The within-chunk and across-pause percentages on the result sheet were added up by this lab from Table 5, which was read through OCR.
+- **Gobet and Simon (1996)**, *Psychonomic Bulletin & Review* 3(2), 159–163. Author preprint read. Reads Chase and Simon's graph as 3.0, 2.5 and 2.0 pieces on random positions, and finds a small skill effect on random positions across 13 experiments (about one piece per 400 rating points).
+- **Wolf, Dougherty and Kortemeyer (2012)**, arXiv version read. Says attempts to repeat Chi's experiment often fail, the result depends on the problem set, and the original problems are lost.
+- **de Groot (1965)** was not opened. The lab only names it as the earlier work.
+
+### What to tell students about the limits
+
+- The chess paper does not say that beginners remember "all the pawns" or "the left side" and masters remember "who defends whom". It found the same kinds of relation between pieces at all three skill levels. The master's chunks were bigger and there were more of them. The lab's reading of the student's order (row by row, one colour first, one kind at a time) is the lab's own, and the Guide says so.
+- Both original studies were small: 8 and 8 people, and 3 people.
+- Our students have done Class 11 and 12 physics, so many will sort partly by principle. That is what Chi's fourth-year student did.
+- Picking pieces from a row on a screen makes it a little quicker to place the same kind of piece twice, which pushes everyone towards placing one kind at a time.
+
+### Activities to add next
+
+- A Projector mode for the chess experiment, where the class sees one board and each student rebuilds it on their own phone.
+- A second sorting deck from a subject where our students are the experts and the teacher is the novice (cricket situations, or Class 10 maths), so they see the effect from the other side.
+- Repeating the same position until it is perfect, as Chase and Simon did, to watch the chunks grow over trials.
+- A class view that collects exported files and plots the whole class on object agreement against principle agreement.
 
 ## Thinking, Fast and Slow Lab
 
