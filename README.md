@@ -4,6 +4,7 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 
 | File | Lecture | What the student measures |
 |---|---|---|
+| `derivation-lab.html` (~165 KB) | Lecture 6 · Chunking (no slide mapped yet) | How many symbols of a few lines of algebra the student puts back after a five-second look, when the lines are a Class 11 derivation and when the same symbols are in an order picked by chance. It is the chess experiment of Chase and Simon (1973) done with derivations. |
 | `expert-novice-lab.html` (~220 KB) | Lecture 6 · Chunking (no slide mapped yet) | How the student's own knowledge is arranged: whether they sort 24 physics problems by the objects in them or by the principle that solves them (Chi, Feltovich and Glaser, 1981), and how many pieces of a chess position they put back after five seconds, in what order and in what bursts (Chase and Simon, 1973). |
 | `thinking-fast-and-slow-lab.html` (~310 KB) | Lecture 5 · slide 9, System 2 and the very small room; homework for any lecture that names the two systems | Fourteen of the small experiments from Kahneman's *Thinking, Fast and Slow*, done on the student's own head: the face and the sum, the two lines, colour words, the bat and the ball, priming, mere exposure, Alan and Ben, the anchoring wheel, what kills more people, Linda, praise and scold, ninety-percent ranges, sure thing or gamble, the two noises. At how many stations System 1 got its way, and a System 2 score for the stations with a right answer. |
 | `disturbance-lab.html` (~225 KB) | Lecture 5 · slide 7, Remember Seven Digits While I Ruin It | The same seven-digit recall under four kinds of sound: silence, loud steady noise, a quiet voice reading numbers, and the student's own voice kept busy. What each sound costs, and whether a digit the voice said reaches the page. |
@@ -14,9 +15,9 @@ All text in the games follows the plain teacher's voice used in the lecture deck
 
 ## Files in this folder and hosting
 
-- The five `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
-- `site/` is the version hosted on Vercel: the same five files plus `index.html`, a landing page that links to them.
-- `deploy.sh` copies the five games into `site/` and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches.
+- The six `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
+- `site/` is the version hosted on Vercel: the same six files plus `index.html`, a landing page that links to them.
+- `deploy.sh` copies the six games into `site/` and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches.
 - `research-audit-2026-09-13/` holds the research audit reports for the Attention, Disturbance and Working Memory labs.
 
 ## What changed on 13 September 2026
@@ -29,6 +30,62 @@ All text in the games follows the plain teacher's voice used in the lecture deck
 - Research audit, Working Memory Lab: digit-span bands now treat 6 to 8 forward as typical (7 is the adult mean, not "above average"); the coloured-squares run has 24 trials per set size instead of 16; the Brown–Peterson round holds three consonants by default and counts to a one-second beat, as in the original, with four digits kept as the slide's version and four trials per delay; the Hebb attributions were untangled (span + 1 is Norris, Page and Hall, 2018; every third trial is Hebb; eight repetitions among twenty fillers is Page and Norris, 2009); Bower and Springston's example was misquoted and is fixed; "noticing helps a little" had no source and is replaced.
 - Score bands are now described as the lab's own, anchored to published norms where norms exist (digit span, K, SART error rates, PVT lapse counts) and chosen by hand where they do not.
 - The three audit reports (every citation with how it was opened, a claim-by-claim table, and a design audit per instrument) are in `research-audit-2026-09-13/`. Read them before changing any number in the games.
+
+## Derivation Lab
+
+One file, `derivation-lab.html`, added on 17 November 2026. It is the chess experiment of the Expert and Novice Lab done with derivations: the student looks at a few lines of algebra for five seconds and then puts the symbols back. It fits Lecture 6 (Chunking). No slide is mapped to it yet.
+
+### What the student does
+
+1. Presses Show the lines. Four or five lines of algebra stay on the screen for 5 seconds (10 seconds is a setting) and are then cleared.
+2. Puts the symbols back line by line by tapping keys: the letters of that set, 2, ½, the small raised 2, =, +, −, / and the brackets, with Delete and Next line. On a laptop the student can type.
+3. Presses Done and sees their lines next to the lines that were shown, with every symbol marked right, wrong or missed.
+4. Does this four times (two is a setting). Two sets are derivations as they are. The other two are the symbols of a derivation in an order picked by chance. The two kinds alternate, and which kind comes first is picked by chance.
+5. After each real derivation, answers one question: "Before today, could you write this derivation on your own?" (yes, some of it, no).
+
+The home page asks the student to do the experiment before opening the Guide, because the Guide gives away what the experiment looks for.
+
+### What the student gets back
+
+- Symbols put back out of every 100, for the derivations and for the chance-order sets, next to each other.
+- A reading in plain words that depends on the gap between the two, and a line that compares the derivations the student said they could write with the ones they said they couldn't.
+- The published numbers for Class 9 students (Geary and others, 2015) in a small table, with a note on why to compare loosely.
+- Set by set: the student's lines next to the lines shown, and for each real derivation the four or five steps that somebody who knows it holds in place of 40 symbols.
+- Every run is kept on the device, with CSV export (one row per set) and JSON export (with the time of every key press). A run that is stopped half way is not saved.
+
+### How it is built
+
+- Four derivations from Class 11 physics, written out for this lab: the third equation of motion from v = u + at (47 symbols, 4 lines), the second equation of motion from the average velocity (41 symbols, 4 lines), work and kinetic energy (40 symbols, 5 lines), kinetic energy from momentum (32 symbols, 5 lines). A symbol is one letter, one digit, ½, the raised 2, one sign or one bracket.
+- A chance-order set takes every symbol of one derivation, shuffles them, and cuts them into lines of the same lengths. So it has the same symbols and the same number of lines. This follows Chase and Simon's random positions (the same pieces on squares picked by chance). In one run no derivation is used twice.
+- Marking is the lab's own. Each of the student's lines is lined up with a shown line (longest common subsequence), so a symbol missed in the middle does not spoil the rest of the line. Lines are matched in order, so a line that is left out does not spoil the lines after it. A line counts right symbols minus wrong symbols, never less than 0.
+- Why wrong symbols cancel: in a simulation of 3,000 runs per derivation, filling every line with symbols in a random order got 8 to 12 symbols "right" out of 32 to 47 by alignment alone. With the cancel rule the same filling is counted as 1 to 3 symbols.
+- The lines are shown and typed with the same symbol-by-symbol layout in both kinds of set, so a derivation and a chance-order set look the same on the screen except for the order.
+- Tested 17 November 2026 in headless Chrome with a bot that plays through the real keys and buttons (a student who knows the derivations, and one who puts back only a few symbols), plus editing in the middle of a line, typing, stopping half way and the export, at laptop and phone width, with no console errors.
+
+### The research behind it (opened 17 November 2026)
+
+- **Sweller and Cooper (1985)**, *Cognition and Instruction* 2(1), 59–89. Full text read (scan). Experiment 1: 22 Year 9 students, 22 Year 11 students and 18 university students in Maths teacher education, in Sydney. Each line of algebra was on a screen for 5 seconds, then 30 seconds to write it. Four real equations and four random symbol strings in a set. The score was the longest continuous correct string. First test, Table 1: equations 7.9, 10.3, 10.9; random strings 4.4, 4.5, 4.4. Year 9 against the rest was significant for equations, and nothing between groups was significant for random strings. Year 11 and university did not differ. The paper models the task on de Groot (1966), not on Chase and Simon.
+- **Geary, Hoard, Nugent and Rouder (2015)**, *Journal of Experimental Child Psychology* 140, 211–227. Author manuscript read up to the results. 171 US ninth graders, 5 seconds, 30 seconds to write, longest continuous correct string as a percentage. Valid equations 55 (19 symbols) and 44 (15 symbols); invalid 22 and 28. One grade only, so there is no expert and novice comparison in it.
+- **Ranney (1987)**, *Memory & Cognition* 15(1), 29–41. Full text read. With about 110 ms on screen and a forced choice of one character, algebraic strings were no better than scrambled ones (74.0% against 73.7%, Experiment 1).
+- **Egan and Schwartz (1979)**, *Memory & Cognition* 7(2), 149–158. Full text read. Experiment 2: six electronics technicians against six novices, 5 or 10 seconds, real circuit drawings and drawings with the symbols at random places. Technicians were better on real drawings and not on random ones. Group means are only in a figure, so the lab quotes none. The authors say they can't rule out guessing.
+- **Chase and Simon (1973)** was read in full on 15 November 2026 for the Expert and Novice Lab. The numbers used here are the ones listed in that section.
+- **Not opened:** McKeithen, Reitman, Rueter and Hirtle (1981) on recall of real and scrambled programs, and Bernard (1983) on recall of equations after 1.5 seconds. The lab does not mention either.
+
+### What to tell students about the limits
+
+- The published experiments used single equations. Nobody we could find has done this with a derivation of several lines or with physics formulas. The Guide says this.
+- On a derivation a student knows well, they partly work it out again. That is what the experiment is about, but the number is not a measurement of memory.
+- Sweller and Cooper scored equations and random strings by different rules and never tested one against the other. Don't say "equations were so many times better" from that paper.
+- The lab's count (every right symbol, minus the wrong ones) is not the papers' count (longest unbroken correct run). The table on the result sheet says to compare loosely.
+- One run has two sets of each kind, and the four derivations are not equally long. The class's numbers together mean more than one student's.
+
+### Activities to add next
+
+- A Projector mode where the class sees one set of lines and each student puts it back on their own phone.
+- A derivation the class has not met yet, done once before the lecture that teaches it and once a week after, so each student sees their own number change.
+- A third kind of set where every line is a correct equation but the lines don't follow from each other.
+- Reading the pauses between key presses, the way the chess experiment reads bursts.
+- A class view that collects the exported files.
 
 ## Expert and Novice Lab
 
