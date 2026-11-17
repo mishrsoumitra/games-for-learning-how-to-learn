@@ -1,0 +1,122 @@
+/* Study Lab tokens. Same family as the other labs: silvered ground, blued-steel ink,
+   lacquer red, gilt hairlines. Fonts are self-hosted; nothing is fetched from elsewhere. */
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/bodoni-moda.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/jost.woff2') format('woff2');
+}
+
+:root {
+  color-scheme: light;
+  --ground: #e2e5e9;
+  --surface: #f5f6f8;
+  --surface-2: #ebeef2;
+  --ink: #151c2a;
+  --ink-2: #3b4457;
+  --muted: #697187;
+  --hairline: rgba(21, 28, 42, 0.13);
+  --hairline-2: rgba(21, 28, 42, 0.32);
+  --red: #c2301c;
+  --red-ink: #a8280f;
+  --red-soft: rgba(194, 48, 28, 0.1);
+  --gilt: #a38348;
+  --gilt-soft: rgba(163, 131, 72, 0.16);
+  --good: #2c7c60;
+  --good-soft: rgba(44, 124, 96, 0.13);
+  --warn: #b4761b;
+  --warn-soft: rgba(180, 118, 27, 0.15);
+  --bad: #8f3a5f;
+  --bad-soft: rgba(143, 58, 95, 0.13);
+  --focus-ring: #2f5fb3;
+  --btn-bg: #151c2a;
+  --btn-fg: #f5f6f8;
+  --shadow-lift: 0 28px 56px -18px rgba(21, 28, 42, 0.38), 0 2px 6px rgba(21, 28, 42, 0.08);
+  /* Chart series: validated for colour-vision deficiency against the light surface. */
+  --series-1: #c2301c;
+  --series-2: #2f5fb3;
+  --series-1-soft: rgba(194, 48, 28, 0.18);
+  --series-2-soft: rgba(47, 95, 179, 0.18);
+  /* Phase frames for the two conditions in an activity. */
+  --frame-a: #2f5fb3;
+  --frame-b: #a38348;
+  --font-display: 'Bodoni Moda', 'Bodoni 72', 'Didot', Georgia, serif;
+  --font-text: 'Jost', 'Futura', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --ground: #0c111a;
+    --surface: #141b27;
+    --surface-2: #1b2331;
+    --ink: #e5e8ed;
+    --ink-2: #c4cad5;
+    --muted: #8c95a8;
+    --hairline: rgba(229, 232, 237, 0.13);
+    --hairline-2: rgba(229, 232, 237, 0.32);
+    --red: #e8482f;
+    --red-ink: #f0705b;
+    --red-soft: rgba(232, 72, 47, 0.14);
+    --gilt: #cda86e;
+    --gilt-soft: rgba(205, 168, 110, 0.14);
+    --good: #4db38b;
+    --good-soft: rgba(77, 179, 139, 0.14);
+    --warn: #dda548;
+    --warn-soft: rgba(221, 165, 72, 0.14);
+    --bad: #d174a0;
+    --bad-soft: rgba(209, 116, 160, 0.14);
+    --focus-ring: #7fa6f0;
+    --btn-bg: #e5e8ed;
+    --btn-fg: #0c111a;
+    --shadow-lift: 0 28px 56px -18px rgba(0, 0, 0, 0.75), 0 2px 6px rgba(0, 0, 0, 0.3);
+    --series-1: #e8482f;
+    --series-2: #5e8be0;
+    --series-1-soft: rgba(232, 72, 47, 0.22);
+    --series-2-soft: rgba(94, 139, 224, 0.22);
+    --frame-a: #5e8be0;
+    --frame-b: #cda86e;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --ground: #0c111a;
+  --surface: #141b27;
+  --surface-2: #1b2331;
+  --ink: #e5e8ed;
+  --ink-2: #c4cad5;
+  --muted: #8c95a8;
+  --hairline: rgba(229, 232, 237, 0.13);
+  --hairline-2: rgba(229, 232, 237, 0.32);
+  --red: #e8482f;
+  --red-ink: #f0705b;
+  --red-soft: rgba(232, 72, 47, 0.14);
+  --gilt: #cda86e;
+  --gilt-soft: rgba(205, 168, 110, 0.14);
+  --good: #4db38b;
+  --good-soft: rgba(77, 179, 139, 0.14);
+  --warn: #dda548;
+  --warn-soft: rgba(221, 165, 72, 0.14);
+  --bad: #d174a0;
+  --bad-soft: rgba(209, 116, 160, 0.14);
+  --focus-ring: #7fa6f0;
+  --btn-bg: #e5e8ed;
+  --btn-fg: #0c111a;
+  --shadow-lift: 0 28px 56px -18px rgba(0, 0, 0, 0.75), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --series-1: #e8482f;
+  --series-2: #5e8be0;
+  --series-1-soft: rgba(232, 72, 47, 0.22);
+  --series-2-soft: rgba(94, 139, 224, 0.22);
+  --frame-a: #5e8be0;
+  --frame-b: #cda86e;
+}

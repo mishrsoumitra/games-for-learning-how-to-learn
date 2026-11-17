@@ -1,0 +1,23 @@
+{
+  "name": "Study Lab",
+  "short_name": "Study Lab",
+  "description": "Find out whether the way of studying that feels better is the way that works better. Activities on your own memory, flashcards and mnemonics.",
+  "id": "/study-lab/",
+  "start_url": "/study-lab/",
+  "scope": "/study-lab/",
+  "display": "standalone",
+  "background_color": "#E2E5E9",
+  "theme_color": "#E2E5E9",
+  "lang": "en",
+  "icons": [
+    { "src": "/study-lab/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/study-lab/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/study-lab/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    {
+      "src": "/study-lab/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
