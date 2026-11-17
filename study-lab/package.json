@@ -1,0 +1,51 @@
+{
+  "name": "study-lab",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Study Lab: retrieval, spacing and interleaving activities measured on your own data, with flashcards and mnemonics. Part of Learning How to Learn at Newton School of Technology.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "lint": "oxlint --deny-warnings",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "audit": "npm audit --audit-level=low",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test && npm run audit && vite build"
+  },
+  "dependencies": {
+    "idb": "8.0.4",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router": "8.5.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "@vitest/coverage-v8": "5.0.5",
+    "fake-indexeddb": "6.2.6",
+    "jsdom": "29.1.1",
+    "oxlint": "1.88.0",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  }
+}

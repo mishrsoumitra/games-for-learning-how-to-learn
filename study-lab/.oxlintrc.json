@@ -1,0 +1,57 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "react",
+    "typescript",
+    "oxc",
+    "unicorn",
+    "import",
+    "promise",
+    "jsx-a11y",
+    "react-perf",
+    "vitest"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "warn"
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+    "react/no-danger": "error",
+    "react/jsx-no-target-blank": "error",
+    "react/jsx-no-script-url": "error",
+    "react/react-in-jsx-scope": "off",
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-new-func": "error",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
+    "no-alert": "error",
+    "eqeqeq": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "error",
+    "typescript/consistent-type-imports": "error",
+    "import/no-cycle": "error",
+    "import/no-unassigned-import": "off",
+    "oxc/no-map-spread": "off",
+    "unicorn/require-post-message-target-origin": "off",
+    "unicorn/no-array-sort": "off",
+    "vitest/require-to-throw-message": "off",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "react-perf/jsx-no-new-object-as-prop": "off",
+    "react-perf/jsx-no-new-array-as-prop": "off",
+    "react-perf/jsx-no-new-function-as-prop": "off",
+    "react-perf/jsx-no-jsx-as-prop": "off"
+  },
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "coverage",
+    "playwright-report",
+    "test-results",
+    "public/theme.js"
+  ]
+}

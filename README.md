@@ -5,6 +5,7 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 | File | Lecture | What the student measures |
 |---|---|---|
 | `derivation-lab.html` (~165 KB) | Lecture 6 · Chunking (no slide mapped yet) | How many symbols of a few lines of algebra the student puts back after a five-second look, when the lines are a Class 11 derivation and when the same symbols are in an order picked by chance. It is the chess experiment of Chase and Simon (1973) done with derivations. |
+| `how-the-mind-learns-lab.html` (~280 KB) | Any lecture that uses working memory and long-term memory; Lecture 6 · Chunking (no slide mapped yet) | Twelve small experiments from the first five chapters of Willingham's *Why Don't Students Like School?*, done on the student: the candle problem, three rings and the tea ceremony, letters with and without chunks, a paragraph without a title, cricket against baseball, the four-card task, two word lists, everyday things, hints that match or don't, the general and the doctor, a sentence written in numbers, and pictures with words on them. At how many stations the book's finding showed up in the student's own result. |
 | `expert-novice-lab.html` (~220 KB) | Lecture 6 · Chunking (no slide mapped yet) | How the student's own knowledge is arranged: whether they sort 24 physics problems by the objects in them or by the principle that solves them (Chi, Feltovich and Glaser, 1981), and how many pieces of a chess position they put back after five seconds, in what order and in what bursts (Chase and Simon, 1973). |
 | `thinking-fast-and-slow-lab.html` (~310 KB) | Lecture 5 · slide 9, System 2 and the very small room; homework for any lecture that names the two systems | Fourteen of the small experiments from Kahneman's *Thinking, Fast and Slow*, done on the student's own head: the face and the sum, the two lines, colour words, the bat and the ball, priming, mere exposure, Alan and Ben, the anchoring wheel, what kills more people, Linda, praise and scold, ninety-percent ranges, sure thing or gamble, the two noises. At how many stations System 1 got its way, and a System 2 score for the stations with a right answer. |
 | `disturbance-lab.html` (~225 KB) | Lecture 5 · slide 7, Remember Seven Digits While I Ruin It | The same seven-digit recall under four kinds of sound: silence, loud steady noise, a quiet voice reading numbers, and the student's own voice kept busy. What each sound costs, and whether a digit the voice said reaches the page. |
@@ -13,11 +14,28 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 
 All text in the games follows the plain teacher's voice used in the lecture decks: short sentences, ordinary words, questions before answers, and instructions that tell the student to do something. Every research claim in the games and in this file was checked against the primary paper in September 2026. Where a paper could not be opened, the claim says so.
 
+## Study Lab (`study-lab/`)
+
+Built on 25 October 2026. A React application, not a single file: four research-based activities that measure the same thing two ways (how well the student *feels* they learned, and what they can actually recall), plus flashcards with spaced review and a mnemonic builder with a self-quiz. Hosted at `/study-lab/` on the same Vercel site; `deploy.sh` builds it and copies `study-lab/dist` into `site/study-lab/`.
+
+| Activity | Lecture | What the student does | Based on |
+|---|---|---|---|
+| Mixed or blocked | Lecture 6 · Chunking | Learns twelve made-up painters (six paintings each, 3 s each); half the painters one at a time, half mixed, as two separate phases with two frame colours. Predicts, takes a 45 s break, names 24 new paintings. One sitting, about 15 minutes. | Kornell and Bjork (2008); Yan, Bjork and Bjork (2016), Exp. 1A (63% vs 42%) and Exp. 6 (separate phases needed for belief change) |
+| Reread or recall | Lecture 7 · Retrieval | Studies 40 Swahili–English pairs once; 20 are reread three times, 20 are recalled three times with the answer shown. Predicts per condition. Optional five-minute test on 8 extra pairs. Comes back after 2 days (teacher can set 1–14) for the typed test on all 40, then an honesty question. | Karpicke and Roediger (2008); Roediger and Karpicke (2006), the 5-minute reversal; Rowland (2014) |
+| Cram or space | Lecture 8 · Spacing | Two sets of 20 pairs: one gets one pass on days 0, 1, 2, 3; the other four passes in a row on day 3. Ratings after every session, predictions before the day-5 test. Optional forgetting curve: a third set tested in fifths at 10 min and days 1, 2, 4, 7. Late sessions shift the plan and flag the run. | Kornell (2009), 90% / 72%; Cepeda and others (2008) |
+| Mixed problem set | Lecture 6 · a Maths version | Tutorial on four solids (wedge, spheroid, spherical cone, half cone), 16 practice problems with two solids blocked and two mixed, predictions, a second session, then a test of 8 new problems a week later. Practice-versus-test crossover shown. | Rohrer and Taylor (2007), 63% vs 20%; Rohrer, Dedrick, Hartwig and Cheung (2020) |
+
+Every run stores a seed, so its plan can be rebuilt. Items are assigned to conditions at random per student and the result sheet says so, to head off the "those were easier items" explanation. Each result sheet shows prediction next to score per condition, the published numbers, the reason, and a one-in-five warning about single-run noise. Students can save a result file (random code plus scores, nothing else); the teacher loads all of them on the Results → class page to see the class on the felt-versus-worked plot. Runs where the student said they looked at the words in between are left out of the class plot.
+
+Stack and checks: Vite 8, React 19, TypeScript 6 (strict, `noUncheckedIndexedAccess`), React Router 8, Zod 4 for every stored or imported record, `idb` for IndexedDB. No other runtime dependency. Fonts are self-hosted; the app makes no network requests after it loads. A strict Content Security Policy (`script-src 'self'`, `style-src 'self'`, no inline) is in both a meta tag and `site/vercel.json`, with `X-Frame-Options`, `Permissions-Policy`, COOP/CORP and HSTS headers. Imported files are size-limited and schema-checked; CSV exports escape formula-leading cells. Lint is oxlint with the React, a11y, import, promise and vitest plugins; Prettier checks formatting; Vitest runs 65 unit and component tests (engines, scheduler, data layer, pages); Playwright runs end-to-end tests in the installed Chrome against the production build. `npm audit` reports zero vulnerabilities on exact-pinned versions and runs in CI weekly. A build-time service worker precaches the app for offline use. Commands, from `study-lab/`: `npm ci`, `npm run check` (typecheck, lint, format, tests, audit, build), `npm run test:e2e`, `npm run dev`.
+
+Not yet done: the research audit of this app (the numbers come from the October 2026 research notes, not from reopened papers); a STEM variant of the painting task (which sorting algorithm produced this trace); using a student's own deck in Cram or space.
+
 ## Files in this folder and hosting
 
-- The six `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
-- `site/` is the version hosted on Vercel: the same six files plus `index.html`, a landing page that links to them.
-- `deploy.sh` copies the six games into `site/` and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches.
+- The seven `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
+- `site/` is the version hosted on Vercel: the same seven files plus `index.html`, a landing page that links to them.
+- `deploy.sh` copies the seven games into `site/`, builds Study Lab into `site/study-lab/`, and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches. `site/vercel.json` holds the security headers and the single-page rewrite for `/study-lab/`.
 - `research-audit-2026-09-13/` holds the research audit reports for the Attention, Disturbance and Working Memory labs.
 
 ## What changed on 13 September 2026
@@ -86,6 +104,63 @@ The home page asks the student to do the experiment before opening the Guide, be
 - A third kind of set where every line is a correct equation but the lines don't follow from each other.
 - Reading the pauses between key presses, the way the chess experiment reads bursts.
 - A class view that collects the exported files.
+
+## How the Mind Learns Lab
+
+One file, `how-the-mind-learns-lab.html`, added on 16 November 2026. It has twelve small experiments from the first five chapters of Daniel Willingham's *Why Don't Students Like School?*, and the student does each one on themselves. It fits any lecture that uses the working memory and long-term memory picture, and Lecture 6 (Chunking) in particular. No slide is mapped to it yet.
+
+### What the student does
+
+Twelve stations of two to five minutes each, about thirty-five minutes in all. Any one station can be done alone.
+
+| Station | Chapter | What the student does |
+|---|---|---|
+| The candle on the wall | 1 | Thinks for up to two minutes about fixing a candle to a wall with matches and a box of drawing pins, then says which idea they had. |
+| Three rings and a tea ceremony | 1 | Moves three rings across three pegs, then reads the same puzzle told as a tea ceremony and rates how hard it looks. |
+| Twenty letters, twice | 2 | Sees twenty letters for eight seconds and types them. Then again with a row where the spaces fall on IIT, PAN, RBI and so on. |
+| A paragraph without a title | 2 | Reads a vague paragraph, rates how well they understood it, then reads it again with its title. |
+| Two last overs | 2 | Reads the end of a cricket match and the end of a baseball game, 35 seconds each, and answers four questions on each from memory. |
+| Four cards | 2 | Picks which cards to turn over for "vowel means even number", then for "voting means 18 or older". |
+| Two questions about words | 3 | Answers "does it have an E?" for twelve words and "is it pleasant?" for twelve others, then gets a surprise recall test. |
+| Things you have seen a thousand times | 3 | Six questions about a dial pad, the flag, a logo, a keyboard, the rupee sign and a dice. |
+| Eight sentences and eight hints | 3 | Reads eight sentences, does four sums, then gets a hint for each thing. Half the hints match the sentence they read and half are about another side of the thing. |
+| A general and a doctor | 4 | Reads the fortress story, then tries the radiation problem, first alone and then with a hint to use the story. |
+| A sentence written in numbers | 5 | Reads a sentence where A is 1, B is 2 and so on, in their head, and types it from memory. Then the same with an ordinary sentence shown for four seconds. |
+| Name the picture, not the word | 5 | Presses the name of an animal picture that has a word printed on it, 24 times. |
+
+### What the student gets back
+
+- After every station, a card with their own numbers, what happened in the original study, and what the book takes from it for a student.
+- A result sheet with one count at the top: at how many stations the thing the book describes showed up in the student's own result. There is no score out of 100 in this lab, because most stations have no right answer.
+- A one-line summary per station, history on the device, and CSV and JSON export. A run that is stopped keeps the stations that were finished.
+
+### How it is built
+
+- It reuses the station engine, result sheet, history and export of the Thinking, Fast and Slow Lab. The stations, the home page, the guide and the wording are new. Projector mode is not offered, because most stations need typing.
+- Every sentence, word list and paragraph was written for this lab. Nothing is copied from the book. American material is replaced: IPL, GST, ATM, UPI, SBI, JEE and IIT, PAN, RBI, OTP, SIM, USB for the letter rows; cricket against baseball for Recht and Leslie; the voting age for the drinking age.
+- Where the original study compared two groups of people, one student does both halves here, in an order picked by chance where the order could matter.
+- "It showed up for you" uses cut-offs that are the lab's own: three more letters in the chunked row, a rise of two points with the title, more recalled from the meaning list, and so on. A station that can't say is left out of the count.
+- The candle and the doctor's problem can't read the student's idea. They ask the student to say which of several ideas was theirs.
+- Tested 16 November 2026 in headless Chrome with a bot that plays all twelve stations through the real buttons, at laptop and phone width, with no console errors.
+
+### The research behind it (opened 16 November 2026)
+
+- **The book.** The lab did not have the whole book. Which demonstration is in which chapter comes from the publisher's excerpt of chapter 1 (2nd ed.), search snippets of the 1st edition, and Willingham's *American Educator* articles (2002 to 2009). The number-code sentence is in chapter 5. The four-card task is in chapter 2.
+- **Read in full:** Bransford and Johnson (1972), Experiment II: comprehension 4.50 with the title before, 2.29 with no title, 2.12 with the title after; recall 5.83, 2.82, 2.65 of 18. Recht and Leslie (1988): 64 students, re-enactment 27.5 of 40 for poor readers with high knowledge against 18.8 for good readers with low knowledge. Nickerson and Adams (1979): 15 of 36 picked the right penny from 15 drawings; median 3 of 8 features drawn. Gick and Holyoak (1980), Experiment IV: 3 of 15 without a hint, 11 of 12 with a hint, under 10 percent with no story. Griggs and Cox (1983): 74 percent on the drinking-age version, usually under 10 percent on the abstract version. Kotovsky and Simon (1990): story versions of the Tower of Hanoi took up to 16 times as long. Starreveld and La Heij (2017): picture and word interference of roughly 40 to 70 ms.
+- **Not opened:** Hyde and Jenkins (1973) and Barclay and colleagues (1974). The station cards give their findings in words, with no numbers, and say so. The candle-problem figures (about four in ten solve it with the box full) are from a secondary summary of Duncker (1945) and Adamson (1952), and the card says so.
+
+### What to tell students about the limits
+
+- The count on the result sheet is not a mark. The research results are averages over many people, and each station here is one short try.
+- A station works only the first time. The second time, the student knows the trick.
+- Chapters 6, 7 and 8 have no station. Chapter 6 is covered by the Expert and Novice Lab.
+
+### Activities to add next
+
+- A recall test after the paragraph without a title, with half the class getting the title first and half not at all, as in the original, using exported files.
+- A second round of the number-code sentence after five minutes of practice with the code, to show the decoding getting faster.
+- A drawing version of the "seen a thousand times" station with a ten-rupee coin.
+- A research audit that opens Hyde and Jenkins (1973), Barclay and colleagues (1974) and the full book.
 
 ## Expert and Novice Lab
 
