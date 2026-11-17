@@ -4,7 +4,7 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 
 | File | Lecture | What the student measures |
 |---|---|---|
-| `derivation-lab.html` (~165 KB) | Lecture 6 · Chunking (no slide mapped yet) | How many symbols of a few lines of algebra the student puts back after a five-second look, when the lines are a Class 11 derivation and when the same symbols are in an order picked by chance. It is the chess experiment of Chase and Simon (1973) done with derivations. |
+| `derivation-lab.html` (~175 KB) | Lecture 6 · Chunking (no slide mapped yet) | How many symbols of a few lines of Maths or physics the student puts back after reading them for twenty seconds. Part 1 has lines every Class 12 student has practised (a quadratic by factorisation, the equations of motion). Part 2 has lines they have not (why Euclid's GCD method works, and jumbled symbols). It is the chess experiment of Chase and Simon (1973) done with derivations. |
 | `how-the-mind-learns-lab.html` (~280 KB) | Any lecture that uses working memory and long-term memory; Lecture 6 · Chunking (no slide mapped yet) | Twelve small experiments from the first five chapters of Willingham's *Why Don't Students Like School?*, done on the student: the candle problem, three rings and the tea ceremony, letters with and without chunks, a paragraph without a title, cricket against baseball, the four-card task, two word lists, everyday things, hints that match or don't, the general and the doctor, a sentence written in numbers, and pictures with words on them. At how many stations the book's finding showed up in the student's own result. |
 | `expert-novice-lab.html` (~220 KB) | Lecture 6 · Chunking (no slide mapped yet) | How the student's own knowledge is arranged: whether they sort 24 physics problems by the objects in them or by the principle that solves them (Chi, Feltovich and Glaser, 1981), and how many pieces of a chess position they put back after five seconds, in what order and in what bursts (Chase and Simon, 1973). |
 | `thinking-fast-and-slow-lab.html` (~310 KB) | Lecture 5 · slide 9, System 2 and the very small room; homework for any lecture that names the two systems | Fourteen of the small experiments from Kahneman's *Thinking, Fast and Slow*, done on the student's own head: the face and the sum, the two lines, colour words, the bat and the ball, priming, mere exposure, Alan and Ben, the anchoring wheel, what kills more people, Linda, praise and scold, ninety-percent ranges, sure thing or gamble, the two noises. At how many stations System 1 got its way, and a System 2 score for the stations with a right answer. |
@@ -51,34 +51,38 @@ Not yet done: the research audit of this app (the numbers come from the October 
 
 ## Derivation Lab
 
-One file, `derivation-lab.html`, added on 17 November 2026. It is the chess experiment of the Expert and Novice Lab done with derivations: the student looks at a few lines of algebra for five seconds and then puts the symbols back. It fits Lecture 6 (Chunking). No slide is mapped to it yet.
+One file, `derivation-lab.html`, added on 17 November 2026 and changed the same day into two parts. It is the chess experiment of the Expert and Novice Lab done with lines of Maths and physics: the student reads a few lines for twenty seconds and then puts the symbols back. Part 1 has lines a Class 12 student has chunks for. Part 2 has lines they have no chunks for. It fits Lecture 6 (Chunking). No slide is mapped to it yet.
 
 ### What the student does
 
-1. Presses Show the lines. Four or five lines of algebra stay on the screen for 5 seconds (10 seconds is a setting) and are then cleared.
-2. Puts the symbols back line by line by tapping keys: the letters of that set, 2, ½, the small raised 2, =, +, −, / and the brackets, with Delete and Next line. On a laptop the student can type.
-3. Presses Done and sees their lines next to the lines that were shown, with every symbol marked right, wrong or missed.
-4. Does this four times (two is a setting). Two sets are derivations as they are. The other two are the symbols of a derivation in an order picked by chance. The two kinds alternate, and which kind comes first is picked by chance.
-5. After each real derivation, answers one question: "Before today, could you write this derivation on your own?" (yes, some of it, no).
+1. Picks **Part 1 · Lines from school** or **Part 2 · Lines that are new to you** on the start page. Each part has three sets and takes about six minutes.
+2. Presses Show the lines. Three to five lines stay on the screen for 20 seconds (10 seconds is a setting) and are then cleared.
+3. Puts the symbols back line by line by tapping keys (only the symbols of that set, with Delete and Next line). On a laptop the student can type.
+4. Presses Done and sees their lines next to the lines that were shown, with every symbol marked right, wrong or missed.
+5. After every set that is not jumbled, answers one question: "Before today, could you write these lines on your own?" (yes, some of it, no).
 
-The home page asks the student to do the experiment before opening the Guide, because the Guide gives away what the experiment looks for.
+**Part 1** always has the quadratic equation solved by factorisation, one more from school Maths (a linear equation, or the square of a + b), and one Class 11 physics derivation (third or second equation of motion, work and kinetic energy, or K = p²/2m).
+
+**Part 2** has two sets of proper Maths that is not taught till Class 12, picked from three (why Euclid's method for the GCD works, adding the same number to both sides of a congruence, and why "if p then q" is the same as "if not q then not p"), and one set where the symbols of a Part 1 set are in an order picked by chance.
+
+The start page asks the student to do both parts before opening the Guide, because the Guide gives away what the experiment looks for.
 
 ### What the student gets back
 
-- Symbols put back out of every 100, for the derivations and for the chance-order sets, next to each other.
-- A reading in plain words that depends on the gap between the two, and a line that compares the derivations the student said they could write with the ones they said they couldn't.
-- The published numbers for Class 9 students (Geary and others, 2015) in a small table, with a note on why to compare loosely.
-- Set by set: the student's lines next to the lines shown, and for each real derivation the four or five steps that somebody who knows it holds in place of 40 symbols.
-- Every run is kept on the device, with CSV export (one row per set) and JSON export (with the time of every key press). A run that is stopped half way is not saved.
+- After each part, a sheet with symbols put back out of every 100, and set by set the student's lines next to the lines shown. Under each set are its steps in words: for Part 1 the three to five steps that somebody who knows it holds in place of 40 symbols, and for Part 2 the reasoning explained, so the student can see the new lines are as logical as the old ones.
+- When both parts are done, a sheet at the top that puts them next to each other: lines from school, proper Maths not taught in school, and symbols in a chance order, with a reading in plain words and the link to the chess experiment.
+- Every run is kept on the device, with CSV export (one row per set) and JSON export (with the time of every key press). A part that is stopped half way is not saved.
 
 ### How it is built
 
-- Four derivations from Class 11 physics, written out for this lab: the third equation of motion from v = u + at (47 symbols, 4 lines), the second equation of motion from the average velocity (41 symbols, 4 lines), work and kinetic energy (40 symbols, 5 lines), kinetic energy from momentum (32 symbols, 5 lines). A symbol is one letter, one digit, ½, the raised 2, one sign or one bracket.
-- A chance-order set takes every symbol of one derivation, shuffles them, and cuts them into lines of the same lengths. So it has the same symbols and the same number of lines. This follows Chase and Simon's random positions (the same pieces on squares picked by chance). In one run no derivation is used twice.
+- Ten sets of lines, all written out for this lab. From school: quadratic by factorisation (42 symbols, 4 lines), linear equation (25, 4 lines), square of a + b (39, 3 lines), third equation of motion (47, 4 lines), second equation of motion (41, 4 lines), work and kinetic energy (40, 5 lines), kinetic energy from momentum (32, 5 lines). Not taught in school: Euclid's GCD (35, 5 lines), congruence (31, 4 lines), contrapositive (24, 5 lines). A symbol is one letter, one number, ½, the raised 2, one sign, one bracket, a comma, or the words gcd and mod.
+- The jumbled set takes every symbol of the quadratic or of one physics derivation, shuffles them, and cuts them into lines of the same lengths. This follows Chase and Simon's random positions (the same pieces on squares picked by chance).
+- Why 20 seconds: the first version used 5 seconds, as the published single-equation experiments do. Soumitra tried it and could not read the lines once in that time, so the default is 20 seconds with 10 as the other choice.
+- Why two parts: in the first version the real and the jumbled sets were mixed in one run, the sets were long, and the difference between chunked and not chunked did not come through. Now the two are separate, and Part 2 also has logical lines the student has no chunks for, so the contrast is "practised against not practised" and not only "sense against nonsense".
 - Marking is the lab's own. Each of the student's lines is lined up with a shown line (longest common subsequence), so a symbol missed in the middle does not spoil the rest of the line. Lines are matched in order, so a line that is left out does not spoil the lines after it. A line counts right symbols minus wrong symbols, never less than 0.
-- Why wrong symbols cancel: in a simulation of 3,000 runs per derivation, filling every line with symbols in a random order got 8 to 12 symbols "right" out of 32 to 47 by alignment alone. With the cancel rule the same filling is counted as 1 to 3 symbols.
-- The lines are shown and typed with the same symbol-by-symbol layout in both kinds of set, so a derivation and a chance-order set look the same on the screen except for the order.
-- Tested 17 November 2026 in headless Chrome with a bot that plays through the real keys and buttons (a student who knows the derivations, and one who puts back only a few symbols), plus editing in the middle of a line, typing, stopping half way and the export, at laptop and phone width, with no console errors.
+- Why wrong symbols cancel: in a simulation, filling every line with symbols in a random order got about 10 symbols "right" out of 40 by alignment alone. With the cancel rule the same filling is counted as 1 to 4 symbols for every one of the ten sets.
+- Results are stored under a new key (`derivation-lab:v2`), so runs from the first version are not shown.
+- Tested 17 November 2026 in headless Chrome with a bot that plays both parts through the real keys and buttons, in both orders, with the real 20-second timer on one set, plus editing in the middle of a line, typing, stopping half way and the export, at laptop and phone width, with no console errors.
 
 ### The research behind it (opened 17 November 2026)
 
@@ -91,17 +95,18 @@ The home page asks the student to do the experiment before opening the Guide, be
 
 ### What to tell students about the limits
 
-- The published experiments used single equations. Nobody we could find has done this with a derivation of several lines or with physics formulas. The Guide says this.
-- On a derivation a student knows well, they partly work it out again. That is what the experiment is about, but the number is not a measurement of memory.
+- The published experiments used single equations shown for 5 seconds. Nobody we could find has done this with several lines of working, with physics formulas, or with logical material that is new to the student. Both parts of this lab are our own version, and the Guide says so. Don't compare a student's number with the published numbers.
+- In Part 1 a student partly works the lines out again. That is what the experiment is about, but the number is not a measurement of memory.
+- The lab can't know what is new to a student. One who has done Olympiad Maths may know Euclid's proof. The question after each set records this.
+- The Part 2 sets are a little shorter than the Part 1 sets and use some signs the students may not have met (| and ≡, → and ¬). So Part 2 is not only "same lines, less practice".
 - Sweller and Cooper scored equations and random strings by different rules and never tested one against the other. Don't say "equations were so many times better" from that paper.
-- The lab's count (every right symbol, minus the wrong ones) is not the papers' count (longest unbroken correct run). The table on the result sheet says to compare loosely.
-- One run has two sets of each kind, and the four derivations are not equally long. The class's numbers together mean more than one student's.
+- Each part has three sets. The class's numbers together mean more than one student's.
 
 ### Activities to add next
 
 - A Projector mode where the class sees one set of lines and each student puts it back on their own phone.
-- A derivation the class has not met yet, done once before the lecture that teaches it and once a week after, so each student sees their own number change.
-- A third kind of set where every line is a correct equation but the lines don't follow from each other.
+- Teach one of the Part 2 derivations in class (Euclid's method is a good one), let the students do it by hand for a week, and then do Part 2 again, so each student sees their own number change as the chunk forms.
+- More sets for each part, so a second try does not repeat the first.
 - Reading the pauses between key presses, the way the chess experiment reads bursts.
 - A class view that collects the exported files.
 
