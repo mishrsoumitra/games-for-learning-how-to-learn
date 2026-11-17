@@ -13,11 +13,28 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 
 All text in the games follows the plain teacher's voice used in the lecture decks: short sentences, ordinary words, questions before answers, and instructions that tell the student to do something. Every research claim in the games and in this file was checked against the primary paper in September 2026. Where a paper could not be opened, the claim says so.
 
+## Study Lab (`study-lab/`)
+
+Built on 25 October 2026. A React application, not a single file: four research-based activities that measure the same thing two ways (how well the student *feels* they learned, and what they can actually recall), plus flashcards with spaced review and a mnemonic builder with a self-quiz. Hosted at `/study-lab/` on the same Vercel site; `deploy.sh` builds it and copies `study-lab/dist` into `site/study-lab/`.
+
+| Activity | Lecture | What the student does | Based on |
+|---|---|---|---|
+| Mixed or blocked | Lecture 6 · Chunking | Learns twelve made-up painters (six paintings each, 3 s each); half the painters one at a time, half mixed, as two separate phases with two frame colours. Predicts, takes a 45 s break, names 24 new paintings. One sitting, about 15 minutes. | Kornell and Bjork (2008); Yan, Bjork and Bjork (2016), Exp. 1A (63% vs 42%) and Exp. 6 (separate phases needed for belief change) |
+| Reread or recall | Lecture 7 · Retrieval | Studies 40 Swahili–English pairs once; 20 are reread three times, 20 are recalled three times with the answer shown. Predicts per condition. Optional five-minute test on 8 extra pairs. Comes back after 2 days (teacher can set 1–14) for the typed test on all 40, then an honesty question. | Karpicke and Roediger (2008); Roediger and Karpicke (2006), the 5-minute reversal; Rowland (2014) |
+| Cram or space | Lecture 8 · Spacing | Two sets of 20 pairs: one gets one pass on days 0, 1, 2, 3; the other four passes in a row on day 3. Ratings after every session, predictions before the day-5 test. Optional forgetting curve: a third set tested in fifths at 10 min and days 1, 2, 4, 7. Late sessions shift the plan and flag the run. | Kornell (2009), 90% / 72%; Cepeda and others (2008) |
+| Mixed problem set | Lecture 6 · a Maths version | Tutorial on four solids (wedge, spheroid, spherical cone, half cone), 16 practice problems with two solids blocked and two mixed, predictions, a second session, then a test of 8 new problems a week later. Practice-versus-test crossover shown. | Rohrer and Taylor (2007), 63% vs 20%; Rohrer, Dedrick, Hartwig and Cheung (2020) |
+
+Every run stores a seed, so its plan can be rebuilt. Items are assigned to conditions at random per student and the result sheet says so, to head off the "those were easier items" explanation. Each result sheet shows prediction next to score per condition, the published numbers, the reason, and a one-in-five warning about single-run noise. Students can save a result file (random code plus scores, nothing else); the teacher loads all of them on the Results → class page to see the class on the felt-versus-worked plot. Runs where the student said they looked at the words in between are left out of the class plot.
+
+Stack and checks: Vite 8, React 19, TypeScript 6 (strict, `noUncheckedIndexedAccess`), React Router 8, Zod 4 for every stored or imported record, `idb` for IndexedDB. No other runtime dependency. Fonts are self-hosted; the app makes no network requests after it loads. A strict Content Security Policy (`script-src 'self'`, `style-src 'self'`, no inline) is in both a meta tag and `site/vercel.json`, with `X-Frame-Options`, `Permissions-Policy`, COOP/CORP and HSTS headers. Imported files are size-limited and schema-checked; CSV exports escape formula-leading cells. Lint is oxlint with the React, a11y, import, promise and vitest plugins; Prettier checks formatting; Vitest runs 65 unit and component tests (engines, scheduler, data layer, pages); Playwright runs end-to-end tests in the installed Chrome against the production build. `npm audit` reports zero vulnerabilities on exact-pinned versions and runs in CI weekly. A build-time service worker precaches the app for offline use. Commands, from `study-lab/`: `npm ci`, `npm run check` (typecheck, lint, format, tests, audit, build), `npm run test:e2e`, `npm run dev`.
+
+Not yet done: the research audit of this app (the numbers come from the October 2026 research notes, not from reopened papers); a STEM variant of the painting task (which sorting algorithm produced this trace); using a student's own deck in Cram or space.
+
 ## Files in this folder and hosting
 
 - The six `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
 - `site/` is the version hosted on Vercel: the same six files plus `index.html`, a landing page that links to them.
-- `deploy.sh` copies the six games into `site/` and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches.
+- `deploy.sh` copies the six games into `site/`, builds Study Lab into `site/study-lab/`, and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches. `site/vercel.json` holds the security headers and the single-page rewrite for `/study-lab/`.
 - `research-audit-2026-09-13/` holds the research audit reports for the Attention, Disturbance and Working Memory labs.
 
 ## What changed on 13 September 2026
