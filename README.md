@@ -4,6 +4,7 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 
 | File | Lecture | What the student measures |
 |---|---|---|
+| `learning-to-read-lab.html` (~200 KB) | Lecture 6 · Chunking, and any lecture on practice (no slide mapped yet) | How quickly the student picks up a number code (A is 1, B is 2, up to Z is 26): the time for one letter alone, inside words with gaps, inside words with no gaps, and in sentences; whether they count along the alphabet or know the letter; and whether they can still understand a sentence read in the code. Points, stars, a score out of 100 and a one-minute sprint to repeat every day. |
 | `derivation-lab.html` (~165 KB) | Lecture 6 · Chunking (no slide mapped yet) | How many symbols of a few lines of algebra the student puts back after a five-second look, when the lines are a Class 11 derivation and when the same symbols are in an order picked by chance. It is the chess experiment of Chase and Simon (1973) done with derivations. |
 | `how-the-mind-learns-lab.html` (~280 KB) | Any lecture that uses working memory and long-term memory; Lecture 6 · Chunking (no slide mapped yet) | Twelve small experiments from the first five chapters of Willingham's *Why Don't Students Like School?*, done on the student: the candle problem, three rings and the tea ceremony, letters with and without chunks, a paragraph without a title, cricket against baseball, the four-card task, two word lists, everyday things, hints that match or don't, the general and the doctor, a sentence written in numbers, and pictures with words on them. At how many stations the book's finding showed up in the student's own result. |
 | `expert-novice-lab.html` (~220 KB) | Lecture 6 · Chunking (no slide mapped yet) | How the student's own knowledge is arranged: whether they sort 24 physics problems by the objects in them or by the principle that solves them (Chi, Feltovich and Glaser, 1981), and how many pieces of a chess position they put back after five seconds, in what order and in what bursts (Chase and Simon, 1973). |
@@ -33,9 +34,9 @@ Not yet done: the research audit of this app (the numbers come from the October 
 
 ## Files in this folder and hosting
 
-- The seven `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
-- `site/` is the version hosted on Vercel: the same seven files plus `index.html`, a landing page that links to them.
-- `deploy.sh` copies the seven games into `site/`, builds Study Lab into `site/study-lab/`, and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches. `site/vercel.json` holds the security headers and the single-page rewrite for `/study-lab/`.
+- The eight `*-lab.html` files at the top level are the games. Each one works on its own: open it in a browser, or send it to students as an attachment.
+- `site/` is the version hosted on Vercel: the same eight files plus `index.html`, a landing page that links to them.
+- `deploy.sh` copies the eight games into `site/`, builds Study Lab into `site/study-lab/`, and deploys `site/` to Vercel (first time only: `npx vercel login`). Run it after changing any game so the hosted copy matches. `site/vercel.json` holds the security headers and the single-page rewrite for `/study-lab/`.
 - `research-audit-2026-09-13/` holds the research audit reports for the Attention, Disturbance and Working Memory labs.
 
 ## What changed on 13 September 2026
@@ -48,6 +49,67 @@ Not yet done: the research audit of this app (the numbers come from the October 
 - Research audit, Working Memory Lab: digit-span bands now treat 6 to 8 forward as typical (7 is the adult mean, not "above average"); the coloured-squares run has 24 trials per set size instead of 16; the Brown–Peterson round holds three consonants by default and counts to a one-second beat, as in the original, with four digits kept as the slide's version and four trials per delay; the Hebb attributions were untangled (span + 1 is Norris, Page and Hall, 2018; every third trial is Hebb; eight repetitions among twenty fillers is Page and Norris, 2009); Bower and Springston's example was misquoted and is fixed; "noticing helps a little" had no source and is replaced.
 - Score bands are now described as the lab's own, anchored to published norms where norms exist (digit span, K, SART error rates, PVT lapse counts) and chosen by hand where they do not.
 - The three audit reports (every citation with how it was opened, a claim-by-claim table, and a design audit per instrument) are in `research-audit-2026-09-13/`. Read them before changing any number in the games.
+
+## Learning to Read Lab
+
+One file, `learning-to-read-lab.html`, added on 19 November 2026. The student learns to read one more time, in a code where A is 1, B is 2 and Z is 26, and goes from single letters to words to sentences the way a child does. It fits Lecture 6 (Chunking) and any lecture on practice. No slide is mapped to it yet.
+
+### What the student does
+
+Five levels, about 12 minutes (a short version takes about 6). The code is never shown as a chart. The student is told the rule and works out each letter in their head.
+
+1. **One number, one letter.** A number comes, and the student taps its letter. Every letter comes twice (once in the short version).
+2. **Words, with a gap after each letter.** Eight words, one box for each letter. A wrong letter is not taken, and after three wrong tries the lab shows the letter.
+3. **Words, with no gaps.** Eight words written as one row of digits, such as 2120. The student has to decide where to cut: 2, 1, 20 is BAT and 21, 20 is UT. Every word in this level can be cut in more than one way, and after each word the lab lists the other cuts.
+4. **Sentences.** Four short sentences, typed word by word. THE comes five times.
+5. **Read for the meaning.** Three sentences in the code, read silently. The sentence goes away and the student picks what it said from four sentences that differ by one word. Then one sentence in ordinary letters, for comparison.
+
+There is also a **one-minute sprint** (single letters, or words with no gaps) meant to be done once a day. The Results page draws one line for each kind of sprint.
+
+### What the student gets back
+
+- **Points**, live: 10 for a right letter, up to 10 more for speed, one and a half times after five right in a row and double after ten. 100 for a sentence understood.
+- **Stars**, one to three for each level, and seven badges.
+- **A score out of 100**: right letters (30), speed in the sentences (30), getting faster inside Level 1 (25), meaning (15). All four bands are the lab's own.
+- The time for one letter at each level, as bars.
+- A chart of the time for each letter in Level 1 against its place in the alphabet, with one fitted line for each half. A climbing line means counting, and a flat line means knowing.
+- First letter against last letter inside a word, gaps against no gaps, the first THE against the last THE, and reading speed in the code against ordinary letters.
+- A table that puts what we did next to what a child does, and what it means for how we study.
+
+### How it is built
+
+- The shell (fonts, colours, result sheet, storage, export) is the Derivation Lab's. The game is an async flow: `G.wait('key')` and `G.wait('btn')` give the next key or button, and Stop rejects whatever is waiting.
+- The letter keys are the lab's own QWERTY keys, so a phone's keyboard never opens. QWERTY is deliberate: on keys in A to Z order a student could count along the keys.
+- Timing uses the event's own time stamp. A letter's time is left out of the middle time if the tab was hidden during it.
+- `cuts()` lists every way to cut a row of digits into letters. `WORDS_NOGAP` must hold only words with more than one cut.
+- Tested in headless Chrome with a page-side bot: a full run, both sprints, Stop, 390 px width, light and dark.
+
+### The research behind it (opened 19 November 2026)
+
+- **Willingham (2009)**, *Why Don't Students Like School?*, chapter 5, page 86, Figure 4. Read from a scan of the first edition. This is where the A = 1 code comes from: one sentence in numbers, with the caption that a beginning reader's efforts "are a bit like your efforts to decode this sentence". The book does not cite a paper for it.
+- **Bryan and Harter (1899)**, *Psychological Review* 6(4), 345–375, and **(1897)**, *Psychological Review* 4, 27–53. Full text of both read. One student, John Shaw, tested weekly from 24 October 1896 to 9 May 1897 on letters, words and connected sentences in Morse code. The rates in the Guide (about 18 to 20 letters a minute for all three at the start; about 48, 65 and 108 at the end) are read off Figure XI. The paper has no table. Quotes are from pages 352, 356 and 357. The 1897 paper says 60 to 75 per cent of beginners become discouraged on the plateau (pages 50–51).
+- **Logan (1988)**, *Psychological Review* 95, 492–527, Experiment 4, and **Logan and Klapp (1991)**, *JEP: LMC* 17, 179–195. Full text of both read. Alphabet arithmetic (A + 2 = C). 400 to 500 ms for each count at the start. Experiment 1 of 1991: 8 subjects, 12 sessions, slope 486 ms in session 1 and 45 ms in session 12. Experiment 2: 16 subjects learned six facts by heart in at most 15 minutes; slope 447 ms for untrained facts and −52 ms for trained ones.
+- **Ehri (2020)**, *Reading Research Quarterly* 55(S1), S45–S60. Full text read. The four phases and the sentence about whole units are quoted from it. Her 2005 paper was seen only as somebody's digest and is not used.
+- **Samuels (2006)**, *Journal of Literacy Research* 38(3), 327–344. Full text read. One quote.
+- **Taylor, Plunkett and Nation (2011)**, *JEP: LMC* 37, 60–76. Preprint read in full. 16 adults, 36 made-up words in made-up characters, one sitting of 30 to 45 minutes.
+- **Not opened in full:** LaBerge and Samuels (1974), summary only, so the lab gives no numbers from it. Saffran, Aslin and Newport (1996), summary only. Heathcote, Brown and Mewhort (2000) and Newell and Rosenbloom (1981) on the law of practice were looked at and are not used in the lab.
+
+### What to tell students about the limits
+
+- Nobody has published an experiment with this A = 1 code. The lab is a demonstration built on Willingham's figure, and its levels follow Bryan and Harter's letters, words and sentences.
+- The score, the stars and the points are the lab's own. They were set from a guess of what a first run looks like, and no class has played yet. Change the bands in `STAR_BANDS` and `summarise()` after the first class.
+- Our Level 1 is not Logan's task, so a student's slope can't be compared with his numbers.
+- We already know English and the order of the alphabet. A child is learning shapes, sounds and words together.
+- A student who knew the code before starting gets a low "getting faster" mark. The Guide says so.
+- Level 3, cutting a row of digits, is the lab's own idea. The SHIP and MISHAP comparison is ours, and Ehri does not make it.
+
+### Activities to add next
+
+- A Projector mode where the class reads the same sentence and the teacher sees how long the room takes.
+- A class view that collects the exported sprint files and draws every student's line.
+- A second code (a shuffled one, where counting can't help) to compare learning by rule with learning by heart, as in Logan and Klapp's second experiment.
+- The same run a week later with no practice in between, to see how much stayed.
+- Bands for the score and the stars cut again from a real class's numbers.
 
 ## Derivation Lab
 
