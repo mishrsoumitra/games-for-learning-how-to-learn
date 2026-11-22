@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>How the Mind Learns Lab</title>
-<meta name="description" content="Twelve small experiments from Daniel Willingham's Why Don't Students Like School?, done on yourself: the candle problem, three rings, twenty letters, a paragraph without a title, cricket and baseball, four cards, two word lists, everyday things, hints, the general and the doctor, a sentence written in numbers, and pictures with words on them.">
+<meta name="description" content="Forty-two small experiments from all ten chapters of Daniel Willingham's Why Don't Students Like School?, done on yourself: the candle problem, three rings, twenty letters, a paragraph without a title, cricket and baseball, four cards, two word lists, everyday things, hints, the general and the doctor, a sentence written in numbers, and pictures with words on them.">
 <style>
 @font-face {
   font-family: 'Bodoni Moda';
@@ -610,6 +610,30 @@ pre{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;l
   .mm-wm{margin:0 6%}
 }
 
+/* ---------- stations added on 22 November 2026 ---------- */
+.tag.p6{background:var(--steel-soft);color:var(--steel)} .tag.p7{background:var(--gilt-soft);color:var(--gilt)} .tag.p8{background:var(--good-soft);color:var(--good)} .tag.p9{background:var(--red-soft);color:var(--red-ink)} .tag.p10{background:var(--warn-soft);color:var(--warn)}
+.chip-part{font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;text-decoration:underline;text-decoration-color:var(--hairline-2);text-underline-offset:4px}
+.chip-part:hover{text-decoration-color:var(--red)}
+.bigletters.small{font-size:clamp(20px,4.4cqw,34px);letter-spacing:.02em;word-spacing:.1em}
+.coin{width:150px;height:150px;border-radius:50%;margin:8px auto;display:grid;place-items:center;border:3px solid var(--gilt);background:var(--gilt-soft);color:var(--ink);font-family:"Bodoni Moda","Bodoni 72",Georgia,serif;font-size:72px}
+.coin.spin{animation:coinspin .7s linear}
+@keyframes coinspin{from{transform:rotateY(0)}to{transform:rotateY(1080deg)}}
+@media (prefers-reduced-motion:reduce){.coin.spin{animation:none}}
+.cointable{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;font-size:12px}
+.cointable > div{display:flex;flex-direction:column;align-items:center;gap:2px;border:1px solid var(--hairline);border-radius:6px;padding:5px 0;background:var(--surface-2);color:var(--muted);font-variant-numeric:tabular-nums lining-nums;text-align:center;line-height:1.2}
+.cointable > div b{font-family:"Bodoni Moda","Bodoni 72",Georgia,serif;font-size:18px;color:var(--ink);font-weight:500}
+.cointable > div.me{border-color:var(--red);background:var(--red-soft);color:var(--red-ink)}
+.wordlist{margin:0;padding-left:1.6em;font-family:"Bodoni Moda","Bodoni 72",Georgia,serif;font-size:clamp(22px,4.6cqw,32px);line-height:1.45;color:var(--ink)}
+.rodframe{width:100%;max-width:300px;height:auto;display:block;margin:0 auto;border-radius:14px}
+.shape{width:56px;height:56px;display:block;color:var(--ink)}
+.scene.cube{max-width:240px}
+.swgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:320px;width:100%;margin:0 auto}
+.swgrid > div{aspect-ratio:1.5/1;border:1px solid var(--hairline-2);border-radius:10px;background:var(--surface-2);display:grid;place-items:center;font-family:"Bodoni Moda","Bodoni 72",Georgia,serif;font-size:clamp(34px,10cqw,54px);letter-spacing:.08em;color:var(--ink);font-variant-numeric:lining-nums}
+.swrule{text-align:center;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.swrule b{color:var(--ink)}
+.swgrid ~ .choices.row .choice{flex:1 1 130px}
+@media (max-width:600px){.cointable{grid-template-columns:repeat(5,1fr)}}
+
 @media (max-width:820px){.hero .systems-wrap{order:1}}
 </style>
 </head>
@@ -634,16 +658,16 @@ pre{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;l
   <section class="view" id="view-home">
     <div class="hero">
       <div class="hero-copy">
-        <span class="eyebrow">Daniel Willingham · Why Don't Students Like School? · twelve small experiments</span>
+        <span class="eyebrow">Daniel Willingham · Why Don't Students Like School? · forty-two small experiments</span>
         <h1>How does our mind learn? <em>Try it on yourself.</em></h1>
         <p class="lede">Daniel Willingham is a cognitive scientist (a fancy name for someone who studies how we think and remember). In his book he doesn't only tell us what the research found. He makes us try it. We read a sentence written in numbers. We look at a list of letters for a few seconds. We try to solve a puzzle about a candle.</p>
-        <p class="lede">This lab has twelve of those small experiments. At each station you do something for two or three minutes, and then the page shows you what happened to you and what happened to the people in the original study. Don't read the Guide first. It gives the answers away.</p>
+        <p class="lede">This lab has forty-two of those small experiments, from all ten chapters. At each station you do something for two to five minutes, and then the page shows you what happened to you and what happened to the people in the original study. Don't read the Guide first. It gives the answers away.</p>
         <div class="field">
           <label for="studentName">Your name <span class="muted">(printed on your results)</span></label>
           <input type="text" id="studentName" placeholder="e.g. Priya" autocomplete="off" spellcheck="false" maxlength="40">
         </div>
         <div class="controls">
-          <button class="btn btn-primary" data-go="lab">Do all twelve stations</button>
+          <button class="btn btn-primary" data-go="lab">Go to the stations</button>
           <button class="btn btn-quiet" data-go="guide">I have finished, show me the guide</button>
         </div>
         <div class="home-trend" id="homeTrend" hidden></div>
@@ -662,7 +686,7 @@ pre{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;l
     </div>
 
     <div class="section-title">
-      <h2>Twelve stations, in the order of the book</h2>
+      <h2>Forty-two stations, in the order of the book</h2>
       <span class="muted" id="homeRunCount"></span>
     </div>
     <div id="stationCards"></div>
@@ -671,8 +695,8 @@ pre{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;l
   <!-- ================= THE STATIONS ================= -->
   <section class="view" id="view-lab" hidden>
     <div class="view-head" data-role="head">
-      <span class="eyebrow">The stations · all twelve take about thirty-five minutes</span>
-      <h2>Twelve small experiments from the book</h2>
+      <span class="eyebrow">The stations · one chapter takes ten to fifteen minutes</span>
+      <h2>Forty-two small experiments from the book</h2>
       <p class="lede">A card tells you what to do. You do it. Then the page shows you what happened and what the research found. Nothing here is a test of how clever you are. If a station goes badly for you, that is usually the point of the station.</p>
     </div>
     <div class="setup" data-role="setup">
@@ -681,7 +705,7 @@ pre{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:12px;l
           <span>Stations to do</span>
           <div class="chip-groups" id="stationChips"></div>
           <div class="chip-links"><button type="button" id="chipsAll">Select all</button><button type="button" id="chipsNone">Select none</button></div>
-          <p class="setting-note">You can do all twelve in one sitting, or one chapter at a time. A station card on the home page selects only that station.</p>
+          <p class="setting-note">All forty-two take about two hours, so do one chapter at a time. Tap the name of a chapter to select only that chapter. A station card on the home page selects only that station.</p>
         </div>
         <div class="instructions">
           <h3>How to do it</h3>
@@ -1167,7 +1191,7 @@ class Lab extends Test {
 </script>
 <script>
 /* ============================================================
-   Stations · twelve small experiments from Willingham's book
+   Stations · small experiments from Willingham's book
    Each station: run(lab) → result; report(result) → what happened;
    metrics(result) → flat numbers for the CSV; s1(result) → did the
    thing the book describes show up in this student's own result
@@ -1209,7 +1233,7 @@ async function showFor(lab, html, ms) {
 }
 
 /* Numbers from the original papers. Every one of these was read from the paper named in the Guide. */
-const PUB = {"candle": "In the old studies, only about four people in ten solved it when the box was full of pins, and most people solved it when the box was shown empty. (These figures are from a summary of Duncker, 1945, and Adamson, 1952. The lab could not open the papers themselves.)", "tea": "Kenneth Kotovsky and Herbert Simon report that some story versions of this puzzle took people up to 16 times as long as the plain version with rings.", "bj": "In their experiment, 52 students heard a paragraph like this one. Those who were told the title first rated their understanding 4.5 out of 7 and remembered 5.8 of its 18 ideas. Those who got no title rated it 2.3 and remembered 2.8. Those who were told the title after the paragraph did no better than those with no title: 2.1 and 2.7. So the title helps only if we have it while we are reading.", "recht": "They took 64 students of Class 7 and 8. Half were good readers and half were poor readers, and in each half some knew a lot about baseball and some knew little. Everybody read 625 words about half an inning of a baseball game and then acted it out on a model field. The poor readers who knew baseball scored 27.5 out of 40. The good readers who did not know baseball scored 18.8. Knowing the game mattered much more than being a good reader.", "wason": "With letters and numbers, usually fewer than 10 people in 100 get it right. With a rule about the legal age for drinking beer, about 74 in 100 get it right (Griggs and Cox).", "hj": "People heard 24 words, one every three seconds, and did a small task on each word. Those who rated how pleasant each word was remembered clearly more words than those who checked the words for certain letters. They even remembered as many as people who had been told to learn the list. (The lab could not open this paper itself, so it gives no numbers.)", "penny": "Of 36 people, only 15 picked the right drawing from a set of 15. In another group of 20 who were asked to draw the coin from memory, half got three or fewer of its eight features in the right place.", "barclay": "People read \"The man lifted the piano\" or \"The man tuned the piano\". Later, the hint \"something heavy\" brought the piano back better for those who had read about lifting, and \"something with a nice sound\" worked better for those who had read about tuning. (The lab could not open this paper itself, so it gives no numbers.)", "gick": "Without any story, fewer than 10 people in 100 think of this answer. When people had read and memorised the general's story, but nobody told them it would help, 3 of 15 found the answer. When they were told to use the story, 11 of 12 found it.", "picword": "When people name pictures aloud in the laboratory, a wrong word printed on the picture slows them down by something like 40 to 70 milliseconds on every picture (Starreveld and La Heij, 2017).", "sources": "<p class=\"src\">Willingham, D. T. (2009; 2nd ed. 2021). <em>Why Don't Students Like School?</em> Jossey-Bass. The lab did not have the whole book. It read the publisher's excerpt of chapter 1 of the second edition, short search snippets of the first edition, and Willingham's articles in <em>American Educator</em> (2002, 2003, 2004, 2006, 2009), where he uses the same demonstrations. Which demonstration is in which chapter comes from those.</p><p class=\"src\">Bransford, J. D., &amp; Johnson, M. K. (1972). Contextual prerequisites for understanding. <em>Journal of Verbal Learning and Verbal Behavior, 11</em>, 717–726. Full text read. Numbers from Experiment II, Table 2.</p><p class=\"src\">Recht, D. R., &amp; Leslie, L. (1988). Effect of prior knowledge on good and poor readers' memory of text. <em>Journal of Educational Psychology, 80</em>, 16–20. Full text read. Numbers from Table 1.</p><p class=\"src\">Griggs, R. A., &amp; Cox, J. R. (1983). The effects of problem content and negation on Wason's selection task. <em>Quarterly Journal of Experimental Psychology, 35A</em>, 519–533. Full text read. It reports the 74 percent from their 1982 paper and \"usually less than 10 percent\" for the letters-and-numbers version. The 1982 paper itself was read as an abstract only.</p><p class=\"src\">Nickerson, R. S., &amp; Adams, M. J. (1979). Long-term memory for a common object. <em>Cognitive Psychology, 11</em>, 287–307. Full text read. Experiments I and V.</p><p class=\"src\">Gick, M. L., &amp; Holyoak, K. J. (1980). Analogical problem solving. <em>Cognitive Psychology, 12</em>, 306–355. Full text read. Numbers from Experiment IV.</p><p class=\"src\">Kotovsky, K., &amp; Simon, H. A. (1990). What makes some problems really hard. <em>Cognitive Psychology, 22</em>, 143–183. Full text read. It reports the \"16 times\" figure from Kotovsky, Hayes and Simon (1985), which was not opened.</p><p class=\"src\">Starreveld, P. A., &amp; La Heij, W. (2017). Picture-word interference is a Stroop effect. <em>Psychonomic Bulletin &amp; Review, 24</em>, 721–733. Full text read.</p><p class=\"src\">Not opened, and so given without numbers or marked as second-hand: Hyde and Jenkins (1973), <em>Journal of Verbal Learning and Verbal Behavior, 12</em>, 471–480; Barclay, Bransford, Franks, McCarrell and Nitsch (1974), the same journal, <em>13</em>, 471–481; Duncker (1945), <em>Psychological Monographs, 58</em>; Adamson (1952), <em>Journal of Experimental Psychology, 44</em>, 288–291.</p>"};
+const PUB = {"candle": "In the old studies, only about four people in ten solved it when the box was full of pins, and most people solved it when the box was shown empty. (These figures are from a summary of Duncker, 1945, and Adamson, 1952. The lab could not open the papers themselves.)", "tea": "Kenneth Kotovsky and Herbert Simon report that some story versions of this puzzle took people up to 16 times as long as the plain version with rings.", "bj": "In their experiment, 52 students heard a paragraph like this one. Those who were told the title first rated their understanding 4.5 out of 7 and remembered 5.8 of its 18 ideas. Those who got no title rated it 2.3 and remembered 2.8. Those who were told the title after the paragraph did no better than those with no title: 2.1 and 2.7. So the title helps only if we have it while we are reading.", "recht": "They took 64 students of Class 7 and 8. Half were good readers and half were poor readers, and in each half some knew a lot about baseball and some knew little. Everybody read 625 words about half an inning of a baseball game and then acted it out on a model field. The poor readers who knew baseball scored 27.5 out of 40. The good readers who did not know baseball scored 18.8. Knowing the game mattered much more than being a good reader.", "wason": "With letters and numbers, usually fewer than 10 people in 100 get it right. With a rule about the legal age for drinking beer, about 74 in 100 get it right (Griggs and Cox).", "hj": "People heard 24 words, one every three seconds, and did a small task on each word. Those who rated how pleasant each word was remembered clearly more words than those who checked the words for certain letters. They even remembered as many as people who had been told to learn the list. (The lab could not open this paper itself, so it gives no numbers.)", "penny": "Of 36 people, only 15 picked the right drawing from a set of 15. In another group of 20 who were asked to draw the coin from memory, half got three or fewer of its eight features in the right place.", "barclay": "People read \"The man lifted the piano\" or \"The man tuned the piano\". Later, the hint \"something heavy\" brought the piano back better for those who had read about lifting, and \"something with a nice sound\" worked better for those who had read about tuning. (The lab could not open this paper itself, so it gives no numbers.)", "gick": "Without any story, fewer than 10 people in 100 think of this answer. When people had read and memorised the general's story, but nobody told them it would help, 3 of 15 found the answer. When they were told to use the story, 11 of 12 found it.", "picword": "When people name pictures aloud in the laboratory, a wrong word printed on the picture slows them down by something like 40 to 70 milliseconds on every picture (Starreveld and La Heij, 2017).", "sources": "<p class=\"src\">Willingham, D. T. (2009; 2nd ed. 2021). <em>Why Don't Students Like School?</em> Jossey-Bass. When the first twelve stations were built, the lab did not have the book. On 22 November 2026 the whole second edition was read in a Kindle copy, from the Introduction to the Conclusion, and the page numbers in this guide are the page numbers that Kindle shows. Numbers read from the book's graphs were read by eye.</p><p class=\"src\">Read in full for the stations added on 22 November 2026: Ericsson, Krampe and Tesch-Römer (1993), <em>Psychological Review, 100</em>, 363–406. Buswell (1922), <em>Fundamental Reading Habits</em>. Yeager and others (2019), <em>Nature, 573</em>, 364–369. OECD (2019), <em>PISA 2018 Results, Volume III</em>, executive summary. Dickens and Flynn (2001), <em>Psychological Review, 108</em>, 346–369. MacLeod, Jackson and Palmer (1986), <em>Intelligence, 10</em>, 141–151. Cepeda, Pashler, Vul, Wixted and Rohrer (2006), <em>Psychological Bulletin, 132</em>, 354–380, and Rohrer, Taylor, Pashler, Wixted and Cepeda (2005), <em>Applied Cognitive Psychology, 19</em>, 361–374, both as the authors' manuscripts. Green, Rao and Rothschild (2019), <em>Management Science, 65</em>, 2820–2831, as the 2016 draft.</p><p class=\"src\">Read as a summary only: Rogers and Monsell (1995), <em>Journal of Experimental Psychology: General, 124</em>, 207–231. Green, Myerson and Ostaszewski (1999), <em>Behavioural Processes, 46</em>, 89–96. Ellis, Semb and Cole (1998), <em>Contemporary Educational Psychology, 23</em>, 419–433. Bahrick and Hall (1991), <em>Journal of Experimental Psychology: General, 120</em>, 20–33. Rosinski, Golinkoff and Kukish (1975), <em>Child Development, 46</em>, 247–253. Van Overschelde and Healy (2001), <em>Journal of Experimental Psychology: Learning, Memory, and Cognition, 27</em>, 1160–1171. Pashler, McDaniel, Rohrer and Bjork (2008), <em>Psychological Science in the Public Interest, 9</em>, 105–119. Newton and Salvi (2020), <em>Frontiers in Education, 5</em>, 602451. Haworth and others (2010), <em>Molecular Psychiatry, 15</em>, 1112–1120.</p><p class=\"src\">Not opened, so the station gives the book's account or a later paper's: Gignac (2015), <em>Intelligence, 48</em>, 85–95. Kyllonen and Christal (1990), <em>Intelligence, 14</em>, 389–433. Bower and Clark (1969), <em>Psychonomic Science, 14</em>, 181–182. Pietschnig and Voracek (2015), <em>Perspectives on Psychological Science, 10</em>, 282–306.</p><p class=\"src\">Bransford, J. D., &amp; Johnson, M. K. (1972). Contextual prerequisites for understanding. <em>Journal of Verbal Learning and Verbal Behavior, 11</em>, 717–726. Full text read. Numbers from Experiment II, Table 2.</p><p class=\"src\">Recht, D. R., &amp; Leslie, L. (1988). Effect of prior knowledge on good and poor readers' memory of text. <em>Journal of Educational Psychology, 80</em>, 16–20. Full text read. Numbers from Table 1.</p><p class=\"src\">Griggs, R. A., &amp; Cox, J. R. (1983). The effects of problem content and negation on Wason's selection task. <em>Quarterly Journal of Experimental Psychology, 35A</em>, 519–533. Full text read. It reports the 74 percent from their 1982 paper and \"usually less than 10 percent\" for the letters-and-numbers version. The 1982 paper itself was read as an abstract only.</p><p class=\"src\">Nickerson, R. S., &amp; Adams, M. J. (1979). Long-term memory for a common object. <em>Cognitive Psychology, 11</em>, 287–307. Full text read. Experiments I and V.</p><p class=\"src\">Gick, M. L., &amp; Holyoak, K. J. (1980). Analogical problem solving. <em>Cognitive Psychology, 12</em>, 306–355. Full text read. Numbers from Experiment IV.</p><p class=\"src\">Kotovsky, K., &amp; Simon, H. A. (1990). What makes some problems really hard. <em>Cognitive Psychology, 22</em>, 143–183. Full text read. It reports the \"16 times\" figure from Kotovsky, Hayes and Simon (1985), which was not opened.</p><p class=\"src\">Starreveld, P. A., &amp; La Heij, W. (2017). Picture-word interference is a Stroop effect. <em>Psychonomic Bulletin &amp; Review, 24</em>, 721–733. Full text read.</p><p class=\"src\">Not opened, and so given without numbers or marked as second-hand: Hyde and Jenkins (1973), <em>Journal of Verbal Learning and Verbal Behavior, 12</em>, 471–480; Barclay, Bransford, Franks, McCarrell and Nitsch (1974), the same journal, <em>13</em>, 471–481; Duncker (1945), <em>Psychological Monographs, 58</em>; Adamson (1952), <em>Journal of Experimental Psychology, 44</em>, 288–291.</p>"};
 
 /* ============================================================
    Chapter 1 · Thinking is slow, and it takes effort
@@ -1726,10 +1750,1148 @@ const S_NAMES = {
   oneLine: r => ({ k: 'Pictures', v: Number.isFinite(r.diffMs - r.sameMs) ? `+${Math.max(0, Math.round(r.diffMs - r.sameMs))} ms` : '–', d: 'slower when the word disagrees' })
 };
 
-const STATIONS = {}; for (const s of [S_CANDLE, S_RINGS, S_LETTERS, S_TITLE, S_MATCH, S_CARDS, S_WORDS, S_SEEN, S_CUES, S_RAYS, S_CODE, S_NAMES]) STATIONS[s.id] = s;
-const STATION_ORDER = ['candle', 'rings', 'letters', 'title', 'match', 'cards', 'words', 'seen', 'cues', 'rays', 'code', 'names'];
-const PARTS = { 1: 'Thinking is slow, and it takes effort', 2: 'We need to know things before we can think about them', 3: 'We remember what we think about', 4: 'We understand new things through things we know', 5: 'Practice' };
-const PART_CHAPTER = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5 };
+/* ============================================================
+   Added 22 November 2026 · the rest of the book
+   These stations were written with the second edition open
+   (Kindle), so each one names the page it comes from.
+   ============================================================ */
+/** A run of multiple-choice questions. items: {q, body, right, wrong[], why}. */
+async function quiz(lab, items, eyebrow = 'Question') {
+  const ans = [], picks = [];
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    const a = await lab.choose(q(`${eyebrow} ${i + 1} of ${items.length}`, it.q, it.body || ''), shuffle([{ v: 1, l: it.right }, ...it.wrong.map(w => ({ v: 0, l: w }))]));
+    ans.push(a.value); picks.push(a.label);
+  }
+  return { ans, picks, correct: sum(ans) };
+}
+const quizList = (items, r) => rlist(items.map((it, i) => ({ b: tick(r.ans[i]), cls: r.ans[i] ? 'good' : 'bad', t: `${it.q} <strong>${it.right}.</strong> ${it.why || ''}` })));
+const alnum = s => String(s || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+const digitsOnly = s => String(s || '').replace(/[^0-9]/g, '');
+/** Show characters one at a time. */
+async function flashSeq(lab, chars, on = 850, off = 200) {
+  for (const ch of chars) { lab.show(`<div class="bigword">${ch}</div>`); await lab.wait(on); lab.show('<div class="bigword"> </div>'); await lab.wait(off); }
+}
+/** The browser's own voice. If there is none, the station shows the words in print. */
+const Speak = {
+  ok() { try { return 'speechSynthesis' in window && speechSynthesis.getVoices().length > 0; } catch (e) { return false; } },
+  warm() { try { speechSynthesis.getVoices(); } catch (e) { } },
+  say(text) { return new Promise(res => { let over = false; const end = () => { if (!over) { over = true; res(); } }; try { const u = new SpeechSynthesisUtterance(text); u.rate = .9; u.onend = end; u.onerror = end; speechSynthesis.speak(u); } catch (e) { end(); } setTimeout(end, 2600); }); },
+  stop() { try { speechSynthesis.cancel(); } catch (e) { } }
+};
+Speak.warm();
+
+/* ============================================================
+   Chapter 1, continued
+   ============================================================ */
+const SUM_RECALL = [['What colour is a polar bear?', 'White', ['Brown', 'Black', 'Grey']], ['How many days are there in a week?', 'Seven', ['Five', 'Six', 'Eight']], ['Which is the capital of India?', 'New Delhi', ['Mumbai', 'Kolkata', 'Chennai']]];
+const S_SUM = {
+  id: 'sum', part: 1, chapter: 1, name: 'A question and a sum', short: 'Sum', minutes: 2, tag: 'p1', tagText: 'Memory is fast',
+  blurb: 'Three very easy questions, and then one multiplication to do in your head. The page times both.',
+  intro: 'First three questions that a child can answer. Then one multiplication. Do the multiplication in your head. Don\'t write anything.',
+  async run(lab) {
+    const res = { recall: [] };
+    for (let i = 0; i < SUM_RECALL.length; i++) {
+      const [qq, right, wrong] = SUM_RECALL[i];
+      const a = await lab.choose(q(`Question ${i + 1} of 3`, qq), shuffle([{ v: 1, l: right }, ...wrong.map(w => ({ v: 0, l: w }))]), { row: true });
+      res.recall.push({ ok: a.value, ms: a.ms });
+    }
+    res.recallMs = median(res.recall.map(x => x.ms));
+    const s = await lab.number(q('Now a sum', '18 × 7 = ?', 'Do it in your head. Take the time you need.'), { placeholder: 'Your answer', short: true });
+    res.sumMs = s.ms; res.sumAns = s.value; res.sumOk = s.value === 126;
+    res.how = (await lab.choose(q('One question', 'How did you do 18 × 7?'), [{ v: 'steps', l: 'In steps, such as 10 × 7 and 8 × 7, and then I added' }, { v: 'school', l: 'The school way: 8 × 7 is 56, write 6, carry 5' }, { v: 'knew', l: 'I knew the answer already' }, { v: 'other', l: 'Some other way' }])).value;
+    return res;
+  },
+  report(r) {
+    const times = Math.round(r.sumMs / Math.max(1, r.recallMs));
+    return {
+      headline: `An easy question: ${fmtSec(r.recallMs)}. 18 × 7: ${fmtSec(r.sumMs)}${r.sumOk ? '' : ', and the answer was not 126'}.`,
+      blocks: pairBox([{ v: fmtSec(r.recallMs), k: 'To answer from memory', d: 'middle of the three questions', cls: 'steel' }, { v: fmtSec(r.sumMs), k: 'To work out 18 × 7', d: r.sumOk ? '126 is right' : `you typed ${r.sumAns}, it is 126`, cls: 'red' }]),
+      lines: [
+        `You did not think about the colour of a polar bear. The answer was simply there. It came from long-term memory, and reading the question took longer than finding the answer.`,
+        `18 × 7 was different. ${times >= 2 ? `It took you about ${times} times as long.` : 'For you it was almost as quick, so maybe you knew the answer already.'} You had to hold numbers in working memory while you worked: 56, keep the 6, carry the 5, 7 and 5 is 12.`,
+        `But look at what you did not have to do. You did not have to work out 8 × 7, and you did not have to invent a way to multiply. Both came from memory. In the book Willingham lists the steps of this sum to show that <strong>even when we think, most of the work is done by memory</strong> (chapter 1, page 13).`,
+        `Now compare this with the three rings. For the rings you had no stored method, so every move had to be thought out. A problem is easy when the facts and the method are already in long-term memory. It is hard when working memory has to do everything.`
+      ]
+    };
+  },
+  metrics: r => ({ recall_ms: Math.round(r.recallMs), sum_ms: r.sumMs, sum_ok: r.sumOk ? 1 : 0, how: r.how }),
+  score: () => null, s1: r => r.sumMs >= 2 * r.recallMs,
+  oneLine: r => ({ k: 'Sum', v: fmtSec(r.sumMs), d: `18 × 7, against ${fmtSec(r.recallMs)} for an easy question` })
+};
+
+/* ============================================================
+   Chapter 2, continued
+   ============================================================ */
+const GAP_FULL = 'Rohan said that his manager, who is the person he reports to at his office, and who decides how much Rohan is paid, was coming to Rohan\'s home on Saturday evening to eat the evening meal. Rohan wanted the manager to think well of him. Rohan had bought a pressure cooker a few days before and had not cooked in it yet. People often make mistakes when they use a machine for the first time, and food cooked with a mistake does not taste good. If the food did not taste good, the manager might think less well of Rohan. So Rohan said he should not use the cooker on that day.';
+const GAP_LONG = 'The old watchman, who had been a sailor for thirty years before he came to our college, and who still kept in the small wooden cabin on the hostel roof a brass compass that never pointed quite north because of the iron water tank standing beside it, which he would explain to anybody who climbed up there by saying that the tank pulled the needle, though few of us believed him, since everybody knew he also kept a small bottle hidden in a hole in the wall near that same compass, liked to say that the stars were more honest than any instrument.';
+const S_GAPS = {
+  id: 'gaps', part: 2, chapter: 2, name: 'What the writer left out', short: 'Left out', minutes: 3, tag: 'p2', tagText: 'Knowledge fills the gaps',
+  blurb: 'Three sentences. The first two are short and leave something out. The third is long and leaves nothing out. One question on each.',
+  intro: 'You will read three sentences, one at a time, and answer one question about each. Read each sentence only once.',
+  async run(lab) {
+    const res = {};
+    const a = await lab.choose(q('Sentence 1', 'Why does Rohan say this?') + passage('"My manager is coming home for dinner on Saturday," said Rohan. "I should not try the new pressure cooker that day."'), shuffle([{ v: 1, l: 'He may spoil the food the first time, and he wants the manager to think well of him' }, { v: 0, l: 'The manager does not like food from a pressure cooker' }, { v: 0, l: 'A pressure cooker is too small for a dinner' }]).concat([{ v: 0, l: 'The sentence does not say why, so we can\'t know' }]));
+    res.q1 = a.value; res.q1Ms = a.ms;
+    res.fullRating = (await lab.scale(q('The same thing, with nothing left out', 'How was this to read?') + passage(GAP_FULL), { min: 1, max: 7, left: 'very boring', right: 'very good' })).value;
+    const b = await lab.choose(q('Sentence 2', 'What did the speaker understand at that moment?') + passage('"I always thought his house was on a lake, until he told me that at high tide the water comes up to his gate."'), shuffle([{ v: 1, l: 'The house is by the sea, not on a lake' }, { v: 0, l: 'The lake is much bigger than he thought' }, { v: 0, l: 'The house is far from the water' }]).concat([{ v: 0, l: 'I don\'t see what changed' }]));
+    res.q2 = b.value;
+    await lab.continue(q('Sentence 3', 'Read this once, at your normal speed.') + passage(GAP_LONG), { button: 'I have read it' });
+    const c = await lab.choose(q('Sentence 3', 'According to the watchman, why did the compass not point north?'), shuffle([{ v: 1, l: 'The iron water tank pulled the needle' }, { v: 0, l: 'The compass was thirty years old' }, { v: 0, l: 'The cabin was made of wood' }, { v: 0, l: 'The stars pulled the needle' }]));
+    res.q3 = c.value;
+    res.hard = (await lab.scale(q('Sentence 3', 'How hard was that sentence to follow?'), { min: 1, max: 7, left: 'very easy', right: 'very hard' })).value;
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `The two short sentences: ${r.q1 + r.q2} of 2 understood. The long sentence felt ${r.hard} of 7 hard.`,
+      blocks: rlist([{ b: tick(r.q1), cls: r.q1 ? 'good' : 'bad', t: `The pressure cooker. You answered in ${fmtSec(r.q1Ms)}. The sentence says nothing about spoiling food or about impressing a manager. You supplied both.` }, { b: tick(r.q2), cls: r.q2 ? 'good' : 'bad', t: 'The house. A lake has no tide that we can see. Only the sea does. The sentence leaves that fact out, and without it the sentence means nothing.' }, { b: tick(r.q3), cls: r.q3 ? 'good' : 'bad', t: `The watchman. The answer was the iron water tank. You rated the full version of the pressure cooker ${r.fullRating} of 7 to read.` }]),
+      lines: [
+        `Writers leave things out all the time. They have to. You saw what happens when a writer leaves nothing out: the pressure cooker became a paragraph that nobody wants to read. So every writer guesses what the reader already knows, and writes only the rest.`,
+        `That works only if we do know it. The lake sentence is the book's example (chapter 2, page 31). Somebody who does not know that lakes have no tides reads every word and gets nothing.`,
+        `The third sentence shows the other limit. Nothing was left out, and every word was easy, but there were too many things to hold at one time. By the end, the beginning had gone. Willingham uses a long sentence from <em>Moby-Dick</em> for this (page 32). This one was written for the lab.`,
+        `So knowledge does two jobs when we read. <strong>It fills the gaps that the writer left, and it ties things together so that working memory does not overflow.</strong> When a textbook page feels hard, check which of the two is the trouble: a fact you were expected to know, or too many new things in one line.`
+      ]
+    };
+  },
+  metrics: r => ({ cooker_ok: r.q1, cooker_ms: r.q1Ms, full_rating: r.fullRating, tide_ok: r.q2, long_ok: r.q3, long_hard: r.hard }),
+  score: () => null, s1: r => r.q1 === 1 && r.q2 === 1,
+  oneLine: r => ({ k: 'Left out', v: `${r.q1 + r.q2} of 2`, d: `gaps filled; long sentence ${r.hard} of 7 hard` })
+};
+
+const PARA_TEXT = {
+  chai: {
+    name: 'masala chai', text: 'Masala chai is tea that is boiled together with milk, sugar and spices. Cooks have argued for a long time about whether the tea leaves should go into the pan before the milk or after it. Some say that milk added early stops the leaves from giving out their full colour. To settle the question, we would first have to say exactly what we want from a cup of chai.',
+    qs: [['What was the argument about?', 'Whether the leaves go in before the milk or after it', ['How much sugar to add', 'Which spices to use']], ['What is said about milk that is added early?', 'It stops the leaves from giving their full colour', ['It makes the tea too sweet', 'It makes the tea boil over']], ['What has to be done first to settle the question?', 'Say exactly what we want from the cup', ['Ask a hundred cooks', 'Measure how hot the milk is']]]
+  },
+  motor: {
+    name: 'motor learning', text: 'Motor learning is the change in our ability to make skilled movements that comes with practice. Researchers have argued for a long time about whether a sequence of movements is learned by a separate system in the brain or by the system that learns single movements. Some say that practice on a sequence changes parts of the brain that single movements do not change. To settle the question, we would first have to say exactly what is learned when a sequence is learned.',
+    qs: [['What was the argument about?', 'Whether sequences are learned by a separate system in the brain', ['How many hours of practice are needed', 'Which muscles learn fastest']], ['What is said about practice on a sequence?', 'It changes parts of the brain that single movements do not change', ['It makes single movements slower', 'It has no effect on the brain']], ['What has to be done first to settle the question?', 'Say exactly what is learned when a sequence is learned', ['Test a hundred athletes', 'Measure the speed of the movement']]]
+  }
+};
+const S_PARAS = {
+  id: 'paras', part: 2, chapter: 2, name: 'Two paragraphs with the same shape', short: 'Two paragraphs', minutes: 4, tag: 'p2', tagText: 'Knowledge helps new knowledge stay',
+  blurb: 'Read two short paragraphs, one about chai and one about how the brain learns movements. Then say which one you will remember, and take a short test.',
+  intro: 'Two short paragraphs will appear, each for 30 seconds. Read each one the way you read a page that you have to remember. After both, there are a few questions.',
+  async run(lab) {
+    const res = { order: shuffle(['chai', 'motor']) };
+    for (const k of res.order) {
+      await lab.continue(q('Next paragraph', `About ${PARA_TEXT[k].name}`, 'It stays for 30 seconds.'), { button: 'Show the paragraph' });
+      await showFor(lab, `<span class="q-eyebrow">About ${PARA_TEXT[k].name}</span>` + passage(PARA_TEXT[k].text), 30000);
+    }
+    res.predict = (await lab.choose(q('Before the test', 'Which paragraph will you remember better tomorrow?'), [{ v: 'chai', l: 'The one about chai' }, { v: 'motor', l: 'The one about motor learning' }, { v: 'same', l: 'Both the same' }])).value;
+    for (let k = 0; k < 3; k++) { const a = randInt(13, 48), b = randInt(12, 39); await lab.number(q(`A short break · sum ${k + 1} of 3`, `${a} + ${b} = ?`, 'Do it in your head.'), { placeholder: 'Your answer', short: true }); }
+    for (const k of shuffle(['chai', 'motor'])) {
+      let n = 0;
+      for (let i = 0; i < 3; i++) { const [qq, right, wrong] = PARA_TEXT[k].qs[i]; n += (await lab.choose(q(`From the paragraph about ${PARA_TEXT[k].name} · ${i + 1} of 3`, qq), shuffle([{ v: 1, l: right }, ...wrong.map(w => ({ v: 0, l: w }))]))).value; }
+      res[k] = n;
+    }
+    return res;
+  },
+  report(r) {
+    const d = r.chai - r.motor;
+    return {
+      headline: `Chai: ${r.chai} of 3. Motor learning: ${r.motor} of 3.`,
+      blocks: barRows([{ label: 'About chai', frac: r.chai / 3, lab: `<b>${r.chai}</b> of 3`, cls: 'steel' }, { label: 'About motor learning', frac: r.motor / 3, lab: `<b>${r.motor}</b> of 3`, cls: 'red' }]),
+      lines: [
+        `Look at the two paragraphs again in your mind. They have the same shape, sentence by sentence: what the thing is, an old argument about it, what one side says, and what we must do first to settle it. ${d > 0 ? 'You kept more of the chai.' : d === 0 ? 'You kept both equally. With three easy questions and a wait of one minute, that happens. The book asks about tomorrow, and tomorrow the difference is bigger.' : 'You kept more of the motor learning, which is unusual. Three questions is a small test.'}`,
+        `${r.predict === 'chai' ? 'You guessed that the chai would stay better, and that is what the book says.' : 'The book says the chai stays better.'} Every sentence about chai lands on something we already have: the pan, the milk, the colour of the tea. The sentences about motor learning have nothing to land on, so they have to be held as bare words.`,
+        `In the book the pair is a paragraph on motor learning and a paragraph on chiffon cake (chapter 2, pages 43 and 44). Willingham also describes experiments where people who knew a lot about a subject, such as football, remembered much more of a new story about it the next day.`,
+        `<strong>So the more we know about a subject, the easier it is to learn more about it.</strong> This is why the first month of a new subject feels so slow. There is nothing yet for the new facts to hold on to.`
+      ]
+    };
+  },
+  metrics: r => ({ chai: r.chai, motor: r.motor, predicted: r.predict, first: r.order[0] }),
+  score: () => null, s1: r => r.chai === r.motor ? null : r.chai > r.motor,
+  oneLine: r => ({ k: 'Two paragraphs', v: `${r.chai} · ${r.motor}`, d: 'chai and motor learning, of 3' })
+};
+
+const richSim = months => { let a = 10000, b = 9000; for (let m = 0; m < months; m++) { a += 500 * (a / 100000); b += 500 * (b / 100000); } return [Math.round(a), Math.round(b)]; };
+const S_RICH = {
+  id: 'rich', part: 2, chapter: 2, name: 'Two students and 500 new facts a month', short: 'The gap', minutes: 2, tag: 'p2', tagText: 'Knowledge grows on knowledge',
+  blurb: 'Asha knows a little more than Bina. Both read the same things every month. Guess what happens to the gap, and then move the slider.',
+  intro: 'This station is a small calculation with made-up numbers, like the table in the book. First you guess. Then you move a slider and watch.',
+  async run(lab) {
+    const res = {};
+    res.guess = (await lab.choose(q('Your guess', 'After five years, what has happened to the gap between them?', 'Asha has 10,000 facts in memory. Bina has 9,000. Every month both of them meet the same 500 new facts. Asha keeps 10 of every 100, and Bina keeps 9 of every 100, because new facts stay better when we already know more. As a person learns more, the share they keep goes up in the same way.'), [{ v: 'smaller', l: 'The gap is smaller than 1,000' }, { v: 'same', l: 'The gap is still 1,000' }, { v: 'bigger', l: 'The gap is bigger than 1,000' }])).value;
+    res.months = await lab.slider(q('Now move the slider', 'How many months have passed?', 'Both students meet the same 500 new facts every month.'), { min: 0, max: 120, step: 1, value: 0, button: 'I have seen it', readout: v => { const [a, b] = richSim(v); return `${v} months <small>(${(v / 12).toFixed(1)} years)</small><br>Asha ${a.toLocaleString('en-IN')} · Bina ${b.toLocaleString('en-IN')}<br><small>gap</small> ${(a - b).toLocaleString('en-IN')}`; } });
+    return res;
+  },
+  report(r) {
+    const [a5, b5] = richSim(60), [a10, b10] = richSim(120);
+    return {
+      headline: `You guessed "${r.guess}". The gap goes from 1,000 to ${(a5 - b5).toLocaleString('en-IN')} in five years.`,
+      blocks: pairBox([{ v: '1,000', k: 'Gap at the start', cls: 'steel' }, { v: (a5 - b5).toLocaleString('en-IN'), k: 'Gap after 5 years', cls: 'red' }, { v: (a10 - b10).toLocaleString('en-IN'), k: 'Gap after 10 years', cls: 'red' }]),
+      lines: [
+        `Nobody was lazy in this story. Both students read exactly the same things. The gap grew only because the one who knew more kept a little more of what she read.`,
+        `These numbers are made up, and so are the numbers in the book's table (chapter 2, page 45). In the book's table the gap goes from 1,000 to 1,047 in ten months. The lab uses the same rule and lets it run for longer.`,
+        `What is not made up is the idea behind it. The last station showed it: new facts stay better when they have something to hold on to. <strong>So knowledge grows on knowledge, and a small lead becomes a bigger one.</strong>`,
+        `It works in the other direction as well. Every chapter we learn properly makes the next chapter cheaper to learn. That is the best reason for not leaving gaps in the early chapters of a subject.`
+      ]
+    };
+  },
+  metrics: r => ({ guess: r.guess, months_seen: r.months }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'The gap', v: r.guess, d: 'your guess; the gap grows' })
+};
+
+/* ============================================================
+   Chapter 3, continued
+   ============================================================ */
+const STUCK_TRIED = ['The 12 digits of your Aadhaar number', 'The IFSC code of your bank branch', 'Your Class 10 board roll number', 'The second line of the National Pledge', 'The number plate of your family\'s vehicle', 'The Wi-Fi password at home'];
+const STUCK_FREE = ['One line of dialogue from a film you like', 'The tune of an advertisement from your childhood', 'How the story of the thirsty crow ends', 'The rules of ludo', 'The words of the first two lines of a film song', 'What your favourite cartoon character looked like'];
+const S_STUCK = {
+  id: 'stuck', part: 3, chapter: 3, name: 'What stayed and what did not', short: 'What stayed', minutes: 2, tag: 'p3', tagText: 'Meeting it often is not enough',
+  blurb: 'Twelve things. For each one, say if you can bring it to mind right now, without looking anywhere.',
+  intro: 'Twelve things will appear, one at a time. For each one, try for a moment to bring it to mind. Then say if you could. Nobody checks, so be honest.',
+  async run(lab) {
+    const items = shuffle([...STUCK_TRIED.map(t => ({ t, tried: 1 })), ...STUCK_FREE.map(t => ({ t, tried: 0 }))]), res = { rows: [] };
+    for (let i = 0; i < items.length; i++) {
+      const a = await lab.choose(q(`${i + 1} of ${items.length}`, items[i].t, 'Can you bring it to mind right now?'), [{ v: 1, l: 'Yes, I have it' }, { v: 0, l: 'No' }], { row: true });
+      res.rows.push({ t: items[i].t, tried: items[i].tried, got: a.value });
+    }
+    res.tried = res.rows.filter(x => x.tried && x.got).length; res.free = res.rows.filter(x => !x.tried && x.got).length;
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `Things you have looked at or typed many times: ${r.tried} of 6. Things you never tried to learn: ${r.free} of 6.`,
+      blocks: barRows([{ label: 'Met many times, needed often', frac: r.tried / 6, lab: `<b>${r.tried}</b> of 6`, cls: 'red' }, { label: 'Never tried to learn', frac: r.free / 6, lab: `<b>${r.free}</b> of 6`, cls: 'steel' }]),
+      lines: [
+        `Nobody ever sat down to learn a film dialogue or the rules of ludo. ${r.free > r.tried ? 'And still they are there, more surely than a number you have typed fifty times.' : 'For you the numbers and codes came back as well, so maybe you did learn them on purpose at some time.'}`,
+        `Willingham draws two circles like this from his own life (chapter 3, pages 61 and 62). In one he puts things he has paid attention to again and again and never kept, such as where his keys are. In the other he puts things he never tried to learn and can't forget, such as an advertisement tune from the 1970s. He asks the reader to do the same. The twelve things here are the lab's own.`,
+        `So paying attention is needed, but it is not enough. Wanting to remember is not enough. Meeting a thing many times is not enough. The next stations show what is: <strong>what we remember depends on what we were thinking about at that moment.</strong> A film scene makes us think about what it means. A number on a card does not.`
+      ]
+    };
+  },
+  metrics: r => ({ tried_kept: r.tried, free_kept: r.free }),
+  score: () => null, s1: r => r.free === r.tried ? null : r.free > r.tried,
+  oneLine: r => ({ k: 'What stayed', v: `${r.tried} · ${r.free}`, d: 'codes and numbers, and things never studied, of 6' })
+};
+
+const STAY_ITEMS = [
+  { q: 'A class is studying the Dandi salt march. To make it real, the teacher has the class boil sea water for the whole period to make salt. What will most students remember next month?', right: 'How long the water took to boil and who spilled it', wrong: ['Why the salt law mattered to ordinary people', 'The route of the march'], why: 'They thought about the stove for forty minutes and about the salt law for one. The book\'s case is a class that baked biscuits in a unit on escaping slaves (page 57).' },
+  { q: 'Homework: show the plot of a story as a diagram, using only drawings and no words. What does the student think about for most of the time?', right: 'How to draw a palace and a horse', wrong: ['How one event in the story leads to the next', 'The message of the story'], why: 'This happened to Willingham\'s nephew. His daughter did the same task in words, and it worked (page 67).' },
+  { q: 'To make ratios interesting, a teacher sets a problem about the number of likes on two Instagram posts. Where does the student\'s mind go?', right: 'To Instagram', wrong: ['To ratios', 'To the teacher'], why: 'The thing that was added to make the sum interesting is the thing they think about (page 68).' },
+  { q: 'Groups have to present the revolt of 1857 as slides. One group spends two evenings on fonts, colours and animations. What has that group learned?', right: 'How to use the slide software', wrong: ['The causes of the revolt', 'How to work in a group'], why: 'In the book it is a project on the Spanish Civil War (page 84).' },
+  { q: 'A teacher drops a small piece of sodium into water. There is a flash and a bang, and the class cheers. A week later, what do most students remember?', right: 'The bang', wrong: ['Why sodium reacts with water', 'The equation for the reaction'], why: 'A demonstration is remembered for what it made us think about. If the "why" came after the bang, in one sentence, it is gone (page 85).' },
+  { q: 'Which of these makes us think about what Newton\'s third law means?', right: 'Explain why a gun moves back when it is fired', wrong: ['Copy the law five times', 'Write the law in good handwriting with three colours', 'Make a poster of the law'], why: 'Only this one can\'t be done without thinking about the meaning.' }
+];
+const S_STAY = {
+  id: 'stay', part: 3, chapter: 3, name: 'What will the class remember?', short: 'Remembered', minutes: 3, tag: 'p3', tagText: 'What did they think about?',
+  blurb: 'Six lessons and homework tasks. For each one, say what will stay in the student\'s memory.',
+  intro: 'Six short cases from classrooms. In each one a teacher has planned something with a good reason. You have to say what the students will remember. Ask one question each time: what are they thinking about while they do it?',
+  async run(lab) { return quiz(lab, STAY_ITEMS, 'Case'); },
+  report(r) {
+    return {
+      headline: `${r.correct} of 6 cases read the way the book reads them.`,
+      blocks: quizList(STAY_ITEMS, r),
+      lines: [
+        `Every one of these teachers had a good intention: make it real, make it fun, make it relevant. In each case the students did think hard. They thought about the wrong thing.`,
+        `The book's rule for this is one sentence: <strong>memory is the residue of thought</strong> (residue is what is left behind). So Willingham asks teachers to look at every lesson plan and ask, "What will the students think about during this?"`,
+        `We can ask the same about our own study. Making neat notes makes us think about neatness. Colouring lines makes us think about which line to colour. Solving a problem with the book shut makes us think about the idea, and that is the one that stays.`
+      ]
+    };
+  },
+  metrics: r => ({ correct: r.correct, answers: r.ans.join('') }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Remembered', v: `${r.correct} of 6`, d: 'classroom cases' })
+};
+
+const COIN_P = ['1 in 2', '1 in 4', '1 in 8', '1 in 16', '1 in 32', '1 in 64', '1 in 128', '1 in 256', '1 in 512', '1 in 1,024'];
+const S_COIN = {
+  id: 'coin', part: 3, chapter: 3, name: 'A coin that always lands heads', short: 'The coin', minutes: 3, tag: 'p3', tagText: 'The question comes first',
+  blurb: 'The page says its coin lands heads every time. It tosses the coin. After each toss, say if you believe it yet.',
+  intro: 'The page makes a claim about a coin and then tosses it, one toss at a time. After every toss you say if you believe the claim. There is no right moment. Stop when you are convinced.',
+  async run(lab) {
+    const res = { heads: null };
+    await lab.continue(q('The claim', 'This coin lands heads every time.', 'You don\'t have to believe it. The page will toss the coin, and you watch.'), { button: 'Toss it' });
+    for (let n = 1; n <= 10; n++) {
+      lab.show(`<div class="coin spin"><span>?</span></div>`); await lab.wait(700);
+      const a = await lab.choose(`<span class="q-eyebrow">Toss ${n}</span><div class="coin"><span>H</span></div><h2 class="q-title">Heads. ${n === 1 ? 'Do you believe the claim now?' : `That is ${n} heads in a row. Do you believe it now?`}</h2>`, [{ v: 0, l: n === 10 ? 'Still not convinced' : 'Not yet. Toss again' }, { v: 1, l: 'Yes, now I believe it' }], { row: true });
+      if (a.value) { res.heads = n; break; }
+    }
+    const b = await lab.choose(q('The same question in another place', 'Does the advertisement work?', 'A toothpaste company shows its advertisement to 100 people and does not show it to another 100. Later, 52 people in the first group buy the toothpaste, and 48 in the second group.'), [{ v: 'yes', l: 'Yes. 52 is more than 48' }, { v: 'no', l: 'No. It makes no difference' }, { v: 'cant', l: 'We can\'t say yet. One group had to come out higher' }]);
+    res.ad = b.value;
+    return res;
+  },
+  report(r) {
+    const k = r.heads;
+    return {
+      headline: k ? `You believed the claim after ${plural(k, 'head')} in a row.` : 'Ten heads in a row did not convince you.',
+      blocks: `<div class="cointable">${COIN_P.map((p, i) => `<div class="${k === i + 1 ? 'me' : ''}"><b>${i + 1}</b><span>${p}</span></div>`).join('')}</div><p class="q-note">Top: heads in a row. Bottom: how often a fair coin does that.</p>`,
+      lines: [
+        `After one head nobody is convinced, because a fair coin gives a head half of the time. After a hundred heads everybody is convinced. So somewhere in between there is a point where we change our mind. ${k ? `Yours was at ${k}. A fair coin gives ${plural(k, 'head')} in a row ${COIN_P[k - 1]} times.` : 'A fair coin gives ten heads in a row 1 time in 1,024, and you still wanted more.'}`,
+        `Scientists have agreed on a point of their own. If a fair coin would give the result less often than 1 time in 20, they stop calling it luck. That falls between four and five heads.`,
+        `${r.ad === 'cant' ? 'You saw that the toothpaste question is the same question.' : 'The toothpaste question is the same question.'} One group had to come out higher, as a coin has to land on one side. The real question is how much higher it must be before we stop calling it luck. 52 against 48 is not enough.`,
+        `This is how Willingham begins a statistics lesson (chapter 3, pages 76 to 80, with this table). He spends ten or fifteen minutes only on making the question clear, and gives the formula after that. <strong>We understand and remember an answer much better when we first felt the question.</strong> A good film does the same: it sets up the conflict before anything is solved. So before reading a chapter, find the question that the chapter answers.`
+      ]
+    };
+  },
+  metrics: r => ({ convinced_at: r.heads === null ? '' : r.heads, advert: r.ad }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'The coin', v: r.heads ? plural(r.heads, 'head') : 'never', d: 'in a row before you believed it' })
+};
+
+const MNEMO_LISTS = [['kettle', 'parrot', 'bicycle', 'umbrella', 'drum', 'mirror', 'bucket', 'pencil'], ['radio', 'shell', 'nurse', 'carpet', 'lemon', 'tiger', 'bridge', 'clock']];
+const S_MNEMO = {
+  id: 'mnemo', part: 3, chapter: 3, name: 'Eight words in order, twice', short: 'Word chain', minutes: 5, tag: 'p3', tagText: 'When there is no meaning',
+  blurb: 'Learn eight words in order by repeating them. Then learn another eight by joining them in one silly picture story. The page compares the two.',
+  intro: 'You will learn two lists of eight words, in order. Each list stays on the screen for 40 seconds. The page tells you how to learn each list. Please do it in exactly that way, or the station can\'t show anything.',
+  async run(lab) {
+    const order = shuffle([0, 1]), res = {};
+    const HOW = { repeat: ['List 1 of 2 · repeat', 'Learn this list by saying it again and again.', 'Say the eight words to yourself in order, from the top, as many times as you can in 40 seconds. Do only that.'], link: ['List 2 of 2 · join the words', 'Learn this list by joining each word to the next one.', 'Make a picture in your head that joins the first word to the second, the sillier the better. Then a picture that joins the second to the third, and so on. For "radio, shell, nurse" you could see a radio that is playing inside a huge shell, and then a nurse who is wearing shells for shoes.'] };
+    const KEYS = ['repeat', 'link'];
+    for (let i = 0; i < 2; i++) {
+      const key = KEYS[i], list = MNEMO_LISTS[order[i]];
+      await lab.continue(q(HOW[key][0], HOW[key][1], HOW[key][2]), { button: 'Show the list' });
+      await showFor(lab, `<span class="q-eyebrow">${HOW[key][0]}</span><ol class="wordlist">${list.map(w => `<li>${w}</li>`).join('')}</ol>`, 40000);
+      for (let k = 0; k < 3; k++) { const a = randInt(14, 47), b = randInt(12, 38); await lab.number(q(`A short break · sum ${k + 1} of 3`, `${a} + ${b} = ?`, 'Do it in your head.'), { placeholder: 'Your answer', short: true }); }
+      const a = await askText(lab, q('From memory', 'Type the eight words in order.', 'Put a space or a new line between the words. If you have lost one, go on to the next. You have 60 seconds.'), { placeholder: 'The words, in order', multiline: true, timeout: 60000, button: 'That is all I have' });
+      const typed = wordsOf(a.text).map(t => list.find(w => near(t, w)) || t);
+      res[key] = [...new Set(typed)].filter(t => list.includes(t)).length; res[key + 'Order'] = lcs(typed, list); res[key + 'List'] = list.join(', ');
+    }
+    return res;
+  },
+  report(r) {
+    const d = r.linkOrder - r.repeatOrder;
+    return {
+      headline: `Repeating: ${r.repeatOrder} of 8 in the right order. Joining: ${r.linkOrder} of 8.`,
+      blocks: barRows([{ label: 'Repeated', frac: r.repeatOrder / 8, lab: `<b>${r.repeatOrder}</b> in order · ${r.repeat} in all`, cls: 'red' }, { label: 'Joined in pictures', frac: r.linkOrder / 8, lab: `<b>${r.linkOrder}</b> in order · ${r.link} in all`, cls: 'steel' }]),
+      lines: [
+        `Both lists had eight ordinary words, and you had 40 seconds for each. ${d > 0 ? `Joining the words gave you ${plural(d, 'more word')} in the right order.` : d === 0 ? 'For you the two ways came out the same. Eight words is short enough that plain repeating can work for a minute or two. Try both again tomorrow without looking, and see which list is still there.' : 'For you repeating worked better this time. The joining way is new, and a new way is slow the first time we use it.'}`,
+        `A list like this has no meaning in it. Nothing connects "kettle" to "parrot". Chapter 3 says we remember what we think about, and with a bare list there is nothing to think about. A mnemonic (a fancy word for a memory trick) gives the list a meaning that it does not have. Each word becomes the hint for the next word.`,
+        `The book shows six such tricks on the list "radio, shell, nurse" (pages 81 to 83): pictures on rhyming peg words, places along a walk you know, a chain of pictures as you did here, a word made from first letters, a sentence made from first letters, and a song.`,
+        `Willingham is clear about when to use them. <strong>When the material has meaning, think about the meaning. Keep the tricks for the things that have none</strong>: the order of the planets, the first elements of the periodic table, a list of formula names. The joined list always came second here, so some of the difference could be practice. In the best-known study of this trick (Bower and Clark, 1969), students who made a story out of each list later remembered 93 words in 100, and students who studied in their own way remembered 13. The lab read those figures in a later paper and not in the original.`
+      ]
+    };
+  },
+  metrics: r => ({ repeat_in_order: r.repeatOrder, repeat_recalled: r.repeat, link_in_order: r.linkOrder, link_recalled: r.link }),
+  score: () => null, s1: r => r.linkOrder === r.repeatOrder ? null : r.linkOrder > r.repeatOrder,
+  oneLine: r => ({ k: 'Word chain', v: `${r.repeatOrder} → ${r.linkOrder}`, d: 'in order of 8, repeated and joined' })
+};
+
+/* ============================================================
+   Chapter 4, continued
+   ============================================================ */
+const SCALE_OPTS = ['Only a label', 'An order', 'Equal steps, but no true zero', 'Equal steps and a true zero'];
+const SCALE_ITEMS = [
+  ['The centimetres on a ruler', [3], '20 cm is twice 10 cm, and 0 cm means no length. Equal steps and a true zero.'],
+  ['Ratings from 1 to 7 of how much people like filter coffee', [1], 'A 6 means more liking than a 3, but nobody can say it means twice as much, or that the step from 2 to 3 is the same as from 6 to 7. An order.'],
+  ['The track numbers 1 to 12 on a playlist', [0, 1], 'They tell us which song is which, and the order of play. A label, or an order. Track 8 is not twice track 4.'],
+  ['PIN codes, such as 110001', [0], 'Only a label. A bigger PIN code is not more of anything.'],
+  ['Years, such as 1947 and 2024', [2], 'The steps are equal, but year 0 is not the start of time, so 2000 is not "twice" 1000. Equal steps, no true zero.']
+];
+const S_SCALES = {
+  id: 'scales', part: 4, chapter: 4, name: 'Four kinds of numbers', short: 'Kinds of numbers', minutes: 4, tag: 'p4', tagText: 'One example is not enough',
+  blurb: 'A short lesson on four ways in which numbers are used, with one example of each. Then five new cases to sort.',
+  intro: 'First you read a short lesson with four ideas and one example of each. Then you say how well you understood it. Then you get five new cases. There is no clock.',
+  async run(lab) {
+    const res = {};
+    await lab.continue(q('The lesson', 'Numbers are used in four different ways.') + rlist([{ b: '1', t: '<strong>Only a label.</strong> The number on a cricketer\'s shirt. Number 18 is not more than number 7. It only tells us who is who.' }, { b: '2', t: '<strong>An order.</strong> First, second and third in a race. We know who was ahead, but not by how much.' }, { b: '3', t: '<strong>Equal steps, but no true zero.</strong> Temperature in degrees Celsius. From 10 to 20 is the same step as from 30 to 40. But 0 degrees does not mean "no temperature", so 40 degrees is not twice as hot as 20.' }, { b: '4', t: '<strong>Equal steps and a true zero.</strong> Age in years. Zero means no age at all, so a person of 40 has lived twice as long as a person of 20.' }]), { button: 'I have read it' });
+    res.conf = (await lab.scale(q('Your rating', 'How well do you understand the four kinds?'), { min: 1, max: 7, left: 'not at all', right: 'completely' })).value;
+    res.ans = []; res.picks = [];
+    for (let i = 0; i < SCALE_ITEMS.length; i++) {
+      const a = await lab.choose(q(`Case ${i + 1} of ${SCALE_ITEMS.length}`, SCALE_ITEMS[i][0], 'Which kind of number is it?'), SCALE_OPTS.map((l, v) => ({ v, l })));
+      res.picks.push(a.value); res.ans.push(SCALE_ITEMS[i][1].includes(a.value) ? 1 : 0);
+    }
+    res.correct = sum(res.ans);
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `You rated your understanding ${r.conf} of 7. On new cases: ${r.correct} of 5.`,
+      blocks: pairBox([{ v: r.conf, u: '/ 7', k: 'How well you felt you understood', cls: 'steel' }, { v: r.correct, u: '/ 5', k: 'New cases sorted correctly', cls: r.correct >= 4 ? 'steel' : 'red' }]) + rlist(SCALE_ITEMS.map((it, i) => ({ b: tick(r.ans[i]), cls: r.ans[i] ? 'good' : 'bad', t: `<strong>${it[0]}.</strong> You said "${SCALE_OPTS[r.picks[i]].toLowerCase()}". ${it[2]}` }))),
+      lines: [
+        `The lesson was clear, and the examples were familiar: a shirt number, a race, a thermometer, an age. ${r.conf >= 5 && r.correct <= 3 ? 'It felt understood. The new cases showed that it was not yet.' : r.correct >= 4 ? 'You carried it to new cases well. Most people find the coffee ratings and the years hard.' : 'And the new cases were harder than the lesson.'}`,
+        `Willingham does exactly this to the reader (chapter 4, pages 98 to 100). He explains the four scales of measurement (their usual names are nominal, ordinal, interval and ratio), gives one familiar example of each, and then asks about a ruler, ratings of coffee and the tracks on a playlist. Those three are the first three cases here. The last two cases are the lab's.`,
+        `His point is that we understand a new idea by tying it to something we know, and that is why familiar examples help. <strong>But after one explanation and one example, our understanding is tied to that one example.</strong> The idea "equal steps but no true zero" is still stuck to the thermometer.`,
+        `It comes loose only with more examples that look different from each other. So one worked example in a chapter is never enough. Do the others as well, and ask what is the same in all of them.`
+      ]
+    };
+  },
+  metrics: r => ({ confidence: r.conf, correct: r.correct, answers: r.ans.join('') }),
+  score: () => null, s1: r => r.correct <= 3,
+  oneLine: r => ({ k: 'Kinds of numbers', v: `${r.correct} of 5`, d: `after rating your understanding ${r.conf} of 7` })
+};
+
+const S_SAME = {
+  id: 'same', part: 4, chapter: 4, name: 'Which problem is the same?', short: 'Same problem', minutes: 3, tag: 'p4', tagText: 'What a problem looks like',
+  blurb: 'Solve one small word problem. Then pick, from three others, the one that is solved in the same way.',
+  intro: 'A small word problem from Class 6. Solve it in your head. After that there is one question about three other problems.',
+  async run(lab) {
+    const res = {};
+    const a = await lab.number(q('Problem 1', 'What is the price of one packet of biscuits?', 'Meera buys three packets of biscuits and one box of sweets. She pays ₹400 in all. The box of sweets costs ₹250.'), { unit: '₹', before: true, placeholder: 'Price', short: true });
+    res.p1 = a.value; res.p1Ok = a.value === 50;
+    const b = await lab.choose(q('Now look at these three', 'Which one is solved in the same way as Meera\'s problem?', 'Don\'t solve them. Only choose.'), shuffle([
+      { v: 'surface', l: 'Ravi buys four pens at ₹15 each and two notebooks at ₹40 each. How much does he pay?' },
+      { v: 'deep', l: 'Last week Anil rode to college and back three times. He also rode once to his friend\'s house and back, which is 50 km. In all he rode 80 km. How far is one trip to college and back?' },
+      { v: 'other', l: 'A bus goes 240 km in 4 hours. What is its speed?' }
+    ]));
+    res.pick = b.value;
+    const c = await lab.number(q('Anil\'s problem', 'How far is one trip to college and back?', 'Last week Anil rode to college and back three times. He also rode once to his friend\'s house and back, which is 50 km. In all he rode 80 km.'), { unit: 'km', placeholder: 'Distance', short: true });
+    res.p2 = c.value; res.p2Ok = c.value === 10;
+    return res;
+  },
+  report(r) {
+    return {
+      headline: { deep: 'You picked the problem about cycling. It is the same problem.', surface: 'You picked the other shopping problem. It only looks the same.', other: 'You picked the bus. The same problem was the one about cycling.' }[r.pick],
+      blocks: rlist([{ b: 'Meera', t: '400 − 250 = 150, and 150 ÷ 3 = <strong>₹50</strong> a packet.' }, { b: 'Anil', t: '80 − 50 = 30, and 30 ÷ 3 = <strong>10 km</strong> for one trip there and back.' }]),
+      lines: [
+        `In both problems we know a total. We take one part away from it, and we divide what is left by three. Meera is in a shop and Anil is on a cycle, but the sum is the same.`,
+        `Ravi is also in a shop, and his problem also has prices. But it is solved by multiplying and adding. It looks like Meera's problem and it is a different problem.`,
+        `The book calls what a problem is about its <strong>surface structure</strong>, and the steps that solve it its <strong>deep structure</strong> (chapter 4, page 106). In the book the pair is jars of cocktail sauce with a tray of shrimp, and miles driven to work. The rupee and kilometre versions are the lab's.`,
+        `Our mind files a problem by its surface, because that is what it sees first. So in an exam we meet a problem we have already solved, dressed as something else, and we don't know it. The habit to build is to ask of every problem, before starting, "What are the steps here, and where have I done these steps before?"`
+      ]
+    };
+  },
+  metrics: r => ({ picked: r.pick, meera_ok: r.p1Ok ? 1 : 0, anil_ok: r.p2Ok ? 1 : 0 }),
+  score: () => null, s1: r => r.pick === 'surface',
+  oneLine: r => ({ k: 'Same problem', v: { deep: 'cycling', surface: 'shopping', other: 'bus' }[r.pick], d: 'picked as the same as the shop problem' })
+};
+
+const EYE_OPTS = [{ v: 'body', l: 'The part of the face we see with' }, { v: 'needle', l: 'The hole in a needle' }, { v: 'storm', l: 'The calm centre of a storm' }, { v: 'feather', l: 'The spot on a peacock\'s feather' }];
+const PRESS_OPTS = [{ v: 'people', l: 'What parents and exams put on us' }, { v: 'tyre', l: 'What we check in a tyre' }, { v: 'blood', l: 'What the doctor measures on the arm' }, { v: 'air', l: 'The weight of the air above us' }];
+const S_EYE = {
+  id: 'eye', part: 4, chapter: 4, name: 'One word, before and after', short: 'One word', minutes: 2, tag: 'p4', tagText: 'What we just read decides the meaning',
+  blurb: 'Two ordinary words. Say what each one makes you think of. Then read four lines of a weather report and answer again.',
+  intro: 'A word will appear. Tap the meaning that comes to your mind first. Don\'t think about it. After two words there is a short weather report, and then two more questions.',
+  async run(lab) {
+    const res = {};
+    res.eye1 = (await lab.choose(q('Word 1', 'EYE', 'What comes to mind first?'), shuffle(EYE_OPTS.slice()))).value;
+    res.press1 = (await lab.choose(q('Word 2', 'PRESSURE', 'What comes to mind first?'), shuffle(PRESS_OPTS.slice()))).value;
+    await lab.continue(q('A weather report') + passage('Cyclone Tara formed over the Bay of Bengal on Monday and grew stronger through the night. By Tuesday morning its winds had reached 180 kilometres an hour. It is moving towards the coast of Odisha, and people in villages near the sea have been asked to move to shelters.'), { button: 'I have read it' });
+    const a = await lab.choose(q('The next line of the report', '"The eye will cross the coast by evening."', 'What is the eye?'), shuffle(EYE_OPTS.slice()));
+    res.eye2 = a.value; res.eye2Ms = a.ms;
+    const b = await lab.choose(q('And the line after that', '"The pressure has fallen sharply since morning."', 'Which pressure?'), shuffle(PRESS_OPTS.slice()));
+    res.press2 = b.value;
+    return res;
+  },
+  report(r) {
+    const L = v => [...EYE_OPTS, ...PRESS_OPTS].find(o => o.v === v).l.toLowerCase();
+    const moved = (r.eye1 !== 'storm' && r.eye2 === 'storm') + (r.press1 !== 'air' && r.press2 === 'air');
+    return {
+      headline: `Before the report: "${L(r.eye1)}". After it: "${L(r.eye2)}".`,
+      blocks: rlist([{ b: 'Eye', t: `Before: ${L(r.eye1)}. After: ${L(r.eye2)}. You took ${fmtSec(r.eye2Ms)} to choose.` }, { b: 'Pressure', t: `Before: ${L(r.press1)}. After: ${L(r.press2)}.` }]),
+      lines: [
+        `Nobody had to tell you that this eye is not on a face. ${moved === 2 ? 'Both words changed their meaning for you, and you did not have to think about either.' : moved === 1 ? 'One of the two words changed its meaning for you without any effort.' : 'Your first meanings were already the weather ones, or the report did not move them. That is unusual.'} The four lines you had just read chose the meaning for you.`,
+        `This is the book's example, with a hurricane called Felix that is heading for Belize (chapter 4, pages 107 and 108). The cyclone here was made up for the lab.`,
+        `It looks like a small thing, but it explains the last station. <strong>We always read new things in the light of what we have just been reading.</strong> That is very useful, because it makes reading fast. It is also why a problem about a shop makes us think of other shop problems, and not of a cycling problem with the same steps. The surface of a problem pulls our mind before the deep structure can.`
+      ]
+    };
+  },
+  metrics: r => ({ eye_before: r.eye1, eye_after: r.eye2, eye_after_ms: r.eye2Ms, pressure_before: r.press1, pressure_after: r.press2 }),
+  score: () => null, s1: r => r.eye1 === 'storm' ? null : r.eye2 === 'storm',
+  oneLine: r => ({ k: 'One word', v: r.eye2 === 'storm' ? 'storm' : 'other', d: `"eye" after the report, in ${fmtSec(r.eye2Ms)}` })
+};
+
+const S_IRONY = {
+  id: 'irony', part: 4, chapter: 4, name: 'Three plots and one idea', short: 'Three plots', minutes: 4, tag: 'p4', tagText: 'Compare to find what is the same',
+  blurb: 'Read three very short plots of famous plays. Say what the three have in common. Then find the same thing in a new plot.',
+  intro: 'A teacher wants to teach one idea, and she does it by showing three plots side by side. Read the three plots. Then you say what the idea is.',
+  async run(lab) {
+    const res = {};
+    const plots = rlist([{ b: '1', t: 'A prince is told that he will kill his father. To make sure it can never happen, he runs away from the people he believes are his parents. On the road he kills a stranger in a fight. The stranger was his real father.' }, { b: '2', t: 'A girl drinks a medicine that makes her look dead for a few hours, so that she can escape with the boy she loves. The boy finds her, believes she has died, and kills himself. She wakes up a few minutes later.' }, { b: '3', t: 'A general trusts one of his officers more than anybody, and believes every word he says. All through the play, that officer is the one working to destroy him.' }]);
+    const a = await lab.choose(q('Three plots', 'What is the same in all three?') + plots, shuffle([
+      { v: 'deep', l: 'A person acts on a belief that we, the audience, know is false, and gets the opposite of what he wants' },
+      { v: 'death', l: 'Somebody dies at the end' },
+      { v: 'rank', l: 'They are about princes, generals and rich families' },
+      { v: 'fate', l: 'Nobody can escape what is written for him' }
+    ]));
+    res.common = a.value;
+    const b = await lab.choose(q('Two new plots', 'Which one has the same idea in it?'), shuffle([
+      { v: 'deep', l: 'A shopkeeper gives his new helper the keys and tells him where the money is kept, because he is the only one he trusts. We have already seen the helper planning to rob the shop.' },
+      { v: 'surface', l: 'A king is told that a flood will destroy his city. He builds a high wall. The flood comes, the wall breaks, and the king dies.' }
+    ]));
+    res.transfer = b.value;
+    return res;
+  },
+  report(r) {
+    const ok = (r.common === 'deep') + (r.transfer === 'deep');
+    return {
+      headline: `${ok} of 2. ${r.common === 'deep' ? 'You found what the three plots share.' : 'What the three plots share is something we know and the character does not.'}`,
+      blocks: rlist([{ b: tick(r.common === 'deep'), cls: r.common === 'deep' ? 'good' : 'bad', t: 'In all three, a person does something expecting one result and gets the opposite, because he is missing a fact that the audience has. The name for it is <strong>dramatic irony</strong>.' }, { b: tick(r.transfer === 'deep'), cls: r.transfer === 'deep' ? 'good' : 'bad', t: 'The shopkeeper has it. We know something he does not. The king has a prophecy and a death, like plot 1, but we know nothing that he does not know.' }]),
+      lines: [
+        `The plots are <em>Oedipus</em>, <em>Romeo and Juliet</em> and <em>Othello</em>, and this is the book's own example (chapter 4, pages 112 to 114). The two new plots are the lab's.`,
+        `Look at the wrong answers. Somebody does die in each plot, and each one is about people of high rank. Those things are true, and they are on the surface. They are what we see when we look at one plot alone.`,
+        `The idea became visible only when the three plots were side by side. Whatever changes from plot to plot can't be the idea, so it falls away, and what stays is the deep structure. <strong>Comparing examples is the best way we have to get below the surface.</strong>`,
+        `We can do this ourselves. When the textbook gives two solved examples, don't read them one after the other. Put them next to each other and write down what is the same in both.`
+      ]
+    };
+  },
+  metrics: r => ({ common: r.common, transfer: r.transfer }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Three plots', v: `${(r.common === 'deep') + (r.transfer === 'deep')} of 2`, d: 'the shared idea, and a new plot' })
+};
+
+const DEPTH_OPTS = ['Memorised words', 'Understood, but tied to one example', 'Understood, and can use it in new places'];
+const DEPTH_ITEMS = [
+  ['"A government is like a classroom because both have rules." Asked what that means, the student says the same sentence again.', 0, 'The teacher\'s sentence came back whole, and there is nothing behind it. The book calls this rote knowledge.'],
+  ['"A country and a classroom are both groups of people. A group needs rules that everybody agrees to, or people get hurt and nothing gets done."', 1, 'This student understands. But ask about anything except a classroom and the student is stuck. The book calls this shallow knowledge.'],
+  ['"It is different in one way: we choose the government and we don\'t choose the teacher. And when my friends play gully cricket, we also make rules first, such as one bounce is out."', 2, 'This student can say where the comparison stops working and can carry the idea to a new place. That is deep knowledge.'],
+  ['In a test: "The three kinds of blood vessels are arteries, vanes and caterpillars."', 0, 'Veins and capillaries were stored as sounds, with no meaning attached. This one is from the book (page 101).'],
+  ['A student explains "seize the day" correctly with the one poem the teacher used. Given a new poem, the student can\'t say if it has the same idea.', 1, 'Understood, and still tied to the one poem. This is the book\'s example of shallow knowledge (page 103).']
+];
+const S_DEPTH = {
+  id: 'depth', part: 4, chapter: 4, name: 'Three depths of knowing', short: 'Depths', minutes: 3, tag: 'p4', tagText: 'Rote, shallow, deep',
+  blurb: 'Five answers that students gave. For each one, say how deep the student\'s knowledge is.',
+  intro: 'A Class 1 teacher explained government by comparing it to the classroom: both need rules. Here is what some students said afterwards, and two answers from older students. For each answer, say how much the student knows.',
+  async run(lab) {
+    const res = { ans: [], picks: [] };
+    for (let i = 0; i < DEPTH_ITEMS.length; i++) {
+      const a = await lab.choose(q(`Answer ${i + 1} of ${DEPTH_ITEMS.length}`, 'How deep is this?') + passage(DEPTH_ITEMS[i][0]), DEPTH_OPTS.map((l, v) => ({ v, l })));
+      res.picks.push(a.value); res.ans.push(a.value === DEPTH_ITEMS[i][1] ? 1 : 0);
+    }
+    res.correct = sum(res.ans);
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `${r.correct} of 5 answers placed at the depth the book gives them.`,
+      blocks: rlist(DEPTH_ITEMS.map((it, i) => ({ b: tick(r.ans[i]), cls: r.ans[i] ? 'good' : 'bad', t: `${it[0]} <strong>${DEPTH_OPTS[it[1]]}.</strong> ${it[2]}` }))),
+      lines: [
+        `The book separates three states (chapter 4, pages 101 to 105). <strong>Rote knowledge</strong> is words with nothing behind them. <strong>Shallow knowledge</strong> is real understanding that is still tied to the example it came with. <strong>Deep knowledge</strong> has many examples joined together, so the idea can be used in a place we have never seen.`,
+        `Shallow knowledge is not a failure. It is where everybody is after the first lesson, as we saw at the station on kinds of numbers. The mistake is to stop there because it feels like understanding.`,
+        `A quick check for ourselves: can I explain it without the textbook's example? Can I say where the comparison stops working? Can I make a question on it that looks different from the ones in the book?`
+      ]
+    };
+  },
+  metrics: r => ({ correct: r.correct, answers: r.ans.join('') }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Depths', v: `${r.correct} of 5`, d: 'student answers placed' })
+};
+
+/* ============================================================
+   Chapter 5, continued
+   ============================================================ */
+const S_ROOM = {
+  id: 'room', part: 5, chapter: 5, name: 'Too many things at one time', short: 'No room', minutes: 3, tag: 'p5', tagText: 'Working memory is the limit',
+  blurb: 'An easy multiplication and a big one, both in your head. Then an easy question about two words and the same question about five words.',
+  intro: 'Four small tasks, all in your head. Two are sums and two are about words. Don\'t write anything down.',
+  async run(lab) {
+    const res = {};
+    const a = await lab.number(q('Task 1 of 4', '19 × 6 = ?', 'In your head.'), { placeholder: 'Your answer', short: true });
+    res.small = a.value; res.smallOk = a.value === 114; res.smallMs = a.ms;
+    const b = await lab.number(q('Task 2 of 4', '4,829 × 367 = ?', 'In your head. You have 45 seconds. No paper.'), { placeholder: 'Your answer', timeout: 45000, skip: 'I have lost it' });
+    res.bigOk = b.value === 1772243; res.bigGaveUp = !!b.skipped || b.value === null; res.bigMs = b.ms;
+    const c = await lab.choose(q('Task 3 of 4', 'How are a butterfly and a dragonfly alike?'), shuffle([{ v: 1, l: 'Both are insects that fly' }, { v: 0, l: 'Both live in water' }, { v: 0, l: 'Both are birds' }]));
+    res.two = c.value; res.twoMs = c.ms;
+    const t = await lab.choose(q('Task 4 of 4', 'What do these five have in common?') + `<div class="bigletters small">butterfly · dragonfly · cupboard · necklace · scarecrow</div><p class="q-note">Think. You have 45 seconds.</p>`, [{ v: 'have', l: 'I have it' }, { v: 'no', l: 'I can\'t find it' }], { timeout: 45000, row: true });
+    res.fiveMs = t.ms; res.five = 0;
+    if (t.value === 'have') res.five = (await lab.choose(q('Task 4 of 4', 'Which of these did you find?'), shuffle([{ v: 1, l: 'Each one is made of two smaller words' }, { v: 0, l: 'Each one can be found in a garden' }, { v: 0, l: 'Each one has nine letters' }]).concat([{ v: 0, l: 'Something else' }]))).value;
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `19 × 6: ${r.smallOk ? 'right' : 'wrong'} in ${fmtSec(r.smallMs)}. 4,829 × 367: ${r.bigOk ? 'right' : r.bigGaveUp ? 'lost on the way' : 'wrong'}. Five words: ${r.five ? 'found' : 'not found'}.`,
+      blocks: rlist([{ b: tick(r.smallOk), cls: r.smallOk ? 'good' : 'bad', t: '19 × 6 = <strong>114</strong>' }, { b: tick(r.bigOk), cls: r.bigOk ? 'good' : 'bad', t: '4,829 × 367 = <strong>1,772,243</strong>' }, { b: tick(r.two), cls: r.two ? 'good' : 'bad', t: `A butterfly and a dragonfly are both insects that fly. You took ${fmtSec(r.twoMs)}.` }, { b: tick(r.five), cls: r.five ? 'good' : 'bad', t: 'Butter-fly, dragon-fly, cup-board, neck-lace, scare-crow. Each is made of <strong>two smaller words</strong>.' }]),
+      lines: [
+        `You know how to multiply. The big sum uses exactly the same steps as the small one. ${r.bigOk ? 'You got it, and you know what it cost.' : 'It failed for one reason only: there were too many numbers to hold while you worked.'}`,
+        `The word question is the same. Comparing two things is easy. With five things there are too many pairs to look at together, and the answer does not come, although it is a simple one.`,
+        `These are the book's two examples at the start of chapter 5 (pages 119 to 121). The book's sum is 184,930 × 34,004, and its five words are a little different.`,
+        `<strong>Working memory is the place where thinking gets stuck.</strong> And it can't be made bigger: the book says that the training programmes which promise this do not work. So there are only two ways out. One is to write things down. The other is to make the small steps automatic, so that they stop taking up room, and that is what practice is for. The next stations are about that.`
+      ]
+    };
+  },
+  metrics: r => ({ small_ok: r.smallOk ? 1 : 0, small_ms: r.smallMs, big_ok: r.bigOk ? 1 : 0, two_words_ms: r.twoMs, five_words_found: r.five, five_words_ms: r.fiveMs }),
+  score: () => null, s1: r => !r.bigOk,
+  oneLine: r => ({ k: 'No room', v: `${tick(r.smallOk)} ${tick(r.bigOk)}`, d: 'small sum, then big sum' })
+};
+
+const SORT_LET = 'BCDFGHJKLMNPQRSTVWXZ'.split('');
+const sortItem = n => { const nd = Math.ceil(n / 2), ds = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, nd), ls = shuffle(SORT_LET.slice()).slice(0, n - nd); return { shown: shuffle([...ds.map(String), ...ls]), target: ds.sort((a, b) => a - b).join('') + ls.sort().join('') }; };
+const S_SORT = {
+  id: 'sort', part: 5, chapter: 5, name: 'Numbers first, then letters', short: 'Sort in the head', minutes: 4, tag: 'p5', tagText: 'How much room there is',
+  blurb: 'Letters and numbers appear one at a time, mixed up. Type the numbers in order, then the letters in order. The row gets longer. Then two small logic questions.',
+  intro: 'Letters and numbers will appear one at a time, mixed together. When they stop, type the <strong>numbers first, from small to big</strong>, and then the <strong>letters in the order of the alphabet</strong>. If you see 3 T 4 1 P 8, you type 1348PT. The row starts with three and grows.',
+  async run(lab) {
+    const res = { span: 0, trials: [] };
+    for (let n = 3; n <= 8; n++) {
+      let okN = 0;
+      for (let k = 0; k < 2; k++) {
+        const it = sortItem(n);
+        await lab.continue(q(`A row of ${n}`, 'Ready?', 'Numbers first, small to big. Then letters, A to Z.'), { button: 'Show it' });
+        await flashSeq(lab, it.shown);
+        const a = await askText(lab, q(`A row of ${n}`, 'Type the numbers in order, then the letters in order.'), { placeholder: 'For example 1348PT', caps: true });
+        const ok = alnum(a.text) === it.target; okN += ok ? 1 : 0;
+        res.trials.push({ n, ok, shown: it.shown.join(' '), target: it.target, typed: alnum(a.text).slice(0, 12) });
+      }
+      if (okN) res.span = n; else break;
+    }
+    const r1 = await lab.choose(q('A logic question', 'What follows?', 'If P is true, then Q is true. Q is not true.'), shuffle([{ v: 1, l: 'P is not true' }, { v: 0, l: 'P is true' }, { v: 0, l: 'Nothing can be said about P' }]));
+    const r2 = await lab.choose(q('One more', 'What follows?', 'If it rains, the match is called off. The match was not called off.'), shuffle([{ v: 1, l: 'It did not rain' }, { v: 0, l: 'It rained' }, { v: 0, l: 'Nothing can be said about the rain' }]));
+    res.logicP = r1.value; res.logicRain = r2.value;
+    return res;
+  },
+  report(r) {
+    const last = r.trials[r.trials.length - 1];
+    return {
+      headline: `The longest row you sorted in your head: ${r.span || 'fewer than 3'}. Logic: ${r.logicP + r.logicRain} of 2.`,
+      blocks: pairBox([{ v: r.span || '–', k: 'Longest row sorted', d: 'letters and numbers together', cls: 'steel' }, { v: r.logicP + r.logicRain, u: '/ 2', k: 'Logic questions', d: `P and Q ${tick(r.logicP)} · rain ${tick(r.logicRain)}`, cls: 'red' }]) + (last ? rlist([{ b: 'Last row', t: `${esc(last.shown)} → ${esc(last.target)}. You typed ${esc(last.typed || 'nothing')}.` }]) : ''),
+      lines: [
+        `This is harder than remembering a row, because you have to hold the row and move things around inside it. It is a test of working memory, and it is the one Willingham describes in a note to chapter 5 (page 139), with the row 3T41P8. The rows here are made fresh every time.`,
+        `He describes it to explain a research result. When many people take a test like this and also a test of reasoning, such as the P and Q question, <strong>the people who can hold more in working memory tend to reason better.</strong> Thinking needs room, and some of us have a little more room than others.`,
+        `One person at one sitting can't show that. To see it, take the whole class: plot each student's longest row against a reasoning score. And the rain question shows the old point from chapter 2 again: most of us find it easier than the P and Q question, though the logic is the same.`,
+        `The book's next step is the useful one. We can't make the room bigger. But a chunk takes up one place however much is inside it, and a step that has become automatic takes up no place at all. So people with ordinary working memory can think very well about things they know very well.`
+      ]
+    };
+  },
+  metrics: r => ({ span: r.span, trials: r.trials.length, logic_pq: r.logicP, logic_rain: r.logicRain }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Sort in the head', v: r.span || '<3', d: 'longest mixed row sorted' })
+};
+
+const STUDY_ITEMS = [
+  { q: 'You are learning French words. Today you have got "umbrella = parapluie" right two times in a row. What should you do with this word now?', right: 'Keep practising it for some more days', wrong: ['Drop it. You know it now'], why: 'Tested three days later, we don\'t get every such word right. Going on after we "know" it is called overlearning. It feels like a waste of time, and that is why few of us do it (page 130). In one study the extra practice helped after one week and after three weeks, and the gain was gone by nine weeks (Rohrer and others, 2005). So it has to be repeated on later days.' },
+  { q: 'You have 120 minutes in all to learn something so that it stays for months. How should you use them?', right: '30 minutes a week for four weeks', wrong: ['All 120 minutes in one sitting', '60 minutes today and 60 minutes tomorrow'], why: 'The same minutes, spread out, last longer in memory. This is the spacing effect (page 131). Across 271 comparisons in a large review, people got 47 in 100 right after spaced practice and 37 in 100 after practice in one block (Cepeda and others, 2006).' },
+  { q: 'Student 1 studies four hours on the day before the test. Student 2 studies one hour on each of the four days before it. Who does better on the test?', right: 'About the same. Student 1 may even do a little better', wrong: ['Student 2 does much better', 'Student 1 does much better'], why: 'Cramming works for tomorrow. That is why we keep doing it (pages 131 to 133).' },
+  { q: 'A week later both students are given the same test again, without warning. Who does better now?', right: 'Student 2, by a lot', wrong: ['Student 1, by a lot', 'About the same'], why: 'What was crammed is mostly gone in a week. What was spread out is still there.' },
+  { q: 'Students took a one-semester course and never revised it. Three years later they are tested again. How much do they still know?', right: 'Half of what they knew, or less', wrong: ['Almost all of it', 'Almost none of it'], why: 'Ellis, Semb and Cole (1998) tested 1,168 students, 3 to 16 years after the course. Memory fell quickly up to about year 7 and then stayed level. The book adds that students with an A knew more at every point, but forgot at the same rate as the others (page 128).' },
+  { q: 'More than a thousand people took a school algebra test, up to 55 years after they had studied it. Who could still do it?', right: 'Those who went on to study more mathematics afterwards', wrong: ['Those who got an A in algebra at school', 'Those who were tested within 20 years', 'Nobody'], why: 'Bahrick and Hall (1991). People who went beyond calculus lost almost nothing in fifty years. People who stopped after one course fell close to the level of those who never took it, whatever their grade had been (page 129).' }
+];
+const S_STUDY = {
+  id: 'study', part: 5, chapter: 5, name: 'Six decisions about practice', short: 'Decisions', minutes: 4, tag: 'p5', tagText: 'What makes memory last',
+  blurb: 'Six questions about how to practise and how fast we forget. Answer what you believe, and then see what the research found.',
+  intro: 'Six questions. Each one is a decision that every student makes, or a guess about how memory behaves. Answer what you really believe, not what you think the page wants.',
+  async run(lab) { return quiz(lab, STUDY_ITEMS, 'Decision'); },
+  report(r) {
+    return {
+      headline: `${r.correct} of 6 of your answers agree with the research.`,
+      blocks: quizList(STUDY_ITEMS, r),
+      lines: [
+        `Chapter 5 of the book says practice does three things. The earlier stations showed the first: it makes small steps automatic. These six questions are about the second: <strong>practice is what makes memory last.</strong>`,
+        `Look at the pattern in the answers. Whatever feels best on the day (stopping when we get it right, one long sitting, the night before) is good for tomorrow and bad for next year. What lasts is practice that goes on after we know it and is spread over time.`,
+        `The algebra study is the strongest of them. The grade in the course did not protect anybody. Using the algebra again and again in later courses did. So the subjects we will keep for life are the ones we keep using.`,
+        `The third thing practice does is help knowledge move to new problems. The next two stations are about that.`
+      ]
+    };
+  },
+  metrics: r => ({ correct: r.correct, answers: r.ans.join('') }),
+  score: () => null, s1: r => r.correct <= 3,
+  oneLine: r => ({ k: 'Decisions', v: `${r.correct} of 6`, d: 'agree with the research' })
+};
+
+const S_RULE = {
+  id: 'rule', part: 5, chapter: 5, name: 'A hotel bill and a strange law', short: 'Strange law', minutes: 2, tag: 'p5', tagText: 'Practice makes us see the problem',
+  blurb: 'One question about a trip abroad. Then a short story about a law that you have never heard of, and one question about it.',
+  intro: 'Two short things to read, with one question on each. Answer as soon as you know.',
+  async run(lab) {
+    const res = {};
+    const a = await lab.choose(q('A trip', 'What else do you need to know?', 'You live in India and you are going to Thailand. The hotel costs 1,000 baht a night, and you will stay four nights. You will pay in cash. You want to know how many rupees to change.'), shuffle([{ v: 1, l: 'How many rupees one baht costs' }, { v: 0, l: 'How far the hotel is from the airport' }, { v: 0, l: 'How many people will share the room' }, { v: 0, l: 'What the hotel is called' }]));
+    res.baht = a.value; res.bahtMs = a.ms;
+    const b = await lab.choose(q('A story', 'What is Kabir thinking?') + passage('On a small island there is an old law. When two or more people walk together after dark, each of them must carry a pen. The hotel keeps a jar of pens at the front desk. After dinner Kabir and his friend went out for a walk. Halfway down the road Kabir put his hand in his pocket and stopped.'), shuffle([{ v: 1, l: 'I have broken the law, and I may be caught' }, { v: 0, l: 'I need to write something down' }, { v: 0, l: 'Pens are costly on this island' }]).concat([{ v: 0, l: 'The story does not say enough to know' }]));
+    res.pen = b.value; res.penMs = b.ms;
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `The baht: ${r.baht ? 'right' : 'wrong'} in ${fmtSec(r.bahtMs)}. The pen: ${r.pen ? 'right' : 'wrong'} in ${fmtSec(r.penMs)}.`,
+      blocks: pairBox([{ v: fmtSec(r.bahtMs), k: 'To see what the hotel problem needs', d: r.baht ? 'the exchange rate' : 'it was the exchange rate', cls: 'steel' }, { v: fmtSec(r.penMs), k: 'To see what the pen story is about', d: r.pen ? 'a broken rule' : 'it was a broken rule', cls: 'red' }]),
+      lines: [
+        `You have never heard of a law about pens. Nobody has, because the book made it up (chapter 5, pages 133 to 136). ${r.pen ? 'And still you knew at once what was going on in Kabir\'s head.' : 'Most people know at once that Kabir has broken a rule and is afraid of being caught.'}`,
+        `We know it because we have met this kind of rule thousands of times: you must be 18 to vote, you must wear a helmet to ride, you must have a ticket to board. "To do this, you must have that." The pen law is new on the surface, and underneath it is a rule we have practised all our lives.`,
+        `The hotel problem is the same thing in arithmetic. A child in Class 4 can do the multiplication, but does not see that this is a problem about an exchange rate. We see it at once. In the book it is a Canadian going to Mexico and paying in pesos.`,
+        `This is the third thing that practice does. <strong>With enough practice on problems that look different, we start to see the deep structure as easily as we read a word.</strong> At the cyclone station the word "eye" got its meaning without effort. A well-practised kind of problem gets its meaning in the same way.`
+      ]
+    };
+  },
+  metrics: r => ({ baht_ok: r.baht, baht_ms: r.bahtMs, pen_ok: r.pen, pen_ms: r.penMs }),
+  score: () => null, s1: r => r.pen === 1,
+  oneLine: r => ({ k: 'Strange law', v: tick(r.pen), d: `the pen story, in ${fmtSec(r.penMs)}` })
+};
+
+const SERIES_OPTS = () => shuffle([{ v: 13, l: 'About 13 in 100' }, { v: 60, l: '60 in 100' }, { v: 24, l: 'About 24 in 100' }, { v: 4, l: 'About 4 in 100' }]);
+const S_SERIES = {
+  id: 'series', part: 5, chapter: 5, name: 'A cricket series and a bag of marbles', short: 'Series', minutes: 3, tag: 'p5', tagText: 'Practice on one surface stays there',
+  blurb: 'One question about a cricket series and one about marbles in a bag. Work each one out in your head or on paper.',
+  intro: 'Two probability questions from Class 11 or 12. You may use paper for these. Take your time.',
+  async run(lab) {
+    const res = { order: shuffle(['series', 'bag']) };
+    const P = {
+      series: ['A cricket series', 'What is the chance that India wins the series in exactly four matches?', 'India and Australia play a series. The first team to win four matches wins the series. India wins 60 of every 100 matches against Australia, and each match is separate from the others.'],
+      bag: ['A bag of marbles', 'What is the chance that all four marbles are red?', 'A bag has 60 red marbles and 40 blue marbles. You take out one marble without looking, note its colour and put it back. You do this four times.']
+    };
+    for (const k of res.order) { const a = await lab.choose(q(P[k][0], P[k][1], P[k][2]), SERIES_OPTS()); res[k] = a.value; res[k + 'Ms'] = a.ms; }
+    res.noticed = (await lab.choose(q('One question', 'Did you notice that the two questions are the same sum?'), [{ v: 'yes', l: 'Yes, while I was solving the second one' }, { v: 'now', l: 'Only now that you say it' }, { v: 'no', l: 'I don\'t see how they are the same' }])).value;
+    return res;
+  },
+  report(r) {
+    const so = r.series === 13, bo = r.bag === 13;
+    return {
+      headline: `The series: ${so ? 'right' : 'wrong'}. The marbles: ${bo ? 'right' : 'wrong'}. ${r.noticed === 'yes' ? 'You saw that they are one sum.' : 'They are one sum.'}`,
+      blocks: rlist([{ b: tick(so), cls: so ? 'good' : 'bad', t: 'To win in exactly four matches, India must win the first four. 0.6 × 0.6 × 0.6 × 0.6 = 0.1296, which is <strong>about 13 in 100</strong>.' }, { b: tick(bo), cls: bo ? 'good' : 'bad', t: 'Each marble is red 60 times in 100, four times over. 0.6 × 0.6 × 0.6 × 0.6 = <strong>about 13 in 100</strong>.' }]),
+      lines: [
+        `A match that India wins 60 times in 100 is a marble that is red 60 times in 100. Four wins in a row are four red marbles in a row.`,
+        `Willingham ends chapter 5 with a study of this (page 139; Green, Rao and Rothschild, 2019). The people tested were 165 experts who write and talk about basketball for a sports channel. On questions about a seven-game series their answers hung together well, because they think about such series all the time. When the same calculation was put to them as red and black marbles in jars, their answers were about twice as far off. (The figures are from the 2016 draft of the paper.)`,
+        `They had years of practice, and all of it was on one surface. <strong>Practice makes us good at seeing the deep structure only if the practice itself came in many different forms.</strong> If every problem on a formula is about a block on a slope, we learn "blocks on slopes" and not the formula.`,
+        `So when we practise a method, we should look for problems that look as different as possible: another setting, other words, another chapter. That is why mixed problem sets and old question papers teach more than twenty problems of one kind.`
+      ]
+    };
+  },
+  metrics: r => ({ series_ok: r.series === 13 ? 1 : 0, bag_ok: r.bag === 13 ? 1 : 0, noticed: r.noticed, first: r.order[0] }),
+  score: () => null, s1: r => r.noticed !== 'yes',
+  oneLine: r => ({ k: 'Series', v: `${tick(r.series === 13)} ${tick(r.bag === 13)}`, d: 'series and marbles' })
+};
+
+/* ============================================================
+   Chapter 6 · Experts and beginners
+   ============================================================ */
+const HOUSE_STEPS = [
+  ['A boy of 16 comes to the hospital. He is seeing double, and he wakes up at night screaming with fear. Nobody reports any injury to his head.', 'Somebody is harming him at home', ['He needs spectacles', 'He is afraid of his exams']],
+  ['It turns out that he was hit on the head during a game at school.', 'A concussion (the brain was shaken by the blow)', ['He needs spectacles', 'Food poisoning']],
+  ['While talking to him, the doctor sees his leg jerk. It is the jerk that we all get as we fall asleep. But the boy is wide awake.', 'A disease that is slowly damaging his nerves', ['A concussion, as before', 'He is only nervous']],
+  ['A scan shows that one part of his brain is slightly out of shape, and a test finds blockages.', 'Something is blocking the fluid that flows around the brain', ['A cracked skull', 'A normal brain for his age']],
+  ['The blockage is cleared by surgery. But the fluid that was taken out has the chemical signs of multiple sclerosis in it.', 'Multiple sclerosis', ['The surgery went wrong', 'A blocked fluid path, as before']],
+  ['The boy is seeing things that are not there while he is awake. These are not bad dreams.', 'An infection in the brain', ['Multiple sclerosis, as before', 'Too little sleep']],
+  ['The treatment for infection does nothing. The doctor learns that the boy was adopted, that his birth mother had no vaccines, and that he had measles as a baby.', 'The measles virus stayed in his body for 16 years and has now reached the brain', ['A new infection caught in the hospital', 'An allergy to the medicine']]
+];
+const S_HOUSE = {
+  id: 'house', part: 6, chapter: 6, name: 'Seven clues and seven guesses', short: 'Seven clues', minutes: 4, tag: 'p6', tagText: 'How an expert thinks',
+  blurb: 'A hospital case from a television series, told one clue at a time. After each clue, choose what the doctor thinks is wrong.',
+  intro: 'This is a case from the television series <em>House</em>, as Willingham tells it in chapter 6. A new clue arrives seven times. After each clue, choose what you think the doctor now believes is wrong with the patient. You are not expected to know medicine.',
+  async run(lab) {
+    const res = { ans: [] };
+    for (let i = 0; i < HOUSE_STEPS.length; i++) {
+      const [clue, right, wrong] = HOUSE_STEPS[i];
+      const a = await lab.choose(q(`Clue ${i + 1} of ${HOUSE_STEPS.length}`, 'What does the doctor think now?') + passage(clue), shuffle([{ v: 1, l: right }, ...wrong.map(w => ({ v: 0, l: w }))]));
+      res.ans.push(a.value);
+    }
+    res.correct = sum(res.ans);
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `You matched the doctor at ${r.correct} of 7 clues. Guessing would give 2 or 3.`,
+      blocks: rlist(HOUSE_STEPS.map((s, i) => ({ b: tick(r.ans[i]), cls: r.ans[i] ? 'good' : 'bad', t: `${s[0]} <strong>${s[1]}.</strong>` }))),
+      lines: [
+        `Six of the doctor's seven ideas were wrong, and each wrong idea was dropped when the next clue came. Only the last one was right. That is not bad thinking. It is how an expert works on a hard case: a sensible guess, a test, a better guess.`,
+        `${r.correct >= 5 ? 'You followed him well. But notice how.' : 'It was hard to follow him. And notice this.'} You were choosing from three answers that the page gave you. The doctor had no list. Each idea had to come out of his own memory, and it came in seconds.`,
+        `The book uses the case to show four things about experts (chapter 6, pages 145 and 146). They know which details matter and which to leave aside. They notice small things that a beginner does not see, such as that jerk of the leg. When they are wrong, the wrong idea is still a sensible one. And what they know comes to mind quickly, at the moment it is needed.`,
+        `All four come from the same place: a very large store of knowledge, organised by what things mean. <strong>So we can't think like an expert by copying how an expert behaves.</strong> The expert's way of thinking is built on years of knowing. Beginners have to build that first. The <a href="expert-novice-lab.html">Expert and Novice Lab</a> has the two experiments from this chapter, on chess positions and on sorting physics problems.`
+      ]
+    };
+  },
+  metrics: r => ({ matched: r.correct, answers: r.ans.join('') }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Seven clues', v: `${r.correct} of 7`, d: 'matched the doctor' })
+};
+
+const YEARS_ITEMS = [
+  { q: 'At a music academy, the best violin students had practised alone for about 7,400 hours by the age of 18. What about the students who were training to be music teachers?', right: 'About 3,400 hours', wrong: ['About 6,500 hours', 'About 7,400 hours', 'About 9,000 hours'], why: 'Ericsson, Krampe and Tesch-Römer (1993): 7,410 hours, against 5,301 for the "good" students and 3,420 for the future teachers. The book\'s graph carries this on to the age of 20, where the best are at about 10,000 hours (page 154).' },
+  { q: 'In physics, chess, mathematics, music and poetry, how long do people usually work hard at the subject before they do their first great work?', right: 'About ten years', wrong: ['About two years', 'About five years', 'There is no pattern'], why: 'This is called the ten-year rule. The book says it is a rough rule, and that "10,000 hours" is a loose popular version of it (page 156).' },
+  { q: 'What sets great scientists apart from other scientists the most?', right: 'They can keep working hard at one thing for years', wrong: ['A much higher IQ', 'A better memory', 'Better teachers at school'], why: 'The book says great scientists are not set apart by their scores on intelligence tests. They are set apart by how long they can keep working (page 155).' },
+  { q: 'A camera follows the eyes of a child who is learning to read and of an adult who reads well. Whose eyes stop more often on each line?', right: 'The child\'s eyes, many more times', wrong: ['The adult\'s eyes', 'Both the same'], why: 'Buswell (1922) counted 18.6 stops on a line for children at the start of Class 1 and 5.9 for college students. An old textbook used this to say that children should be taught to read whole words, as experts do. The book says that was a mistake: experts did not begin that way (page 161).' },
+  { q: 'A physics expert and a beginner are asked to think aloud while they solve a problem. What does the expert say first?', right: 'What kind of problem it is, such as "this is conservation of energy"', wrong: ['The formula with the most symbols in it', 'The numbers given in the problem', 'Nothing. Experts solve in silence'], why: 'Experts name the principle and then test their guess as they go. Beginners repeat the problem or look for a formula (page 152).' }
+];
+const S_YEARS = {
+  id: 'years', part: 6, chapter: 6, name: 'How does somebody become an expert?', short: 'Becoming expert', minutes: 3, tag: 'p6', tagText: 'Years of practice',
+  blurb: 'Five guesses about violinists, scientists and readers. Then what the studies in the book found.',
+  intro: 'Five questions about people who are very good at something. You are not expected to know the answers. Guess, and then see what was found.',
+  async run(lab) { return quiz(lab, YEARS_ITEMS, 'Guess'); },
+  report(r) {
+    return {
+      headline: `${r.correct} of 5 guesses agree with what the book reports.`,
+      blocks: quizList(YEARS_ITEMS, r),
+      lines: [
+        `Chapter 6 asks if students can be taught to think like real scientists and historians. The book's answer is that an expert's thinking is of a different kind from a beginner's, and that the difference is made by a very long time of practice.`,
+        `The violin study has a weakness that we should know. There were only ten students in each group. They were asked to remember how much they had practised years before, and nobody was put into a group by chance. So it shows that the best had practised more. It can't show that practice was the only cause.`,
+        `What follows for us in the first year? <strong>We should not expect ourselves to think like experts yet, and we should not copy their methods.</strong> A beginner needs to understand what is already known and to practise it. The book's line is "every artist was first an amateur".`
+      ]
+    };
+  },
+  metrics: r => ({ correct: r.correct, answers: r.ans.join('') }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Becoming expert', v: `${r.correct} of 5`, d: 'guesses about experts' })
+};
+
+/* ============================================================
+   Chapter 7 · Are we different kinds of learners?
+   ============================================================ */
+const frameSVG = (frame, rod) => `<svg class="rodframe" viewBox="0 0 300 300" role="img" aria-label="A tilted square with a rod inside it"><rect width="300" height="300" rx="14" fill="#0b0b0d"/><rect x="60" y="60" width="180" height="180" fill="none" stroke="#f3efe6" stroke-width="5" transform="rotate(${frame} 150 150)"/><line id="rfRod" x1="150" y1="82" x2="150" y2="218" stroke="#f3efe6" stroke-width="5" stroke-linecap="round" transform="rotate(${rod} 150 150)"/></svg>`;
+const TRI = pts => `<svg class="shape" viewBox="0 0 60 60" aria-hidden="true"><polygon points="${pts}" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>`;
+const CUBE_SVG = `<svg class="scene cube" viewBox="0 0 125 115" role="img" aria-label="A drawing of a box made of lines"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="20" y="40" width="60" height="60"/><rect x="45" y="15" width="60" height="60"/><path d="M20 40L45 15M80 40L105 15M20 100L45 75M80 100L105 75"/></g></svg>`;
+const S_FRAME = {
+  id: 'frame', part: 7, chapter: 7, name: 'A rod in a tilted frame', short: 'Rod and frame', minutes: 3, tag: 'p7', tagText: 'A style, or an ability?',
+  blurb: 'Set a rod exactly upright inside a square that is tilted. Then find a small shape that is hidden in a drawing of a box.',
+  intro: 'There are two small tests here. In the first, a white rod sits inside a tilted white square. Move the slider until the rod is exactly upright, like a pole standing on level ground. You do it four times. Don\'t tilt your head or your phone.',
+  async run(lab) {
+    const res = { trials: [] };
+    const frames = shuffle([18, -18, 18, -18]);
+    for (let i = 0; i < frames.length; i++) {
+      const f = frames[i], off = randInt(-9, 9), start = (Math.random() < .5 ? -1 : 1) * randInt(12, 24);
+      const v = await lab.slider(q(`Rod ${i + 1} of 4`, 'Make the rod exactly upright.') + frameSVG(f, start + off), { min: -34, max: 34, step: .5, value: start, button: 'It is upright', onInput: (val, el) => { const rod = $('#rfRod', el); if (rod) rod.setAttribute('transform', `rotate(${val + off} 150 150)`); } });
+      res.trials.push({ frame: f, rod: v + off });
+    }
+    res.pull = sum(res.trials.map(t => t.rod * Math.sign(t.frame))) / res.trials.length;
+    res.abs = sum(res.trials.map(t => Math.abs(t.rod))) / res.trials.length;
+    const a = await lab.choose(q('The second test', 'Which of these shapes is hidden in the box?', 'It must be the same size and the same way up as you see it on the button.') + CUBE_SVG, shuffle([{ v: 1, l: TRI('8,48 48,48 48,8') }, { v: 0, l: TRI('8,8 8,48 48,48') }, { v: 0, l: TRI('30,8 8,48 52,48') }, { v: 0, l: TRI('30,6 54,30 30,54 6,30') }]), { row: true });
+    res.hidden = a.value; res.hiddenMs = a.ms;
+    return res;
+  },
+  report(r) {
+    const p = Math.round(r.pull * 10) / 10;
+    return {
+      headline: `Your rods were off by ${fmt1(r.abs)}° on average. The hidden shape: ${r.hidden ? 'found' : 'missed'} in ${fmtSec(r.hiddenMs)}.`,
+      blocks: pairBox([{ v: fmt1(Math.abs(p)) + '°', k: p > 0.4 ? 'Pulled towards the frame' : p < -0.4 ? 'Pushed away from the frame' : 'No pull from the frame', d: 'average over four rods', cls: 'red' }, { v: fmtSec(r.hiddenMs), k: 'To find the hidden shape', d: r.hidden ? 'the triangle at a corner of the box' : 'it was the triangle with the right angle at the bottom right', cls: 'steel' }]),
+      lines: [
+        `These are two famous tests of something called <strong>field dependence</strong> (chapter 7, pages 171 to 173). A person whose rod is pulled over by the tilted frame, and who is slow to find the hidden shape, was said to see things as part of their surroundings. A person who is not pulled was said to see things apart from their surroundings. It was offered as a style of thinking, one of many in the book's Table 7.1.`,
+        `In the real rod-and-frame test the room is dark and only the rod and frame glow. On a screen you can see the straight edges of the screen and of the room, so the pull here is much weaker than in the laboratory. Read your number as a taste of the test and not as a measurement.`,
+        `The book uses these tests to ask a hard question about every "style". A style should be a way of thinking that is different without being better. But the book says that people who do well on these two tests also score higher on most other tests of thinking. One study that the lab read gave both tests together with tests of spatial ability (how well we turn shapes round in the head), and found that they measure the same thing (MacLeod, Jackson and Palmer, 1986). <strong>So this is not a style. It is an ability</strong>, like being quick at mental arithmetic.`,
+        `Keep that question for the next two stations. They are about the best-known style idea of all: that some of us are visual learners and some are auditory learners.`
+      ]
+    };
+  },
+  metrics: r => ({ pull_deg: Math.round(r.pull * 10) / 10, abs_error_deg: Math.round(r.abs * 10) / 10, hidden_ok: r.hidden, hidden_ms: r.hiddenMs }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Rod and frame', v: fmt1(r.abs) + '°', d: `average error; hidden shape ${tick(r.hidden)}` })
+};
+
+const IMAGE_HOW = [{ v: 'saw', l: 'I saw it in my head' }, { v: 'heard', l: 'I heard it in my head' }, { v: 'words', l: 'I just knew it, in words' }, { v: 'other', l: 'Some other way' }];
+const S_IMAGE = {
+  id: 'image', part: 7, chapter: 7, name: 'Three questions about your own head', short: 'In your head', minutes: 2, tag: 'p7', tagText: 'We all see and hear in memory',
+  blurb: 'Three easy questions about a cat, a room and two voices. After each one, say how you found the answer.',
+  intro: 'Three easy questions. The answers don\'t matter much. After each one the page asks how you found the answer, and that is the part to be careful about.',
+  async run(lab) {
+    const res = {};
+    await lab.choose(q('Question 1', 'What shape are a cat\'s ears?'), shuffle([{ v: 1, l: 'Pointed, like small triangles' }, { v: 0, l: 'Round, like coins' }, { v: 0, l: 'Long and hanging down' }]), { row: true });
+    res.how1 = (await lab.choose(q('Question 1', 'How did you find the answer?'), IMAGE_HOW)).value;
+    res.windows = (await lab.number(q('Question 2', 'How many windows are there in the room where you sleep?'), { placeholder: 'Windows', short: true })).value;
+    res.how2 = (await lab.choose(q('Question 2', 'How did you find the answer?'), IMAGE_HOW)).value;
+    await lab.choose(q('Question 3', 'Think of your Maths teacher and your Physics teacher from Class 12. Whose voice is deeper?'), [{ v: 'm', l: 'The Maths teacher\'s' }, { v: 'p', l: 'The Physics teacher\'s' }, { v: 's', l: 'About the same' }], { row: true });
+    res.how3 = (await lab.choose(q('Question 3', 'How did you find the answer?'), IMAGE_HOW)).value;
+    res.steth = (await lab.choose(q('One more', 'You know what a stethoscope is for. How did you first learn it?'), [{ v: 'saw', l: 'I saw a doctor use one' }, { v: 'heard', l: 'Somebody told me' }, { v: 'did', l: 'I used one myself' }, { v: 'dk', l: 'I don\'t remember, I just know it' }])).value;
+    return res;
+  },
+  report(r) {
+    const H = { saw: 'you saw it', heard: 'you heard it', words: 'you knew it in words', other: 'some other way' };
+    return {
+      headline: `The cat: ${H[r.how1]}. The windows: ${H[r.how2]}. The voices: ${H[r.how3]}.`,
+      blocks: rlist([{ b: 'Cat', t: `A cat's ears: ${H[r.how1]}.` }, { b: 'Room', t: `You counted ${r.windows} ${r.windows === 1 ? 'window' : 'windows'}: ${H[r.how2]}.` }, { b: 'Voices', t: `The deeper voice: ${H[r.how3]}.` }]),
+      lines: [
+        `${r.how2 === 'saw' && r.how3 === 'heard' ? 'You looked at a picture for the windows and listened to a sound for the voices.' : 'Most people look at a picture in their head to count the windows, and listen to a sound in their head to compare the voices.'} These are the book's questions, with a German shepherd in place of the cat (chapter 7, page 174).`,
+        `So everybody has a memory for how things look and a memory for how things sound. Nobody is only "visual" or only "auditory". We use the memory that fits the question. A question about a shape calls up a picture, and a question about a voice calls up a sound.`,
+        `Now the stethoscope. ${r.steth === 'dk' ? 'You don\'t remember how you learned it, and it makes no difference.' : 'You may remember how you learned it, but it makes no difference to what you know.'} What you have is the meaning: a thing for listening to the chest. The book's word is "footbath" (page 175). <strong>Most of what we know is kept as meaning, and meaning is neither a picture nor a sound.</strong>`,
+        `That matters, because almost everything we study at college is meaning. The next station tests the idea on you.`
+      ]
+    };
+  },
+  metrics: r => ({ cat_how: r.how1, windows_how: r.how2, voices_how: r.how3, stethoscope: r.steth }),
+  score: () => null, s1: r => r.how2 === 'saw' || r.how3 === 'heard',
+  oneLine: r => ({ k: 'In your head', v: `${r.how2} · ${r.how3}`, d: 'windows and voices' })
+};
+
+const STYLE_SETS = [
+  [['apple', '🍎'], ['bicycle', '🚲', 'cycle', 'bike'], ['key', '🔑'], ['elephant', '🐘'], ['umbrella', '☂️'], ['clock', '⏰', 'alarm', 'watch'], ['balloon', '🎈'], ['chair', '🪑']],
+  [['bus', '🚌'], ['scissors', '✂️', 'scissor'], ['moon', '🌙'], ['carrot', '🥕'], ['bell', '🔔'], ['shoe', '👟', 'shoes'], ['house', '🏠', 'home'], ['banana', '🍌']]
+];
+const S_STYLE = {
+  id: 'style', part: 7, chapter: 7, name: 'Pictures and spoken words', short: 'Learning style', minutes: 4, tag: 'p7', tagText: 'Are you a visual learner?', sound: true,
+  blurb: 'Say how you learn best. Then learn eight things from pictures and eight from spoken words, and see which you remember better.',
+  intro: 'First the page asks how you learn best. Then you get two short lists. One list is eight pictures. The other is eight words that the device says aloud, so turn the sound on. After each list you type what you remember.',
+  async run(lab) {
+    const res = {};
+    res.label = (await lab.choose(q('About you', 'How do you learn best?'), [{ v: 'visual', l: 'By seeing: pictures, diagrams, videos' }, { v: 'auditory', l: 'By hearing: listening to somebody explain' }, { v: 'doing', l: 'By doing: with my hands, moving around' }, { v: 'none', l: 'No one way is best for me' }])).value;
+    res.belief = (await lab.choose(q('What do you think?', 'Students learn more when they are taught in their own style, visual learners with pictures and auditory learners by listening.'), [{ v: 'agree', l: 'I agree' }, { v: 'unsure', l: 'I am not sure' }, { v: 'disagree', l: 'I disagree' }], { row: true })).value;
+    res.kathy = (await lab.choose(q('One case', 'Should her teacher teach her biology through poems?', 'Kathy finds biology hard. She writes very good poems.'), [{ v: 'yes', l: 'Yes. Use what she is good at' }, { v: 'no', l: 'No. It will not help her biology' }], { row: true })).value;
+    const sets = shuffle([0, 1]), order = shuffle(['pic', 'voice']); res.order = order; res.spoken = Speak.ok() ? 1 : 0;
+    for (let i = 0; i < 2; i++) {
+      const mode = order[i], set = shuffle(STYLE_SETS[sets[i]].slice());
+      await lab.continue(q(`List ${i + 1} of 2`, mode === 'pic' ? 'Eight pictures' : res.spoken ? 'Eight spoken words' : 'Eight printed words', mode === 'pic' ? 'Each picture stays for two seconds. Only look.' : res.spoken ? 'Each word is said once. Only listen. Check that your sound is on.' : 'This device has no voice, so the words will be printed, one at a time.'), { button: 'Start the list' });
+      for (const it of set) {
+        if (mode === 'pic') { lab.show(`<div class="picword"><span class="pic">${it[1]}</span></div>`); await lab.wait(2000); }
+        else if (res.spoken) { lab.show('<div class="bigword">🔊</div>'); Speak.say(it[0]); await lab.wait(2000); }
+        else { lab.show(`<div class="bigword">${it[0].toUpperCase()}</div>`); await lab.wait(2000); }
+        lab.show('<div class="bigword"> </div>'); await lab.wait(300);
+      }
+      const a = await askText(lab, q(`List ${i + 1} of 2`, 'Type everything you remember from this list.', 'Any order. You have 45 seconds.'), { placeholder: 'What you remember', multiline: true, timeout: 45000, button: 'That is all I have' });
+      const typed = wordsOf(a.text);
+      res[mode] = set.filter(it => [it[0], ...it.slice(2)].some(w => typed.some(t => near(t, w)))).length;
+    }
+    return res;
+  },
+  report(r) {
+    const L = { visual: 'by seeing', auditory: 'by hearing', doing: 'by doing', none: 'in no one way' }[r.label];
+    const d = r.pic - r.voice, fits = r.label === 'visual' ? d >= 2 : r.label === 'auditory' ? d <= -2 : null;
+    return {
+      headline: `You said you learn best ${L}. Pictures: ${r.pic} of 8. ${r.spoken ? 'Spoken' : 'Printed'} words: ${r.voice} of 8.`,
+      blocks: barRows([{ label: 'From pictures', frac: r.pic / 8, lab: `<b>${r.pic}</b> of 8`, cls: 'steel' }, { label: r.spoken ? 'From spoken words' : 'From printed words', frac: r.voice / 8, lab: `<b>${r.voice}</b> of 8`, cls: 'red' }]),
+      lines: [
+        `${fits === true ? 'This time your result went the way your label says.' : fits === false ? 'Your result did not go the way your label says.' : r.label === 'doing' || r.label === 'none' ? 'You did not call yourself a visual or an auditory learner, so there is no label to check.' : ''} But one short try on one person can't settle anything, in either direction. What settles it is the research, and the research is clear.`,
+        `This is the experiment the book describes with two students, Anne and Victor (chapter 7, page 176). Anne is called an auditory learner and Victor a visual learner. Each learns one list of words from a recording and another from pictures. If the idea of learning styles is right, Anne should do better with the recording and Victor with the pictures. Dozens of studies of this kind have been done. <strong>Matching the teaching to the student's style gives no advantage.</strong>`,
+        `The last station showed why. A test asks for the meaning of what we learned, and meaning is not stored as a picture or as a sound. A good picture helps everybody when the thing to learn is a shape, such as a map. Listening helps everybody when the thing to learn is a sound, such as how a word is said. The content decides, not the student.`,
+        `${r.belief === 'agree' ? 'You agreed with the statement, and so do most teachers.' : 'Most teachers agree with the statement.'} In surveys from many countries about nine teachers in ten believe it. ${r.kathy === 'yes' ? 'And you would teach Kathy biology through poems. The book says no: a poem about a cell makes her think about rhymes.' : 'You would not teach Kathy biology through poems, and the book agrees: a poem about a cell makes her think about rhymes.'} So we don't have to find our "style". We have to ask what the content needs, and think about what it means.`
+      ]
+    };
+  },
+  metrics: r => ({ label: r.label, belief: r.belief, kathy: r.kathy, pictures: r.pic, words: r.voice, spoken: r.spoken, first: r.order[0] }),
+  score: () => null, s1: r => r.label === 'visual' ? r.pic - r.voice < 2 : r.label === 'auditory' ? r.voice - r.pic < 2 : null,
+  oneLine: r => ({ k: 'Learning style', v: `${r.pic} · ${r.voice}`, d: 'pictures and words, of 8' })
+};
+
+/* ============================================================
+   Chapter 8 · Intelligence
+   ============================================================ */
+const MIND_PISA = [{ v: 1, l: 'Strongly disagree' }, { v: 2, l: 'Disagree' }, { v: 3, l: 'Agree' }, { v: 4, l: 'Strongly agree' }];
+const S_MIND = {
+  id: 'mind', part: 8, chapter: 8, name: 'What do you believe about intelligence?', short: 'Belief', minutes: 2, tag: 'p8', tagText: 'Fixed, or can it grow?',
+  blurb: 'One statement that students in 74 countries were asked about, and three small choices. There are no right answers at this station.',
+  intro: 'Four quick questions about what you believe and what you would do. Nobody sees your answers. Say what is true for you and not what sounds good.',
+  async run(lab) {
+    const res = {};
+    res.pisa = (await lab.choose(q('A statement', '"Your intelligence is something about you that you can\'t change very much."', 'How far do you agree?'), MIND_PISA, { row: true })).value;
+    res.quiz = (await lab.choose(q('A choice', 'It is quiz night with your friends. How do you play?'), shuffle([{ v: 'felix', l: 'I answer only when I am sure, so that I am not wrong in front of everybody' }, { v: 'mel', l: 'I have a go at every question, even if I get some badly wrong' }]))).value;
+    res.task = (await lab.choose(q('A choice', 'You can pick your next set of problems. Which set?'), shuffle([{ v: 'felix', l: 'Problems I will surely get right' }, { v: 'mel', l: 'Harder problems. I will get some wrong, and I will learn something' }]))).value;
+    res.fail = (await lab.choose(q('A thought', 'You get 40 out of 100 in a class test. What is your first thought?'), shuffle([{ v: 'felix', l: 'I am not good at this subject' }, { v: 'mel', l: 'I prepared in the wrong way. I have to change how I study' }]))).value;
+    res.growth = (res.pisa <= 2 ? 1 : 0) + ['quiz', 'task', 'fail'].filter(k => res[k] === 'mel').length;
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `${r.pisa <= 2 ? 'You disagreed with the statement.' : 'You agreed with the statement.'} ${r.growth} of your 4 answers go with "intelligence can grow".`,
+      blocks: rlist([{ b: 'Over 60', t: 'In these countries more than 60 students in 100 disagreed with the statement: the United Kingdom, the United States, Canada, Japan, Finland, Germany.' }, { b: '40 to 60', t: 'Russia, Singapore, Italy, the Slovak Republic, Chile, Turkey.' }, { b: 'Under 40', t: 'Poland, Lebanon, the Philippines, Indonesia, Kosovo, Panama.' }]),
+      lines: [
+        `The statement is from the PISA survey of 2018, which asked it of 15-year-olds in 74 countries. The table above is the sample of countries that the book prints (chapter 8, page 204). In the OECD's own report, 63 students in 100 disagreed on average across the OECD countries: 70 in the United Kingdom, 68 in the United States, 67 in Japan, and 31 in the Philippines, 29 in Indonesia and 28 in Kosovo. India did not take part in that survey. Disagreeing is called a <strong>growth mindset</strong>: the belief that intelligence can be changed by work. Students who disagreed also tended to stick at hard tasks, to set higher goals and to fear failure less.`,
+        `The three choices are the book's two characters, Felix and Mel (page 202). Felix wants to look intelligent, so he picks easy tasks and stays quiet unless he is sure. Mel wants to learn, so she picks hard tasks and does not mind being wrong. Felix believes intelligence is fixed. Mel believes it can grow.`,
+        `The book's own position has two parts. People do differ in intelligence, and some of that comes from genes. <strong>But intelligence can be changed by sustained hard work.</strong> The next station has the evidence.`,
+        `We should also be honest about what a belief can do. In the largest experiment (Yeager and others, 2019), 6,320 students in Class 9 who had low marks took two online lessons of 25 minutes about this idea. Their marks at the end of the year were higher, but only slightly: about 0.1 of a grade point on a scale of 4. Believing is where it starts. The marks come from what we do after that: we look for feedback, and we try another way when the first way fails.`
+      ]
+    };
+  },
+  metrics: r => ({ pisa: r.pisa, quiz: r.quiz, task: r.task, fail: r.fail, growth: r.growth }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Belief', v: `${r.growth} of 4`, d: 'answers on the side of "it can grow"' })
+};
+
+const TWINS_ITEMS = [
+  { q: 'A hundred students take four tests: calculation, word problems, vocabulary and reading. Priya is very good at vocabulary. What can we predict about her?', right: 'She is probably good at reading, and a little more likely than others to be good at the maths tests too', wrong: ['Nothing. Each test is separate', 'She is good at reading, and we know nothing about her maths', 'She is probably weak at maths'], why: 'Scores on the two language tests go together most strongly, and they also go together with the maths scores, less strongly. So there is one general ability, and under it a verbal and a mathematical one (pages 192 to 194).' },
+  { q: 'Which pair is more alike in their scores on intelligence tests?', right: 'Identical twins who grew up in different homes', wrong: ['Two unrelated children who were adopted into the same home', 'Both pairs are equally alike'], why: 'This is the kind of comparison in the book\'s Table 8.1. Studies of twins suggested that about half of the difference between people in intelligence goes with their genes (pages 196 and 197).' },
+  { q: 'Identical twins are separated at birth. Both are tall. Each is picked for games in his own colony, asks for a hoop at home, joins the school team, and becomes a very good basketball player. Is their skill "in the genes"?', right: 'The genes made them tall. Being tall got them practice, and the practice made them good', wrong: ['Yes. It is in the genes, since they grew up apart', 'No. Genes have nothing to do with it'], why: 'A small difference from the genes leads a person into surroundings that make it bigger. The book says intelligence may work the same way: a child who is a little quicker gets more praise, harder books and cleverer friends (pages 198 to 200).' },
+  { q: 'Between 1909 and 2013, what happened to average scores on intelligence tests around the world?', right: 'They rose by about 30 points', wrong: ['They stayed about the same', 'They fell by about 10 points', 'They rose by about 3 points'], why: 'This is called the Flynn effect (Pietschnig and Voracek, 2015). Genes can\'t change that fast, so the cause is in how people live and study. In some rich countries the rise has slowed or stopped (pages 200 and 201).' },
+  { q: 'Children from very poor homes are adopted into better-off homes. What happens to their scores on intelligence tests?', right: 'They go up', wrong: ['They stay the same', 'They go down'], why: 'The book also reports that missing a year of school lowers the score, and that when Norway added two years of compulsory school, scores at age 19 rose (page 200).' }
+];
+const S_TWINS = {
+  id: 'twins', part: 8, chapter: 8, name: 'Five guesses about intelligence', short: 'Twins', minutes: 4, tag: 'p8', tagText: 'Genes, and what we do',
+  blurb: 'Five questions about test scores, twins and adopted children. Guess first. Then see what the studies in the book found.',
+  intro: 'Five questions about intelligence. Nobody is expected to know these. Guess what the researchers found, and then read what they did find.',
+  async run(lab) { return quiz(lab, TWINS_ITEMS, 'Guess'); },
+  report(r) {
+    return {
+      headline: `${r.correct} of 5 guesses agree with what the book reports.`,
+      blocks: quizList(TWINS_ITEMS, r),
+      lines: [
+        `Put the five answers together. Intelligence is real and it can be measured. Genes matter. And still, how a person lives, studies and practises changes it by a large amount.`,
+        `The story of the basketball twins is the key to it. It comes from the researchers William Dickens and James Flynn. It shows how "it is in the genes" and "it comes from practice" can both be true together.`,
+        `Newer studies read the genes directly. The book reports that they find thousands of gene differences, each with a very small effect, and that part of what looked like the effect of genes runs through how parents bring up the child (page 198).`,
+        `<strong>For us the useful part is the last one. Whatever we started with, sustained work on hard material raises it.</strong> Slow progress in a subject does not show that we are not made for it. It usually shows how much we have practised it so far.`
+      ]
+    };
+  },
+  metrics: r => ({ correct: r.correct, answers: r.ans.join('') }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Twins', v: `${r.correct} of 5`, d: 'guesses about intelligence' })
+};
+
+/* ============================================================
+   Chapter 9 · Phones, screens and attention
+   ============================================================ */
+const S_BACK = {
+  id: 'back', part: 9, chapter: 9, name: 'Numbers, backwards', short: 'Backwards', minutes: 4, tag: 'p9', tagText: 'Have screens made attention shorter?',
+  blurb: 'First one guess. Then numbers appear one at a time, and you type them in the opposite order. The row gets longer until you miss.',
+  intro: 'First you make one guess. Then the test: numbers appear one at a time. When they stop, type them <strong>backwards</strong>. If you see 7, 3, 1, you type 137. The row starts with three numbers and grows.',
+  async run(lab) {
+    const res = { span: 0, trials: [] };
+    res.guess = (await lab.choose(q('Your guess', 'Compared with people who took this test a hundred years ago, how do people score today?', 'Children today spend about five hours a day on screens, and teenagers more than seven. This test measures how much we can hold in mind and work on.'), [{ v: 'lower', l: 'Lower. Screens have made attention shorter' }, { v: 'same', l: 'About the same' }, { v: 'higher', l: 'Higher' }])).value;
+    for (let n = 3; n <= 9; n++) {
+      let okN = 0;
+      for (let k = 0; k < 2; k++) {
+        const ds = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]).slice(0, n);
+        await lab.continue(q(`${n} numbers`, 'Ready?', 'Type them backwards when they stop.'), { button: 'Show them' });
+        await flashSeq(lab, ds.map(String), 900, 150);
+        const a = await askText(lab, q(`${n} numbers`, 'Type them backwards.'), { placeholder: 'Last number first' });
+        const ok = digitsOnly(a.text) === ds.slice().reverse().join(''); okN += ok ? 1 : 0;
+        res.trials.push({ n, ok });
+      }
+      if (okN) res.span = n; else break;
+    }
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `You can hold ${r.span || 'fewer than 3'} numbers and turn them round. The usual score is about 5.`,
+      blocks: pairBox([{ v: r.span || '–', k: 'Your longest row, backwards', cls: 'steel' }, { v: '5', k: 'Average, in the 1920s', d: 'about', cls: 'dim' }, { v: '5', k: 'Average, in the 2000s', d: 'about', cls: 'dim' }]),
+      lines: [
+        `This is the backward digit span. In the usual test the numbers are read aloud. Here they are shown, which most people find a little easier, so your number can't be compared exactly with the published average.`,
+        `${r.guess === 'same' ? 'You guessed that scores have not changed, and that is what was found.' : r.guess === 'lower' ? 'You guessed that scores have fallen. They have not.' : 'You guessed that scores have risen. They have not.'} The book shows a graph of average scores on this test from the 1920s onwards (chapter 9, page 220). It comes from Gilles Gignac (2015), who put together 85 years of data. The line is flat, at about five numbers. Two later papers looked at the same data again and found a very small fall, not a rise.`,
+        `So the common belief that phones have damaged the basic machinery of attention is not supported by this evidence. Our working memory is what it was for our great-grandparents.`,
+        `Then what has changed? Willingham's suggestion is that we <strong>can</strong> pay attention as well as before, but we are less <strong>willing</strong> to, because something more interesting is always one tap away. He offers this as his reading of the evidence and not as a proved fact. The last station of this chapter is about that pull.`
+      ]
+    };
+  },
+  metrics: r => ({ span: r.span, guess: r.guess, trials: r.trials.length }),
+  score: () => null, s1: () => null,
+  oneLine: r => ({ k: 'Backwards', v: r.span || '<3', d: 'numbers held and reversed' })
+};
+
+const SW_V = ['A', 'E', 'I', 'U'], SW_C = ['G', 'K', 'M', 'R'], SW_O = ['3', '5', '7', '9'], SW_E = ['2', '4', '6', '8'];
+const swGrid = (pos, pair) => { const cell = [0, 1, 3, 2]; return `<div class="swrule">Top row: look at the <b>letter</b></div><div class="swgrid">${[0, 1, 2, 3].map(i => `<div>${cell[pos] === i ? pair : ''}</div>`).join('')}</div><div class="swrule">Bottom row: look at the <b>number</b></div>`; };
+const S_SWITCH = {
+  id: 'switch', part: 9, chapter: 9, name: 'A letter and a number in four boxes', short: 'Switching', minutes: 4, tag: 'p9', tagText: 'Can we do two things at once?',
+  blurb: 'A letter and a number appear together in one of four boxes. In the top boxes you judge the letter. In the bottom boxes you judge the number. Be fast.',
+  intro: 'A pair such as <strong>G7</strong> will appear in one of four boxes. If it is in the <strong>top</strong> row, look only at the letter: is it a vowel or a consonant? If it is in the <strong>bottom</strong> row, look only at the number: is it odd or even? The left button is for <strong>vowel</strong> and for <strong>odd</strong>. The right button is for <strong>consonant</strong> and for <strong>even</strong>. On a keyboard, press 1 and 2. Go as fast as you can without mistakes. The first eight are for practice.',
+  async run(lab) {
+    const res = { rows: [] }, opts = [{ v: 'L', l: 'Vowel · Odd' }, { v: 'R', l: 'Consonant · Even' }];
+    let pos = randInt(0, 3), prevTask = null;
+    const total = 8 + 48;
+    for (let i = 0; i < total; i++) {
+      if (i === 8) await lab.continue(q('Practice is over', 'Now 48 for real.', 'Top row: letter, vowel or consonant. Bottom row: number, odd or even. Left for vowel and odd. Right for consonant and even.'), { button: 'Start' });
+      const task = pos < 2 ? 'letter' : 'digit', vowel = Math.random() < .5, odd = Math.random() < .5;
+      const L = pick(vowel ? SW_V : SW_C), D = pick(odd ? SW_O : SW_E), pair = Math.random() < .5 ? L + D : D + L;
+      const want = task === 'letter' ? (vowel ? 'L' : 'R') : (odd ? 'L' : 'R');
+      const a = await lab.choose(swGrid(pos, pair), opts, { row: true, timeout: 5000 });
+      if (i >= 8 && prevTask !== null) res.rows.push({ sw: task !== prevTask, ok: a.value === want, ms: a.ms });
+      prevTask = task; pos = (pos + 1) % 4;
+      lab.show(swGrid(pos, '')); await lab.wait(250);
+    }
+    const rt = sw => median(res.rows.filter(x => x.sw === sw && x.ok).map(x => x.ms));
+    res.switchMs = rt(true); res.repeatMs = rt(false);
+    res.switchErr = res.rows.filter(x => x.sw && !x.ok).length; res.repeatErr = res.rows.filter(x => !x.sw && !x.ok).length;
+    res.rows = res.rows.length;
+    return res;
+  },
+  report(r) {
+    const d = r.switchMs - r.repeatMs, pct = Math.round(100 * d / r.repeatMs);
+    return {
+      headline: `Same task as the one before: ${fmtMs(r.repeatMs)}. Task just changed: ${fmtMs(r.switchMs)}.`,
+      blocks: pairBox([{ v: fmtMs(r.repeatMs), k: 'When the task stayed', d: plural(r.repeatErr, 'mistake'), cls: 'steel' }, { v: fmtMs(r.switchMs), k: 'When the task changed', d: plural(r.switchErr, 'mistake'), cls: 'red' }, { v: Number.isFinite(pct) ? `${pct > 0 ? '+' : ''}${pct}%` : '–', k: 'Slower after a change', d: 'the book reports about 20%', cls: 'dim' }]),
+      lines: [
+        `The pair moved round the four boxes in order, so you always knew which task was coming. The two rules are as simple as rules can be. ${Number.isFinite(pct) && pct >= 5 ? `And still, every time the task changed, you were slower by about ${Math.round(d)} milliseconds.` : 'For you the change of task cost very little this time, which is unusual. Look at the mistakes as well.'}`,
+        `This is the experiment of Robert Rogers and Stephen Monsell (1995), which the book describes in chapter 9 (pages 221 and 222). The book reports that people were about one fifth slower on the first trial after a change of task. The lab read only the summary of the paper, which says the cost stays even when people get more than a second to prepare.`,
+        `It shows what "multitasking" really is. <strong>We can't do two things that need thought at the same moment. We switch between them, and every switch costs something.</strong> The mind has to put away one rule and bring out the other.`,
+        `Now think of studying with the phone next to the book. Each message is a switch out of the chapter and a switch back in, and a chapter is much harder to get back into than "odd or even". The book adds that a television which is on in the room hurts reading, even when we say we are not listening to it.`
+      ]
+    };
+  },
+  metrics: r => ({ repeat_ms: Math.round(r.repeatMs), switch_ms: Math.round(r.switchMs), repeat_errors: r.repeatErr, switch_errors: r.switchErr }),
+  score: () => null, s1: r => Number.isFinite(r.switchMs - r.repeatMs) ? (r.switchMs - r.repeatMs) / r.repeatMs >= .05 : null,
+  oneLine: r => ({ k: 'Switching', v: Number.isFinite(r.switchMs - r.repeatMs) ? `+${Math.max(0, Math.round(r.switchMs - r.repeatMs))} ms` : '–', d: 'slower when the task changes' })
+};
+
+const ENDS = [
+  ['…on the day of Holi."', 'We like to keep new things clean', 0],
+  ['…until Dadi, who gave them to me, comes to see them."', 'We like to show a gift to the person who gave it', 1],
+  ['…until I can buy laces of the right length."', 'A new thing sometimes needs one more part before we can use it', 2]
+];
+const S_ENDS = {
+  id: 'ends', part: 9, chapter: 9, name: 'One sentence with three endings', short: 'Three endings', minutes: 2, tag: 'p9', tagText: 'Why not just search for it?',
+  blurb: 'The same half sentence about new shoes, finished in three ways. Each time, say which fact you used to understand it.',
+  intro: 'You will read the same beginning of a sentence three times, each time with a new ending. After each one, tap the fact that you needed to make sense of it. Answer as soon as you know.',
+  async run(lab) {
+    const res = { rows: [] };
+    for (const [k, e] of shuffle(ENDS.slice()).entries()) {
+      const a = await lab.choose(q(`Ending ${k + 1} of 3`, 'Which fact did you use?') + passage(`"I am not going to wear my new white shoes ${e[0]}`), shuffle(ENDS.map(x => ({ v: x[2], l: x[1] }))));
+      res.rows.push({ ok: a.value === e[2] ? 1 : 0, ms: a.ms });
+    }
+    res.correct = sum(res.rows.map(x => x.ok)); res.ms = median(res.rows.map(x => x.ms));
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `${r.correct} of 3 endings understood, in about ${fmtSec(r.ms)} each, and that includes reading the choices.`,
+      blocks: rlist(ENDS.map(e => ({ b: '•', t: `"${e[0].replace('…', '… ')} <strong>${e[1]}.</strong>` }))),
+      lines: [
+        `You know many things about new shoes. Each ending needed a different one, and the right one came by itself each time. You did not search for it. The sentence pulled it out of your memory.`,
+        `In the book the sentence is about a new barbecue, with three endings: a messy glaze, a friend who gave it as a gift, and a part for the gas line (chapter 9, pages 226 to 229). The shoes are the lab's.`,
+        `Willingham uses it to answer a question students often ask: "Why should I remember anything when I can search for it?" He gives two reasons. Memory is faster: the meaning of a word comes in less than a second, and stopping to look something up breaks the thought we were in the middle of. And <strong>memory knows the context</strong>: it hands us the one fact that fits this sentence. A search for "new shoes" gives millions of pages and can't know which fact we need.`,
+        `So looking things up is fine for a fact we need once. For reading, for solving problems and for thinking, the knowledge has to be in our own head already.`
+      ]
+    };
+  },
+  metrics: r => ({ correct: r.correct, median_ms: Math.round(r.ms) }),
+  score: () => null, s1: r => r.correct === 3,
+  oneLine: r => ({ k: 'Three endings', v: `${r.correct} of 3`, d: `about ${fmtSec(r.ms)} each` })
+};
+
+const DELAYS = [['1 month', 'in one month'], ['1 year', 'in one year'], ['5 years', 'in five years']];
+const rupees = n => '₹' + Math.round(n).toLocaleString('en-IN');
+const S_DELAY = {
+  id: 'delay', part: 9, chapter: 9, name: 'Money now or more money later', short: 'Now or later', minutes: 3, tag: 'p9', tagText: 'Why the phone wins',
+  blurb: 'One question about ice cream. Then fifteen choices between a smaller amount of money today and ₹10,000 later.',
+  intro: 'First one question about ice cream. Then some choices about money. The money is not real, but choose as if it were. There are no right answers.',
+  async run(lab) {
+    const res = { values: [] };
+    res.ice = (await lab.choose(q('Ice cream', 'When is it harder to say no?', 'Your doctor has told you to stop eating sweet things.'), shuffle([{ v: 'shop', l: 'You walk past a shop and see your favourite ice cream in the freezer' }, { v: 'bowl', l: 'After dinner at home, somebody puts a bowl of it in front of you' }]))).value;
+    for (const [short, long] of DELAYS) {
+      let lo = 0, hi = 10000;
+      for (let k = 0; k < 5; k++) {
+        const x = Math.round((lo + hi) / 2 / 50) * 50;
+        const a = await lab.choose(q(`Wait: ${short} · choice ${k + 1} of 5`, 'Which would you take?'), [{ v: 'now', l: `${rupees(x)} today` }, { v: 'later', l: `₹10,000 ${long}` }], { row: true });
+        if (a.value === 'now') hi = x; else lo = x;
+      }
+      res.values.push(Math.round((lo + hi) / 2));
+    }
+    return res;
+  },
+  report(r) {
+    const [m, y, f] = r.values;
+    return {
+      headline: `To you, ₹10,000 in a year is worth about ${rupees(y)} today.`,
+      blocks: barRows(DELAYS.map((d, i) => ({ label: `After ${d[0]}`, frac: r.values[i] / 10000, lab: `<b>${rupees(r.values[i])}</b> today`, cls: i === 0 ? 'steel' : 'red' }))),
+      lines: [
+        `Nobody gives the same answer for all three waits. ${y < m && f < y ? 'The longer you had to wait, the less the ₹10,000 was worth to you.' : 'For most people the ₹10,000 is worth less and less the longer they have to wait.'} Psychologists call this delay discounting (a fancy name for "a reward that is far away feels smaller").`,
+        `The book's figure on this (chapter 9, page 238; Green, Myerson and Ostaszewski, 1999) shows how fast $1,000 loses its value for children of about 12 and for adults of about 70. For the children it was worth only about half after a few months of waiting. For the older adults it was still worth about two thirds after five years. These values were read from the book's graph, so they are rough. The young discount much faster.`,
+        `The ice cream is the same thing in daily life (page 237). ${r.ice === 'bowl' ? 'You said the bowl in front of you is harder to refuse, and almost everybody says so.' : 'Almost everybody says the bowl in front of them is harder to refuse.'} A reward that is here now is worth far more to us than the same reward a little later.`,
+        `<strong>A phone on the desk is the bowl of ice cream.</strong> The message on it is a small reward that is ready this second. The marks from this chapter are a big reward that is months away. So the book does not ask us for stronger will power. It asks us to change what is in front of us: the phone goes into another room, with a fixed time to look at it.`
+      ]
+    };
+  },
+  metrics: r => ({ ice_cream: r.ice, value_1_month: r.values[0], value_1_year: r.values[1], value_5_years: r.values[2] }),
+  score: () => null, s1: r => r.values[1] < 9000,
+  oneLine: r => ({ k: 'Now or later', v: rupees(r.values[1]), d: 'what ₹10,000 in a year is worth to you today' })
+};
+
+/* ============================================================
+   Chapter 10 · Getting better at learning
+   ============================================================ */
+const PRACT_ITEMS = [
+  ['Did you pick one small thing that you do badly, and decide to get that one thing right?', 'One small weak part, with a clear goal'],
+  ['Did somebody who knows the subject, or an answer key, tell you exactly what was wrong in your work?', 'Feedback from somebody who knows more'],
+  ['Did you try something that you were not sure you could do?', 'Outside what is comfortable'],
+  ['Was it hard work in the head, and not much fun?', 'Demanding, and not pleasant'],
+  ['In that week, did you also look after the things that help study from the side, such as enough sleep?', 'Other things that help indirectly']
+];
+const S_PRACT = {
+  id: 'pract', part: 10, chapter: 10, name: 'Practice, or only experience?', short: 'Practice', minutes: 3, tag: 'p10', tagText: 'Getting better needs more than time',
+  blurb: 'One guess about a man who has driven for forty years. Then five questions about the last time you studied your weakest subject.',
+  intro: 'First one guess. Then think of the last time you sat down with your weakest subject, and answer five questions about that sitting. Be honest. Nobody sees this.',
+  async run(lab) {
+    const res = {};
+    res.drive = (await lab.choose(q('Your guess', 'How good a driver is he now, compared with then?', 'A man learned to drive at 17. After about fifty hours he was good enough. He has driven almost every day for the forty years since then.'), [{ v: 'much', l: 'Much better. He has forty years of practice' }, { v: 'little', l: 'Not much better than he was after those fifty hours' }, { v: 'worse', l: 'Worse' }])).value;
+    res.ans = [];
+    for (let i = 0; i < PRACT_ITEMS.length; i++) res.ans.push((await lab.choose(q(`Your last sitting · ${i + 1} of 5`, PRACT_ITEMS[i][0]), [{ v: 1, l: 'Yes' }, { v: 0, l: 'No' }], { row: true })).value);
+    res.n = sum(res.ans);
+    return res;
+  },
+  report(r) {
+    return {
+      headline: `Your last sitting had ${r.n} of the 5 marks of real practice.`,
+      blocks: rlist(PRACT_ITEMS.map((it, i) => ({ b: tick(r.ans[i]), cls: r.ans[i] ? 'good' : 'bad', t: it[1] }))),
+      lines: [
+        `The driver is Willingham himself (chapter 10, pages 253 and 254). ${r.drive === 'little' ? 'You guessed right: he says he is not much better now than he was at 17.' : 'He says he is not much better now than he was at 17.'} When he became good enough, he stopped trying to improve. After that he was only using the skill, and using a skill is not the same as practising it.`,
+        `The book calls this the difference between <strong>experience and practice</strong>, and it lists five marks of practice that makes us better (page 255). They are the five lines above. Researchers call it deliberate practice.`,
+        `Chapter 10 is written for teachers. It asks them to film their own lessons and to watch the film with a colleague they trust. The principle behind it is true of every skill that needs thought, and studying is such a skill: <strong>to get better at it we need conscious effort and feedback. Time alone does not do it.</strong>`,
+        `So twelve years of school don't make us good at studying, in the same way that forty years of driving don't make a racing driver. For the next sitting, pick one line above that has a cross and change that one thing. The easiest to add is feedback: solve with the book shut, and then check every step against the solution.`
+      ]
+    };
+  },
+  metrics: r => ({ driver_guess: r.drive, marks: r.n, answers: r.ans.join('') }),
+  score: () => null, s1: r => r.n <= 2,
+  oneLine: r => ({ k: 'Practice', v: `${r.n} of 5`, d: 'marks of real practice in your last sitting' })
+};
+
+const STATIONS = {}; for (const s of [S_CANDLE, S_SUM, S_RINGS, S_LETTERS, S_GAPS, S_TITLE, S_MATCH, S_PARAS, S_RICH, S_CARDS, S_STUCK, S_SEEN, S_WORDS, S_CUES, S_STAY, S_COIN, S_MNEMO, S_SCALES, S_SAME, S_EYE, S_RAYS, S_IRONY, S_DEPTH, S_ROOM, S_SORT, S_NAMES, S_CODE, S_STUDY, S_RULE, S_SERIES, S_HOUSE, S_YEARS, S_FRAME, S_IMAGE, S_STYLE, S_MIND, S_TWINS, S_BACK, S_SWITCH, S_ENDS, S_DELAY, S_PRACT]) STATIONS[s.id] = s;
+const STATION_ORDER = ['candle', 'sum', 'rings', 'letters', 'gaps', 'title', 'match', 'paras', 'rich', 'cards', 'stuck', 'seen', 'words', 'cues', 'stay', 'coin', 'mnemo', 'scales', 'same', 'eye', 'rays', 'irony', 'depth', 'room', 'sort', 'names', 'code', 'study', 'rule', 'series', 'house', 'years', 'frame', 'image', 'style', 'mind', 'twins', 'back', 'switch', 'ends', 'delay', 'pract'];
+const PARTS = { 1: 'Thinking is slow, and it takes effort', 2: 'We need to know things before we can think about them', 3: 'We remember what we think about', 4: 'We understand new things through things we know', 5: 'Practice', 6: 'Experts think in a different way from beginners', 7: 'We are more alike than different in how we learn', 8: 'Intelligence can be changed by hard work', 9: 'Screens change a lot, but not our attention itself', 10: 'Getting better at learning needs effort and feedback' };
+const PART_CHAPTER = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10 };
 </script>
 <script>
 /* ============================================================
@@ -1901,7 +3063,7 @@ const Results = {
       <div class="metrics">${stats}</div>`;
   },
   drawTrend() { const host = $('#trendChart'); if (!host) return; TrendChart.draw(host, byDate(this.runs()).filter(r => scoreOf(r).value !== null).slice(-10)); },
-  runTitle(r) { const ss = stationsOf(r); if (ss.length === 1) return STATIONS[ss[0].id].name; if (ss.length >= STATION_ORDER.length) return 'All twelve stations'; return `${plural(ss.length, 'station')}`; },
+  runTitle(r) { const ss = stationsOf(r); if (ss.length === 1) return STATIONS[ss[0].id].name; if (ss.length >= STATION_ORDER.length) return `All ${STATION_ORDER.length} stations`; return `${plural(ss.length, 'station')}`; },
   certificate(r) {
     const m = r.metrics || Metrics.tour(r), sc = scoreOf(r);
     let reading; try { reading = Readings.tour(r, m); } catch (e) { console.error(e); reading = { headline: '–', caption: '', band: band('neutral', ''), lines: [] }; }
@@ -1992,8 +3154,8 @@ const GUIDE_HTML = `
 <p class="spoiler"><strong>Have you done the stations?</strong> If not, go back and do them first. This page tells you what each station is looking for, and once you know that, your result doesn't tell you anything about yourself.</p>
 <section>
   <h2>What is this lab?</h2>
-  <p>Daniel Willingham's book <em>Why Don't Students Like School?</em> (2009, second edition 2021) has one idea in every chapter about how our mind works, and what that means in a classroom. Willingham keeps stopping to make the reader try something: remember these letters, solve this puzzle, read this sentence written in numbers. This lab turns twelve of those into stations, from the first five chapters of the book.</p>
-  <p>The sentences, word lists and paragraphs here were written for this lab, with Indian examples where the book uses American ones. The design of each station follows the original study as closely as a phone screen allows.</p>
+  <p>Daniel Willingham's book <em>Why Don't Students Like School?</em> (2009, second edition 2021) has one idea in every chapter about how our mind works, and what that means in a classroom. Willingham keeps stopping to make the reader try something: remember these letters, solve this puzzle, read this sentence written in numbers. This lab turns forty-two of those into stations, from all ten chapters. The first twelve were built on 16 November 2026 from excerpts and articles. On 22 November 2026 the whole second edition was read page by page, the first twelve were checked against it, and thirty stations were added, so that every demonstration in the book, and every study that one person can take part in, is here.</p>
+  <p>The sentences, word lists and paragraphs here were written for this lab, with Indian examples where the book uses American ones. The design of each station follows the original study as closely as a phone screen allows. Where the book only describes a study that one person can't do alone, such as a study of twins, the station asks you to guess the result first.</p>
   <p>The book uses a very simple picture of the mind. We think in <strong>working memory</strong>, which is small. Everything we know is in <strong>long-term memory</strong>, which is huge. Almost every station is about how these two work together.</p>
 </section>
 <section>
@@ -2001,6 +3163,7 @@ const GUIDE_HTML = `
   <p>The book's first claim is surprising. People are curious, but we are not naturally good thinkers. Our mind avoids thinking when it can, and uses memory instead: we do what we did the last time. We enjoy thinking only when the problem is neither too easy nor too hard.</p>
   <div class="bands">
     <div><b>The candle on the wall</b><span>Karl Duncker's candle problem (1945). ${PUB.candle || ''} The station asks you to think and then to say which idea you had. It can't check your idea, so it trusts you.</span></div>
+    <div><b>A question and a sum</b><span>The book asks the colour of a polar bear to show how fast memory answers (page 11), and then lists the steps of 18 × 7 (page 13). The station times three easy questions and the sum. The first question on a new screen also has reading time in it, so the lab takes the middle of the three.</span></div>
     <div><b>Three rings and a tea ceremony</b><span>The rings are the Tower of Hanoi puzzle with three rings, which takes seven moves. The tea ceremony is the same puzzle told as a story, from the work of John Hayes and Herbert Simon. ${PUB.tea || ''} The station only asks how hard the story looks. In the research people solved it.</span></div>
   </div>
 </section>
@@ -2008,47 +3171,108 @@ const GUIDE_HTML = `
   <h2>Chapter 2: we need to know things before we can think about them</h2>
   <p>We often hear that students should learn to think, and that facts can be looked up. The book says the two can't be separated. Thinking well needs knowledge, for three reasons: knowledge lets us chunk, knowledge fills the gaps that writers leave, and knowledge often does the reasoning for us.</p>
   <div class="bands">
-    <div><b>Twenty letters, twice</b><span>The book's demonstration uses American abbreviations (FBI, CIA, PHD). This lab uses IPL, GST, ATM, UPI, SBI, JEE and IIT, PAN, RBI, OTP, SIM, USB. The count is the number of letters you typed in the right order.</span></div>
+    <div><b>Twenty letters, twice</b><span>The book's demonstration has seventeen letters and uses CNN, PHD, LOL, GMT and FAQ (page 32). This lab uses IPL, GST, ATM, UPI, SBI, JEE and IIT, PAN, RBI, OTP, SIM, USB. The count is the number of letters you typed in the right order.</span></div>
+    <div><b>What the writer left out</b><span>The book's sentences are about a new barbecue and a boss, a lake house with a tide, and one long sentence from <em>Moby-Dick</em> (pages 30 to 32). The three sentences here were written for the lab on the same plan.</span></div>
     <div><b>A paragraph without a title</b><span>Bransford and Johnson (1972). ${PUB.bj || ''} In the study, different people got the title before, after, or not at all. Here one person rates the paragraph twice, so the second rating also has a second reading in it.</span></div>
     <div><b>Two last overs</b><span>Recht and Leslie (1988). ${PUB.recht || ''} This lab can't change what you know, so it changes the game: cricket, which most of us know, against baseball, which most of us don't. Four questions on each is a small test.</span></div>
-    <div><b>Four cards</b><span>Peter Wason's selection task, and the drinking-age version by Griggs and Cox (1982). ${PUB.wason || ''} This lab uses the voting age in place of the drinking age.</span></div>
+    <div><b>Two paragraphs with the same shape</b><span>The book's pair is motor learning and chiffon cake (pages 43 and 44). It also describes Van Overschelde and Healy (2001), where new facts were learned better when they were attached to a subject the person knew well. The lab read that paper's summary only. Three questions after one minute is a weak test of what the book asks, which is memory on the next day.</span></div>
+    <div><b>Two students and 500 new facts a month</b><span>The book's Table 2.1 (page 45), with its made-up numbers. The lab uses the same rule: the share of new facts that stays is in proportion to what is already known. Nothing here is measured.</span></div>
+    <div><b>Four cards</b><span>Peter Wason's selection task, and the drinking-age version by Griggs and Cox (1982). ${PUB.wason || ''} This lab uses the voting age in place of the drinking age. The book's cards are A, 2, B, 3 and BEER, 31, COKE, 17, and it says 15 to 20 college students in 100 solve the first kind (pages 37 and 38). The papers the lab read put it nearer 10 in 100.</span></div>
   </div>
 </section>
 <section>
   <h2>Chapter 3: we remember what we think about</h2>
   <p>"Memory is the residue of thought." Whatever we think about while we study is what stays. Wanting to remember doesn't help, and seeing something many times doesn't help much either.</p>
   <div class="bands">
-    <div><b>Two questions about words</b><span>Hyde and Jenkins (1973). ${PUB.hj || ''} In the study, different groups did different tasks. Here one person does both, on two lists, in an order picked by chance.</span></div>
+    <div><b>Two questions about words</b><span>Hyde and Jenkins (1973). ${PUB.hj || ''} In the study, different groups did different tasks. Here one person does both, on two lists, in an order picked by chance. In the book the shallow question is about the letters A and Q, half the people are warned of the memory test, and the warning makes no difference (page 64).</span></div>
+    <div><b>What stayed and what did not</b><span>The book's two circles of things that stuck without trying and things that never stuck (pages 61 and 62). The twelve things here are the lab's own, and the answers are your own word.</span></div>
+    <div><b>What will the class remember?</b><span>Six classroom cases. Five are the book's examples moved to India: the biscuits lesson (page 57), the plot diagram in pictures (page 67), the sum about Instagram (page 68), the slides project (page 84) and the demonstration that is remembered without its reason (page 85). The sixth is the lab's.</span></div>
     <div><b>Things you have seen a thousand times</b><span>Nickerson and Adams (1979) used the American one-cent coin. ${PUB.penny || ''} This lab asks about a dial pad, the flag, a logo, a keyboard, the rupee sign and a dice. These six questions are the lab's own.</span></div>
     <div><b>Eight sentences and eight hints</b><span>Barclay, Bransford, Franks, McCarrell and Nitsch (1974). ${PUB.barclay || ''} The eight things and sixteen sentences here are the lab's own. Easy things can be guessed from any hint, so the difference here is smaller than in the study.</span></div>
+    <div><b>A coin that always lands heads</b><span>The book's own way of opening a lesson on statistics, with its table of the chance of N heads in a row (pages 76 to 80). The coin on the page is not tossed fairly. It always shows heads, as the story needs.</span></div>
+    <div><b>Eight words in order, twice</b><span>The book shows six memory tricks on the list "radio, shell, nurse" (pages 81 to 83) and does not test them. The station tests one of them, the chain of pictures, against plain repeating. The chain always comes second, so practice is mixed in. Bower and Clark (1969) found 93 words in 100 against 13. The lab read those figures in a later paper.</span></div>
   </div>
 </section>
 <section>
   <h2>Chapter 4: we understand new things through things we know</h2>
   <p>We understand a new idea by connecting it to ideas we already have. That is why examples and analogies help. It is also why new knowledge stays tied to the example it came with, and doesn't move easily to a problem that looks different.</p>
   <div class="bands">
-    <div><b>A general and a doctor</b><span>Gick and Holyoak (1980), using Duncker's radiation problem. ${PUB.gick || ''} The station can't read your idea, so it shows four ideas and asks which is closest to yours. Somebody who had no idea could pick the right one from the list, so the lab asks first whether you have a way at all.</span></div>
+    <div><b>Four kinds of numbers</b><span>The book explains the four scales of measurement with familiar examples and then tests the reader on a ruler, ratings of espresso and the tracks of a playlist (pages 98 to 100). It gives no answers. The lab takes ratio for the ruler, ordinal for the ratings, and either nominal or ordinal for the tracks, and adds two cases of its own.</span></div>
+    <div><b>Which problem is the same?</b><span>The book's two word problems (page 106), in rupees and kilometres. The third and fourth problems are the lab's.</span></div>
+    <div><b>One word, before and after</b><span>The book's hurricane passage and the words "eye" and "pressure" (pages 107 and 108). Asking for the first meaning before the passage is the lab's addition.</span></div>
+    <div><b>A general and a doctor</b><span>Gick and Holyoak (1980), using Duncker's radiation problem. The book tells it in the other order, the doctor first and the general second, and says that only 30 people in 100 solved the second (pages 106 and 107). ${PUB.gick || ''} The station can't read your idea, so it shows four ideas and asks which is closest to yours. Somebody who had no idea could pick the right one from the list, so the lab asks first whether you have a way at all.</span></div>
+    <div><b>Three plots and one idea</b><span>The book's example of teaching irony by comparing <em>Oedipus</em>, <em>Romeo and Juliet</em> and <em>Othello</em> (pages 112 to 114). The two new plots are the lab's.</span></div>
+    <div><b>Three depths of knowing</b><span>Rote, shallow and deep knowledge, with the book's lesson on government and its "seize the day" poem (pages 101 to 105). The lab wrote the students' answers.</span></div>
   </div>
 </section>
 <section>
   <h2>Chapter 5: practice</h2>
   <p>We can't become good at something that takes thought without long practice. Practice does three things: it makes the small steps automatic so that they stop using working memory, it makes memory last, and it helps knowledge move to new problems.</p>
   <div class="bands">
-    <div><b>A sentence written in numbers</b><span>This is the book's own demonstration from chapter 5, with a sentence written for this lab. The comparison with an ordinary sentence shown for four seconds is the lab's addition.</span></div>
-    <div><b>Name the picture, not the word</b><span>Picture and word interference, a relative of the Stroop colour-word task. ${PUB.picword || ''} The station uses four animals and compares your median time when the printed word agrees with when it disagrees.</span></div>
+    <div><b>Too many things at one time</b><span>The book's two openings to chapter 5: 19 × 6 against 184,930 × 34,004, and two insects against five compound words (pages 119 to 121). The lab's big sum is smaller, and three of its five words are different.</span></div>
+    <div><b>Numbers first, then letters</b><span>The working-memory test in the book's note on page 139, with its P and Q question. The claim that people with more working memory reason better is about many people. Kyllonen and Christal (1990) is the usual source. The lab could not open it.</span></div>
+    <div><b>A sentence written in numbers</b><span>This is the book's own demonstration from chapter 5 (page 126), with a sentence written for this lab. The book's sentence reads "Picture this commonplace scene". The comparison with an ordinary sentence shown for four seconds is the lab's addition.</span></div>
+    <div><b>Name the picture, not the word</b><span>Picture and word interference, a relative of the Stroop colour-word task. The book shows a shirt marked PANTS, a pear marked PEAR and an elephant marked GIRAFFE, from Rosinski, Golinkoff and Kukish (1975) (page 124). ${PUB.picword || ''} The station uses four animals and compares your median time when the printed word agrees with when it disagrees.</span></div>
+    <div><b>Six decisions about practice</b><span>The book's questions on overlearning, on how to split 120 minutes, and on cramming against spacing (pages 130 to 133), and its two graphs of forgetting: Ellis, Semb and Cole (1998) and Bahrick and Hall (1991) (pages 128 and 129). Cepeda and others (2006) and Rohrer and others (2005) were read in full.</span></div>
+    <div><b>A hotel bill and a strange law</b><span>The book's pesos problem and its story of the law about pens (pages 133 to 136), moved to Thailand and given a name.</span></div>
+    <div><b>A cricket series and a bag of marbles</b><span>Green, Rao and Rothschild (2019), which the book describes on page 139. The study compared how well experts' answers hung together. The station only asks one easy case of each, so a Class 12 student can get both right.</span></div>
   </div>
 </section>
 <section>
-  <h2>What about the rest of the book?</h2>
+  <h2>Chapter 6: experts think in a different way from beginners</h2>
+  <p>An expert doesn't only know more. An expert's knowledge is organised by meaning, so the expert sees a different problem from the one a beginner sees. That takes about ten years of practice, so the book says school should aim at understanding what is known, and not at copying what experts do.</p>
+  <div class="bands">
+    <div><b>Seven clues and seven guesses</b><span>The case from the television series <em>House</em> that the book tells in eight steps (pages 145 and 146). The lab joined two steps and softened the first guess. The wrong choices are the lab's, and they are easy to rule out, so a high count here does not mean you know medicine.</span></div>
+    <div><b>How does somebody become an expert?</b><span>Ericsson, Krampe and Tesch-Römer (1993), read in full: 7,410, 5,301 and 3,420 hours by the age of 18, from ten students in each group, by their own memory. Buswell (1922), read in full: 18.6 stops on a line at the start of Class 1, 5.9 at college. The ten-year rule and the think-aloud example are as the book gives them (pages 152 to 161).</span></div>
+    <div><b>Chess boards and physics problems</b><span>The two experiments of this chapter (pages 149 to 151) are in the <a href="expert-novice-lab.html">Expert and Novice Lab</a>.</span></div>
+  </div>
+</section>
+<section>
+  <h2>Chapter 7: we are more alike than different in how we learn</h2>
+  <p>People do differ in what they are good at. But the idea that each of us has a learning style, and learns more when taught in it, has been tested many times and has not held up.</p>
+  <div class="bands">
+    <div><b>A rod in a tilted frame</b><span>The rod-and-frame test and the embedded-figures test from the book's Figure 7.2 (pages 171 to 173). A screen is not a dark room, so the pull is weak here. MacLeod, Jackson and Palmer (1986), read in full, gave both tests with tests of spatial ability to 60 people and found that they measure the same thing.</span></div>
+    <div><b>Three questions about your own head</b><span>The book's questions about a German shepherd's ears, the windows of a classroom and two voices (page 174), and its word "footbath" (page 175). The answers are your own report of how you found them.</span></div>
+    <div><b>Pictures and spoken words</b><span>The book's experiment with Anne and Victor (page 176). Pashler, McDaniel, Rohrer and Bjork (2008) reviewed such studies and found almost no evidence that matching helps. The lab read the summary. The "nine teachers in ten" is from Newton and Salvi (2020): 89 in 100 across 37 studies. One person and two lists of eight can't test the idea, and the station says so.</span></div>
+  </div>
+</section>
+<section>
+  <h2>Chapter 8: intelligence can be changed by hard work</h2>
+  <p>Children differ in intelligence, and genes are part of the reason. But scores have risen far too fast across the world for genes to explain it, and what a person does changes the score.</p>
+  <div class="bands">
+    <div><b>What do you believe about intelligence?</b><span>The statement from PISA 2018 and the book's Felix and Mel (pages 202 to 204). The country figures are from the OECD's report, read in full. Yeager and others (2019), read in full: 6,320 lower-achieving students, two sessions of about 25 minutes, 0.10 of a grade point. There is no right answer here and no count.</span></div>
+    <div><b>Five guesses about intelligence</b><span>The book's four tests, its table of twins, the basketball twins, the rise in scores and the adoption studies (pages 192 to 201). Dickens and Flynn (2001), read in full, is where the basketball story comes from. Twin studies give about half on average, and the share rises with age (Haworth and others, 2010, summary read).</span></div>
+  </div>
+</section>
+<section>
+  <h2>Chapter 9: screens change a lot, but not our attention itself</h2>
+  <p>The book finds no good evidence that screens have shortened what we can attend to. It suggests that the change is in what we are willing to attend to, because a quicker reward is always near.</p>
+  <div class="bands">
+    <div><b>Numbers, backwards</b><span>Backward digit span and the book's Figure 9.1 (page 220), from Gignac (2015). The lab could open only the title of that paper, which says there was no rise in 85 years of data. Two later papers found a very small fall. The station shows the numbers, where the usual test reads them aloud.</span></div>
+    <div><b>A letter and a number in four boxes</b><span>Rogers and Monsell (1995), as in the book's Figure 9.2 (pages 221 and 222). The "about 20 percent" is the book's figure. The lab read the paper's summary only. The lab counts the station as showing the effect if you were 5 percent slower or more after a change.</span></div>
+    <div><b>One sentence with three endings</b><span>The book's barbecue sentence with three new endings (pages 226 to 229). The time shown includes reading three choices, so it is longer than the time memory took.</span></div>
+    <div><b>Money now or more money later</b><span>The book's ice-cream question (page 237) and its Figure 9.11 (page 238), from Green, Myerson and Ostaszewski (1999). The groups were about 12, 20 and 70 years old, and the money was not real. The values quoted on the result card were read by eye from the book's graph. Five choices for each wait give a rough value.</span></div>
+  </div>
+</section>
+<section>
+  <h2>Chapter 10: getting better needs effort and feedback</h2>
+  <p>In the book this chapter is about teachers: teaching, like any skill that needs thought, has to be practised to get better. The lab turns it round to the student.</p>
+  <div class="bands">
+    <div><b>Practice, or only experience?</b><span>The book's driving example and its five marks of deliberate practice (pages 253 to 255). The five questions about your own last sitting are the lab's wording.</span></div>
+  </div>
+</section>
+<section>
+  <h2>What in the book is not a station?</h2>
+  <p>The book has about 170 examples in all. About 45 of them are things the reader does, or studies that a person can take part in, and all of those are stations. The rest are stories and classroom examples that explain a point. Some of those were made into cases to judge. These were left out, because there is nothing in them for a student to do:</p>
   <ul>
-    <li><strong>Chapter 6, experts and novices.</strong> The chess-board experiment and the physics-sorting experiment from this chapter have their own lab, the <a href="expert-novice-lab.html">Expert and Novice Lab</a>.</li>
-    <li><strong>Chapter 7, learning styles.</strong> The book argues that teaching to "visual" or "auditory" learners doesn't improve learning, because most of what we learn is stored as meaning. There is no small experiment in that chapter to turn into a station.</li>
-    <li><strong>Chapter 8, intelligence.</strong> The chapter describes the praise study by Mueller and Dweck (1998) and argues that intelligence can be changed by sustained work. A study where children are praised in two ways can't be done on one person.</li>
+    <li><strong>Studies that need a laboratory or many years.</strong> Hypnosis and memory for forty drawings (page 60), brain scans of people who call themselves visual or verbal (page 176), the studies that read genes directly (page 198), and the diaries of how long people read each day (page 234).</li>
+    <li><strong>Advice to teachers.</strong> The four parts of a story and the lessons planned as stories (pages 71 to 76), how to praise (pages 207 and 208), the questions to ask before buying new technology (page 241), and the five steps for watching a film of your own lesson with a colleague (pages 257 to 261).</li>
+    <li><strong>Pictures of an idea.</strong> The astrolabe, the room where a man answers Chinese notes from a book of rules, the list of proposed styles, Gardner's eight intelligences, and the table of the ten principles at the end.</li>
   </ul>
 </section>
 <section>
   <h2>How to read your result sheet</h2>
-  <p>At the top there is one count: at how many stations the thing the book describes showed up in your own result. For example, at the letters station it counts if you remembered at least three more letters from the second row. Where a station can't say, it is left out of the count.</p>
+  <p>At the top there is one count: at how many stations the thing the book describes showed up in your own result. Stations where you only guess a result or judge a case are left out of this count, and so are the stations about your own beliefs. For example, at the letters station it counts if you remembered at least three more letters from the second row. Where a station can't say, it is left out of the count.</p>
   <p>The count is not a mark. A high count means your mind works the way the research says most minds work. The cut-offs are the lab's own, and each station is one short try, so one station can easily go the other way for you. In the research, these results are averages over many people.</p>
   <ul>
     <li>Only do each station once for a fair result. The second time, you know the trick.</li>
@@ -2076,7 +3300,7 @@ const GUIDE_HTML = `
 /* ============================================================
    Home page: the station cards and the setup chips
    ============================================================ */
-const PART_IDS = [1, 2, 3, 4, 5];
+const PART_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const Cards = {
   render() {
     const latest = Results.latestByStation(Store.load().runs);
@@ -2101,9 +3325,10 @@ const Cards = {
     let html = '', n = 0;
     for (const p of PART_IDS) {
       const ids = STATION_ORDER.filter(id => STATIONS[id].part === p);
-      html += `<div class="chip-group"><span>Chapter ${PART_CHAPTER[p]} · ${esc(PARTS[p])}</span><div class="chips">${ids.map(id => { n++; return `<label><input type="checkbox" name="station" value="${id}" checked><span><b>${n}</b> ${esc(STATIONS[id].short)}</span></label>`; }).join('')}</div></div>`;
+      html += `<div class="chip-group"><button type="button" class="chip-part" data-part="${p}" title="Select only this chapter">Chapter ${PART_CHAPTER[p]} · ${esc(PARTS[p])}</button><div class="chips">${ids.map(id => { n++; return `<label><input type="checkbox" name="station" value="${id}" checked><span><b>${n}</b> ${esc(STATIONS[id].short)}</span></label>`; }).join('')}</div></div>`;
     }
     $('#stationChips').innerHTML = html;
+    $$('#stationChips .chip-part').forEach(b => b.addEventListener('click', () => { $$('input[name=station]').forEach(i => { i.checked = STATIONS[i.value].part === +b.dataset.part; }); Plan.render(); }));
   }
 };
 const Plan = {
@@ -2111,7 +3336,7 @@ const Plan = {
     const ids = lab.settings().stations, host = $('#plan');
     if (!ids.length) { host.innerHTML = '<div class="total"><b>–</b><span>No station selected</span><span class="m"></span></div>'; return; }
     const total = sum(ids.map(id => STATIONS[id].minutes));
-    host.innerHTML = ids.map(id => `<div><b>${STATION_ORDER.indexOf(id) + 1}</b><span>${esc(STATIONS[id].name)}</span><span class="m">${STATIONS[id].minutes} min</span></div>`).join('') + `<div class="total"><b>${ids.length}</b><span>${ids.length === STATION_ORDER.length ? 'All twelve stations' : plural(ids.length, 'station')}</span><span class="m">about ${total} min</span></div>`;
+    host.innerHTML = ids.map(id => `<div><b>${STATION_ORDER.indexOf(id) + 1}</b><span>${esc(STATIONS[id].name)}</span><span class="m">${STATIONS[id].minutes} min</span></div>`).join('') + `<div class="total"><b>${ids.length}</b><span>${ids.length === STATION_ORDER.length ? `All ${STATION_ORDER.length} stations` : plural(ids.length, 'station')}</span><span class="m">about ${total} min</span></div>`;
   }
 };
 
@@ -2126,7 +3351,7 @@ const homeTrend = () => {
   const el = $('#homeTrend'), runs = Store.load().runs;
   if (!runs.length) { el.hidden = true; return; }
   const done = Object.keys(Results.latestByStation(runs)).length;
-  el.hidden = false; el.innerHTML = `<span>You have done <b class="num">${done}</b> of the 12 stations on this device.</span>`;
+  el.hidden = false; el.innerHTML = `<span>You have done <b class="num">${done}</b> of the ${STATION_ORDER.length} stations on this device.</span>`;
 };
 onEnter.home = () => { Cards.render(); const n = Store.load().runs.length; $('#homeRunCount').textContent = n ? `${plural(n, 'run')} recorded` : ''; homeTrend(); };
 onEnter.results = () => Results.render();

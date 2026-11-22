@@ -5,7 +5,7 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 | File | Lecture | What the student measures |
 |---|---|---|
 | `derivation-lab.html` (~165 KB) | Lecture 6 · Chunking (no slide mapped yet) | How many symbols of a few lines of algebra the student puts back after a five-second look, when the lines are a Class 11 derivation and when the same symbols are in an order picked by chance. It is the chess experiment of Chase and Simon (1973) done with derivations. |
-| `how-the-mind-learns-lab.html` (~280 KB) | Any lecture that uses working memory and long-term memory; Lecture 6 · Chunking (no slide mapped yet) | Twelve small experiments from the first five chapters of Willingham's *Why Don't Students Like School?*, done on the student: the candle problem, three rings and the tea ceremony, letters with and without chunks, a paragraph without a title, cricket against baseball, the four-card task, two word lists, everyday things, hints that match or don't, the general and the doctor, a sentence written in numbers, and pictures with words on them. At how many stations the book's finding showed up in the student's own result. |
+| `how-the-mind-learns-lab.html` (~420 KB) | Lecture 12 · How Our Mind Learns (the book's ten principles); Lecture 6 · Chunking | Forty-two small experiments from all ten chapters of Willingham's *Why Don't Students Like School?*, done on the student. Thirty were added on 22 November 2026 after the whole book was read. The first twelve: the candle problem, three rings and the tea ceremony, letters with and without chunks, a paragraph without a title, cricket against baseball, the four-card task, two word lists, everyday things, hints that match or don't, the general and the doctor, a sentence written in numbers, and pictures with words on them. At how many stations the book's finding showed up in the student's own result. |
 | `expert-novice-lab.html` (~220 KB) | Lecture 6 · Chunking (no slide mapped yet) | How the student's own knowledge is arranged: whether they sort 24 physics problems by the objects in them or by the principle that solves them (Chi, Feltovich and Glaser, 1981), and how many pieces of a chess position they put back after five seconds, in what order and in what bursts (Chase and Simon, 1973). |
 | `thinking-fast-and-slow-lab.html` (~310 KB) | Lecture 5 · slide 9, System 2 and the very small room; homework for any lecture that names the two systems | Fourteen of the small experiments from Kahneman's *Thinking, Fast and Slow*, done on the student's own head: the face and the sum, the two lines, colour words, the bat and the ball, priming, mere exposure, Alan and Ben, the anchoring wheel, what kills more people, Linda, praise and scold, ninety-percent ranges, sure thing or gamble, the two noises. At how many stations System 1 got its way, and a System 2 score for the stations with a right answer. |
 | `disturbance-lab.html` (~225 KB) | Lecture 5 · slide 7, Remember Seven Digits While I Ruin It | The same seven-digit recall under four kinds of sound: silence, loud steady noise, a quiet voice reading numbers, and the student's own voice kept busy. What each sound costs, and whether a digit the voice said reaches the page. |
@@ -107,11 +107,11 @@ The home page asks the student to do the experiment before opening the Guide, be
 
 ## How the Mind Learns Lab
 
-One file, `how-the-mind-learns-lab.html`, added on 16 November 2026. It has twelve small experiments from the first five chapters of Daniel Willingham's *Why Don't Students Like School?*, and the student does each one on themselves. It fits any lecture that uses the working memory and long-term memory picture, and Lecture 6 (Chunking) in particular. No slide is mapped to it yet.
+One file, `how-the-mind-learns-lab.html`, added on 16 November 2026 with twelve small experiments from the first five chapters of Daniel Willingham's *Why Don't Students Like School?*, and extended on 22 November 2026 to 42 experiments from all ten chapters (see "What changed on 22 and 23 November 2026" below). The student does each one on themselves. It fits any lecture that uses the working memory and long-term memory picture, and Lecture 6 (Chunking) in particular. No slide is mapped to it yet.
 
 ### What the student does
 
-Twelve stations of two to five minutes each, about thirty-five minutes in all. Any one station can be done alone.
+The first twelve stations are in this table. They take two to five minutes each, about thirty-five minutes in all. The thirty newer ones are in the table further down. Any one station can be done alone.
 
 | Station | Chapter | What the student does |
 |---|---|---|
@@ -153,14 +153,68 @@ Twelve stations of two to five minutes each, about thirty-five minutes in all. A
 
 - The count on the result sheet is not a mark. The research results are averages over many people, and each station here is one short try.
 - A station works only the first time. The second time, the student knows the trick.
-- Chapters 6, 7 and 8 have no station. Chapter 6 is covered by the Expert and Novice Lab.
+- Since 22 November 2026 every chapter has stations. The two experiments of chapter 6 (chess and physics sorting) are still in the Expert and Novice Lab.
+
+### What changed on 22 and 23 November 2026
+
+Soumitra asked that every example in the book be turned into a game, for Lecture 12 (How Our Mind Learns), which goes through the book's ten principles. The whole second edition was read in his Kindle copy, from the Introduction to the Conclusion, and every example was listed with its page: about 45 demonstrations and studies a person can take part in, and about 125 stories and classroom examples. The twelve stations of 16 November were checked against the book, and thirty stations were added. The lab now has 42 stations over all ten chapters and takes about two hours, so the setup page lets the student pick one chapter by tapping its name.
+
+| New station | Chapter | From the book (Kindle page) | What the student does |
+|---|---|---|---|
+| A question and a sum | 1 | Polar bear (11), 18 × 7 (13) | Answers three easy questions and does 18 × 7 in the head. The page times both. |
+| What the writer left out | 2 | Barbecue sentence (30), lake house and tide (31), long *Moby-Dick* sentence (32) | Reads two sentences with a gap and one long sentence with none, and answers one question on each. |
+| Two paragraphs with the same shape | 2 | Motor learning and chiffon cake (43–44) | Reads a paragraph on chai and one on motor learning, predicts which will stay, and takes a short test. |
+| Two students and 500 new facts a month | 2 | Table 2.1 (45) | Guesses what happens to the gap, then moves a slider through ten years. |
+| What stayed and what did not | 3 | The two circles (61–62) | Says, for twelve things, if they come to mind right now. |
+| What will the class remember? | 3 | Biscuits (57), plot diagram (67), Instagram sum (68), slides project (84), demonstration (85) | Judges six classroom cases. |
+| A coin that always lands heads | 3 | The statistics lesson and Table 3.1 (76–80) | Watches heads come up and says when the claim is believed. |
+| Eight words in order, twice | 3 | Mnemonics on "radio, shell, nurse" (81–83) | Learns one list by repeating and one by a chain of pictures. |
+| Four kinds of numbers | 4 | Scales of measurement and the three test cases (98–100) | Reads a short lesson, rates their understanding, sorts five new cases. |
+| Which problem is the same? | 4 | Cocktail sauce and miles to work (106) | Solves one word problem and picks which of three others is solved the same way. |
+| One word, before and after | 4 | Hurricane, "eye" and "pressure" (107–108) | Gives the first meaning of two words before and after a weather report. |
+| Three plots and one idea | 4 | Irony in three plays (112–114) | Finds what three plots share, then finds it in a new plot. |
+| Three depths of knowing | 4 | Rote, shallow, deep (101–105) | Places five student answers at a depth. |
+| Too many things at one time | 5 | 19 × 6 and the huge sum (119), butterfly and dragonfly (120) | Two sums and two word questions, all in the head. |
+| Numbers first, then letters | 5 | Working-memory test in the note (139) | Sorts mixed letters and numbers in the head, row growing from three; two logic questions. |
+| Six decisions about practice | 5 | Parapluie (130), 120 minutes (131), cramming (131–133), forgetting graphs (128–129) | Answers six questions and sees the research. |
+| A hotel bill and a strange law | 5 | Pesos (133), the pen law (133–136) | One question on each, timed. |
+| A cricket series and a bag of marbles | 5 | Basketball series and urn (139) | Two probability questions that are one sum. |
+| Seven clues and seven guesses | 6 | The *House* case (145–146) | Chooses the doctor's guess after each clue. |
+| How does somebody become an expert? | 6 | Violin hours (153–155), ten-year rule (156), eye movements (161), expert self-talk (152) | Five guesses. |
+| A rod in a tilted frame | 7 | Figure 7.2 (171–173) | Sets a rod upright four times with a slider, then finds a triangle hidden in a box. |
+| Three questions about your own head | 7 | Imagery questions (174), "footbath" (175) | Answers three questions and says how each answer was found. |
+| Pictures and spoken words | 7 | Anne and Victor (176), Kathy (168) | Names their own style, then learns eight pictures and eight spoken words. Uses the browser's voice, and prints the words if there is none. |
+| What do you believe about intelligence? | 8 | PISA statement (204), Felix and Mel (202) | Rates the statement and makes three choices. No right answers. |
+| Five guesses about intelligence | 8 | Four tests (192–194), twins table (196), basketball twins (198–200), Flynn effect (200–201) | Five guesses. |
+| Numbers, backwards | 9 | Backward digit span, Figure 9.1 (220) | One guess, then a backward span test from three numbers up. |
+| A letter and a number in four boxes | 9 | Task switching, Figure 9.2 (221–222) | 8 practice and 48 real trials. The page compares the time after a change of task with the time after a repeat. |
+| One sentence with three endings | 9 | Barbecue with three endings (226–229) | Picks the fact used for each ending. |
+| Money now or more money later | 9 | Ice cream (237), delay discounting (238) | One question, then fifteen choices that find what ₹10,000 after a month, a year and five years is worth today. |
+| Practice, or only experience? | 10 | Driving (253–254), five features of deliberate practice (255) | One guess, then five questions about their own last study sitting. |
+
+**What was corrected in the first twelve.** The guide now gives the book's own versions: the letter demonstration has seventeen letters (CNN, PHD, LOL, GMT, FAQ), the cards are A, 2, B, 3 and BEER, 31, COKE, 17, the shallow question is about A and Q, the picture-word figure is from Rosinski and colleagues (1975), the number sentence reads "Picture this commonplace scene", and the book tells the doctor's problem before the general's.
+
+**How the new numbers were checked.** Read in full: Ericsson and colleagues (1993), Buswell (1922), Yeager and colleagues (2019), the OECD PISA 2018 executive summary, Dickens and Flynn (2001), MacLeod and colleagues (1986), Cepeda and colleagues (2006), Rohrer and colleagues (2005), and the 2016 draft of Green, Rao and Rothschild. Read as a summary only: Rogers and Monsell (1995), Green, Myerson and Ostaszewski (1999), Ellis and colleagues (1998), Rosinski and colleagues (1975), Van Overschelde and Healy (2001), Pashler and colleagues (2008). Not opened: Gignac (2015), Kyllonen and Christal (1990), Bower and Clark (1969). The guide in the lab says this for each station.
+
+**Where the lab differs from the book, on purpose.**
+- The book's "about 20% slower" for task switching and its "15 to 20%" for the four cards could not be confirmed. The cards say they are the book's figures. The papers that were opened give about 10% for the four cards.
+- The violin question uses the paper's figures for age 18 (7,410, 5,301 and 3,420 hours), and mentions the book's graph for age 20.
+- For the series and marbles study, the people tested were sports writers and analysts, the marbles were in jars, and the measure was how well the answers hung together. The card says so.
+- Backward digit span: two later papers found a very small fall on the same data. The card says so.
+
+**What is not a station, and why.** Studies that need a laboratory or many years (hypnosis and forty drawings, brain scans of visual and verbal people, the gene studies, the reading-time diaries), advice written for teachers (story structure, how to praise, the questions before buying technology, the five-step video method), and pictures of an idea (the astrolabe, the Chinese room, Table 7.1, Gardner's eight intelligences, Table C.1).
+
+**Limits to tell students.** The stations where the student only guesses a result or judges a case are not in the count at the top of the result sheet. One person and two short lists can't test learning styles, and the card says so. The rod-and-frame pull is weak on a lit screen. The joined word list always comes second. Five choices for each wait give only a rough money value.
+
+**Testing.** 23 November 2026, headless Chrome: a bot played all 42 stations through the real buttons in one run with no console errors, and home, setup, guide and the new drawn cards were looked at on laptop and phone width.
 
 ### Activities to add next
 
 - A recall test after the paragraph without a title, with half the class getting the title first and half not at all, as in the original, using exported files.
 - A second round of the number-code sentence after five minutes of practice with the code, to show the decoding getting faster.
 - A drawing version of the "seen a thousand times" station with a ten-rupee coin.
-- A research audit that opens Hyde and Jenkins (1973), Barclay and colleagues (1974) and the full book.
+- A research audit that opens Hyde and Jenkins (1973), Barclay and colleagues (1974), Rogers and Monsell (1995), Gignac (2015) and Kyllonen and Christal (1990) in full.
+- A class version of the letters-and-numbers station that plots each student's longest row against a reasoning score from exported files.
 
 ## Expert and Novice Lab
 
