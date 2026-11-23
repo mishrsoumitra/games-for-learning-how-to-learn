@@ -4,6 +4,7 @@ Self-contained HTML games for the *Learning How to Learn* course at Newton Schoo
 
 | File | Lecture | What the student measures |
 |---|---|---|
+| `replicated-experiments-lab.html` (~300 KB) | Any lecture on memory or attention; homework | Fourteen experiments that held up in the large replication projects, each as a short game on the student: false memory, serial position, spacing in a list, generation, production, self-reference, flanker, Simon, visual search, attentional blink, repetition priming, semantic priming, illusory truth, and confidence against recall. The student's own data is drawn next to the published data. |
 | `derivation-lab.html` (~165 KB) | Lecture 6 · Chunking (no slide mapped yet) | How many symbols of a few lines of algebra the student puts back after a five-second look, when the lines are a Class 11 derivation and when the same symbols are in an order picked by chance. It is the chess experiment of Chase and Simon (1973) done with derivations. |
 | `how-the-mind-learns-lab.html` (~420 KB) | Lecture 12 · How Our Mind Learns (the book's ten principles); Lecture 6 · Chunking | Forty-two small experiments from all ten chapters of Willingham's *Why Don't Students Like School?*, done on the student. Thirty were added on 22 November 2026 after the whole book was read. The first twelve: the candle problem, three rings and the tea ceremony, letters with and without chunks, a paragraph without a title, cricket against baseball, the four-card task, two word lists, everyday things, hints that match or don't, the general and the doctor, a sentence written in numbers, and pictures with words on them. At how many stations the book's finding showed up in the student's own result. |
 | `expert-novice-lab.html` (~220 KB) | Lecture 6 · Chunking (no slide mapped yet) | How the student's own knowledge is arranged: whether they sort 24 physics problems by the objects in them or by the principle that solves them (Chi, Feltovich and Glaser, 1981), and how many pieces of a chess position they put back after five seconds, in what order and in what bursts (Chase and Simon, 1973). |
@@ -48,6 +49,71 @@ Not yet done: the research audit of this app (the numbers come from the October 
 - Research audit, Working Memory Lab: digit-span bands now treat 6 to 8 forward as typical (7 is the adult mean, not "above average"); the coloured-squares run has 24 trials per set size instead of 16; the Brown–Peterson round holds three consonants by default and counts to a one-second beat, as in the original, with four digits kept as the slide's version and four trials per delay; the Hebb attributions were untangled (span + 1 is Norris, Page and Hall, 2018; every third trial is Hebb; eight repetitions among twenty fillers is Page and Norris, 2009); Bower and Springston's example was misquoted and is fixed; "noticing helps a little" had no source and is replaced.
 - Score bands are now described as the lab's own, anchored to published norms where norms exist (digit span, K, SART error rates, PVT lapse counts) and chosen by hand where they do not.
 - The three audit reports (every citation with how it was opened, a claim-by-claim table, and a design audit per instrument) are in `research-audit-2026-09-13/`. Read them before changing any number in the games.
+
+## Replicated Experiments Lab
+
+One file, `replicated-experiments-lab.html`, added on 23 November 2026. Soumitra asked for a survey of the most replicated experiments in the research literature and a game for each one that held up, so that students feel the result in their own data. The lab has fourteen stations in three parts, about an hour in all. It was built on the engine of the How the Mind Learns Lab.
+
+### How the fourteen were chosen
+
+The large replication projects were read first: the Open Science Collaboration (2015), Many Labs 1, 2 and 3, Zwaan and others (2018) and Crump, McDonnell and Gureckis (2013). The pattern is the same in all of them. Experiments where each person does many trials of both conditions, without knowing what is being looked for, give the same result almost every time (all nine in Zwaan, run twice online). Experiments that ask two groups one question each often don't. So the rule was: many trials, both conditions on the same student, purpose not obvious, runs in a browser in a few minutes, and not already in another lab.
+
+### What the student does
+
+| Station | Part | Experiment | What the student does | What the page compares |
+|---|---|---|---|---|
+| Four lists of twelve words | 1 | False memory, Roediger and McDermott (1995) | Four lists of twelve related words, recall after each, then a yes-or-no test of 24 words. | "I saw it" for shown words, the four missing words, and other new words. |
+| First words, middle words, last words | 1 | Serial position, Murdock (1962) | Four lists of fifteen words, typed back at once. | Recall by place in the list, as a line. |
+| Twice in a row, or twice with a gap | 1 | Spacing, Greene (1989) | One list where eight words repeat back to back and eight repeat with four or more words between. | Recall of the two kinds. |
+| Read it, or finish it yourself | 1 | Generation, Slamecka and Graf (1978) | 24 word pairs, half printed, half with letters missing to type. | Recall of read and finished words. |
+| Say it aloud, or read it silently | 1 | Production, MacLeod and others (2010) | 32 words, the red ones said aloud. Then a 48-word recognition test. | Recognition of aloud and silent words. |
+| Is this word about you? | 1 | Self-reference, Rogers, Kuiper and Kirker (1977) | 30 adjectives, each with one of three yes-or-no questions. Surprise recall. | Recall by question: letters, meaning, about you. |
+| The middle arrow | 2 | Flanker, Eriksen and Eriksen (1974) | 64 rows of five arrows. | Time when the side arrows agree and disagree. |
+| Blue is left, orange is right | 2 | Simon effect | 72 discs on the left or right. | Time when the disc is on the side of its button and on the other side. |
+| Find the orange T | 2 | Visual search, Treisman and Gelade (1980) | 60 boxes of 4, 12 or 24 letters. | Milliseconds for each extra letter, in a one-colour crowd and a mixed crowd. |
+| Two numbers in a stream of letters | 2 | Attentional blink, Raymond, Shapiro and Arnell (1992) | 40 streams at ten items a second. | Second number caught, by how soon it followed the first, as a line. |
+| Is it a word? | 3 | Repetition priming | 80 strings, each shown twice. | Time for a rare word the first and the second time. |
+| A word after its friend | 3 | Semantic priming, Meyer and Schvaneveldt (1971) | 60 pairs: read the first word, judge the second. | Time after a related and an unrelated word. |
+| True or false? | 3 | Illusory truth, Hasher, Goldstein and Toppino (1977) | Rates 16 statements for interest, then 32 for truth. | Truth rating for statements read before and for new ones. The card then says which are true. |
+| How sure are you that you will remember? | 3 | Koriat and Bjork (2005) | Studies 20 pairs, predicts recall for each, takes the test. | Expected and recalled, for pairs that run forward and backward. |
+
+### What the student gets back
+
+After each station a card draws the student's result in red next to the published result in grey, says what happened in one line, names the experiment, and ends with what it means for studying. The fast stations show a running count and the longest run without a mistake. The result sheet counts the stations where the published result showed up in the student's own data. It does not rank the size of an effect: Hedge, Powell and Sumner (2018) show that these tasks are reliable for groups and not for comparing one person with another, and the guide says so.
+
+### The research behind it (opened 23 November 2026)
+
+- Read in full: Roediger and McDermott (1995), Stadler and others (1999), Zwaan and others (2018) with its supplement, Crump and others (2013), MacLeod and others (2010), Treisman and Gelade (1980), Meyer and Schvaneveldt (1971), Koriat and Bjork (2005), Bertsch and others (2007), the Open Science Collaboration (2015), Many Labs 1.
+- Read in full, numbers taken by eye from a graph: Slamecka and Graf (1978), Eriksen and Eriksen (1974), Raymond and others (1992).
+- Summary or poor copy only: Rogers, Kuiper and Kirker (1977), Hedge and others (2018), Cepeda and others (2006), Dechêne and others (2010), Many Labs 3 (results table).
+- Not opened, so the card gives a later repeat of the experiment: Murdock (1962), Greene (1989), Simon (1969), Scarborough and others (1977), Hasher and others (1977).
+- The 32 statements at "True or false?" were checked one by one. Three were reworded after the check.
+
+### What to tell students about the limits
+
+- One person in one short run can go the other way at any station. Semantic priming is the weakest for one person.
+- The grey numbers come from other people tested in another way, often with more trials. They show the direction and rough size.
+- The production station trusts the student to speak. It asks at the end.
+- The attentional blink here uses two numbers among letters. The grey line is from the white-letter version.
+- Illusory truth is shown after a few minutes. The original used two weeks.
+
+### How it is built
+
+- Assembled from `how-the-mind-learns-lab.html`: same head, styles, engine, results and export. The stations script, the guide and the home text are new. Results are stored under their own key.
+- New pieces: `press()` for fast trials with keys and big buttons, `rtBlock()` for a run of them with a score line, `youVs()` for red and grey bars, `lineChart()` for the two curves, an animation-frame loop for the letter stream.
+- Tested 23 November 2026 in headless Chrome: a bot played all fourteen stations through the real buttons with no console errors, a result sheet with sample data was looked at, and five game cards were looked at on phone width.
+
+### Not built, and why
+
+- Failed in large replications: ego depletion, money and flag priming, the "more words start with K" question (Many Labs 3: 0.09 against 0.82), power posing, incidental anchoring. **The K question is still in the Thinking, Fast and Slow Lab at "What kills more people" and should be removed or given this caveat.**
+- Work only with a whole class: anchoring, framing, gambler's fallacy, false consensus.
+- Need a return visit: the testing effect (in Study Lab).
+
+### Activities to add next
+
+- Mental rotation, Fitts's law, Sternberg's memory scanning and the flicker form of change blindness. They are thought to be very reliable, and no replication source has been opened for them yet.
+- A class page that pools exported files, so that anchoring and the other whole-class effects can be shown.
+- Open Murdock (1962), Greene (1989) and Hasher and others (1977) in full.
 
 ## Derivation Lab
 
